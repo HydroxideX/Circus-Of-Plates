@@ -1,0 +1,8 @@
+/*
+/*/
+!/src/
+/src/out/*
+/src/.idea/*
+!.gitignore
+!/dist/
+!/Resources/
