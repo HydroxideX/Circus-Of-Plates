@@ -17,7 +17,6 @@ class MovableObject extends ConstantObject
     public int getOldX() {
         return this.oldX;
     }
-    
     public void setOldX(final int oldMX) {
         this.oldX = oldMX;
     }
