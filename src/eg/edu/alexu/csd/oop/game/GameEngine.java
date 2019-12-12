@@ -51,7 +51,7 @@ public class GameEngine
     }
     
     public static GameController start(final String title, final World world, final JMenuBar menuBar, final int onFrameCloseAction, final Color background) {
-        final GameController controller = new Controller(title, world, menuBar, onFrameCloseAction, background, null);
+        final GameController controller = new Controller(title, world, menuBar, onFrameCloseAction, background);
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
