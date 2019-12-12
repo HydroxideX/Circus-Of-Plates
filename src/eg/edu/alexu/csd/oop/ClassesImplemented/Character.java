@@ -1,4 +1,6 @@
-package eg.edu.alexu.csd.oop.game;
+package eg.edu.alexu.csd.oop.ClassesImplemented;
+
+import eg.edu.alexu.csd.oop.game.GameObject;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -7,7 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class Character extends ControlableObject implements GameObject {
+public class Character implements GameObject extends {
 
     private BufferedImage[] spriteImages;
     {
