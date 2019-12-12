@@ -9,7 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class Character implements GameObject extends {
+public class Character implements GameObject {
 
     private BufferedImage[] spriteImages;
     {
@@ -21,10 +21,6 @@ public class Character implements GameObject extends {
     }
     private int x, y, width = spriteImages[0].getWidth(), height = spriteImages[0].getHeight();
     private boolean isVisible = false;
-
-    public Character(GameObject gameObject) {
-        super(gameObject);
-    }
 
     @Override
     public int getX() {
