@@ -4,52 +4,74 @@ import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 
 import javax.swing.*;
+import java.nio.channels.GatheringByteChannel;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FirstLevel implements World {
+    private Character player = new Character();
+
+    private int width, height, speed, controlSpeed;
+    private String status = "12";
+    private boolean refreshWorked = true;
+    private  List<GameObject> constantObjects;
+    private  List<GameObject> movableObjects;
+    private   List<GameObject> controlableObjects;
+    public FirstLevel (int x,int y) {
+        constantObjects = new ArrayList<>();
+        movableObjects = new ArrayList<>();
+        controlableObjects = new ArrayList<>();
+        controlableObjects.add(player);
+        width= 100;
+        height= 150;
+        speed = 10;
+        controlSpeed = 50;
+        status = "12";
+        refreshWorked = true;
+    }
 
     @Override
     public List<GameObject> getConstantObjects() {
-        return null;
+        return constantObjects;
     }
 
     @Override
     public List<GameObject> getMovableObjects() {
-        return null;
+        return movableObjects;
     }
 
     @Override
     public List<GameObject> getControlableObjects() {
-        return null;
+        return controlableObjects;
     }
 
     @Override
     public int getWidth() {
-        return 0;
+        return width;
     }
 
     @Override
     public int getHeight() {
-        return 0;
+        return height;
     }
 
     @Override
     public boolean refresh() {
-        return false;
+        return refreshWorked;
     }
 
     @Override
     public String getStatus() {
-        return null;
+        return status;
     }
 
     @Override
     public int getSpeed() {
-        return 0;
+        return speed;
     }
 
     @Override
     public int getControlSpeed() {
-        return 0;
+        return controlSpeed;
     }
 }

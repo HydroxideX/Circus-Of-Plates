@@ -10,17 +10,28 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Character implements GameObject {
-
     private BufferedImage[] spriteImages;
-    {
-        try {
-            spriteImages = new BufferedImage[]{ImageIO.read(getClass().getResourceAsStream("Resources/yahia.jpg"))};
-        } catch (IOException e) {
-            e.printStackTrace();
+    private int x, y, width, height;
+    private boolean isVisible;
+
+
+    public Character(){
+        spriteImages = new BufferedImage[1];
+        {
+            try {
+                spriteImages[0] = ImageIO.read(getClass().getResourceAsStream("Resources/yahia.jpg"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+        x = 100;
+        y = 100;
+        width = spriteImages[0].getWidth();
+        height = spriteImages[0].getHeight();
+        isVisible = true;
     }
-    private int x, y, width = spriteImages[0].getWidth(), height = spriteImages[0].getHeight();
-    private boolean isVisible = false;
+
+
 
     @Override
     public int getX() {
