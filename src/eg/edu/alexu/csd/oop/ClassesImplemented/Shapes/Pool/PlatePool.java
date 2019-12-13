@@ -1,12 +1,17 @@
-package eg.edu.alexu.csd.oop.ClassesImplemented;
+package eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool;
 
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.*;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Shape;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.util.HashMap;
 
 public class PlatePool {
     private static PlatePool pp = null;
-    private HashMap<String, Plate> platePool;
+    private HashMap<String, Shape >platePool;
     private PlatePool() {
-        platePool = new HashMap<String, Plate>();
+        platePool = new HashMap<String, Shape>();
     }
 
     public static PlatePool getInstance() {
@@ -18,11 +23,11 @@ public class PlatePool {
     public boolean exists (String type){
         return platePool.containsKey(type);
     }
-    public void add (Plate p){
+    public void add (Shape p){
         platePool.put(p.getColor() , p);
     }
-    public Plate get (String type){
-        if(this.exists(type))return platePool.remove(type);
+    public Shape get (String type){
+        if(this.exists(type))return (Shape)platePool.remove(type);
         else throw new NullPointerException("GameObject Doesn't Exist in Pool");
     }
 }

@@ -1,29 +1,22 @@
-package eg.edu.alexu.csd.oop.ClassesImplemented;
+package eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
 
 import java.awt.image.BufferedImage;
 
-public class Plate implements GameObject {
+public class Shape implements GameObject {
 
     private BufferedImage[] spriteImages;
     private int x, y, width, height;
-    boolean isVisible;
+    public boolean isVisible;
     private String color ;
-    public Plate (int x , int y , int height , int width,String color,BufferedImage img){
-    this.spriteImages[0] = img;
+    public Shape (int x , int y , int height , int width,String color,BufferedImage img){
+        this.spriteImages[0] = img;
         this.setX(x);
         this.setY(y);
         this.width = width;
         this.height = height;
         this.color = color;
-    }
-    public Plate (Plate p){
-        try {
-            Plate pp =(Plate) p.clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
     }
     @Override
     public int getX() {
