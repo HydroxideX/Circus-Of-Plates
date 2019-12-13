@@ -10,6 +10,7 @@ public class Shape implements GameObject {
     private int x, y, width, height;
     public boolean isVisible;
     private String color ;
+    private String type ;
     public Shape (int x , int y , int height , int width,String color,BufferedImage img){
         this.spriteImages[0] = img;
         this.setX(x);
