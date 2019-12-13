@@ -2,6 +2,7 @@ package eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory;
 
 import eg.edu.alexu.csd.oop.ClassesImplemented.ImageLoader;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.PlateWithBase;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Shape;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool.PlatePool;
 import eg.edu.alexu.csd.oop.game.GameObject;
 
@@ -34,9 +35,9 @@ private String dest = "Resources/plates/" , fileType = ".png";
     public GameObject makePlate() {
         int randNum = rand.nextInt(6);
         String color = avaColors[randNum];
-        PlateWithBase plate;
+        Shape plate;
         if (platePool.exists(color+fileType)) {
-            plate = (PlateWithBase) platePool.get(color+fileType);
+            plate = platePool.get(color+fileType);
             plate.setX(rand.nextInt(1960));
             plate.setY(0);
             plate.isVisible = true;
