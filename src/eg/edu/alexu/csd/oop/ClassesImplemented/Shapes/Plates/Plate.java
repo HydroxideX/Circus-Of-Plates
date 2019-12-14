@@ -11,14 +11,14 @@ public class Plate implements GameObject {
     public boolean isVisible;
     private String color ;
     private String type ;
-    public Plate (int x , int y , int height , int width,String color,BufferedImage img){
+    /*public Plate (int x , int y , int height , int width,String color,BufferedImage img){
         this.spriteImages[0] = img;
         this.setX(x);
         this.setY(y);
         this.width = width;
         this.height = height;
         this.color = color;
-    }
+    }*/
     @Override
     public int getX() {
         return x;
@@ -58,6 +58,11 @@ public class Plate implements GameObject {
     @Override
     public BufferedImage[] getSpriteImages() {
         return new BufferedImage[0];
+    }
+    public void setSpriteImages(BufferedImage img) {
+        this.spriteImages[0] = img;
+        this.height = img.getHeight();
+        this.width = img.getWidth();
     }
     public String getColor (){
         return this.color;

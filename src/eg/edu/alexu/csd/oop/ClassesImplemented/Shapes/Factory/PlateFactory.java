@@ -39,9 +39,7 @@ public class PlateFactory implements IPlateFactory {
         Plate plate ; // edit this after dynamic loading
         if (platePool.exists(color + fileType)) {
             plate = platePool.get(color + fileType);
-            plate.setX(rand.nextInt(1960));
-            plate.setY(0);
-            plate.isVisible = true;
+
         }
 
 
@@ -52,14 +50,21 @@ public class PlateFactory implements IPlateFactory {
             try {
                 plate = (Plate) Class.forName(plateType).newInstance();
             } catch (ClassNotFoundException e) {
+                plate = new PlateWithBase();
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
+                plate = new PlateWithBase();
                 e.printStackTrace();
             } catch (InstantiationException e) {
+                plate = new PlateWithBase();
                 e.printStackTrace();
             }
         }
-         plate = new PlateWithBase(rand.nextInt(1960), 0, spriteImages.getWidth(), spriteImages.getHeight(), color, spriteImages);
+        plate.setX(rand.nextInt(1960));
+        plate.setY(0);
+        plate.isVisible = true;
+       //  plate = new PlateWithBase(rand.nextInt(1960), 0, spriteImages.getWidth(), spriteImages.getHeight(), color, spriteImages);
+        //plate = new PlateWithBase();
         return (GameObject) plate;
     }
 }

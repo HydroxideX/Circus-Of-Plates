@@ -3,7 +3,6 @@ package eg.edu.alexu.csd.oop.ClassesImplemented;
 import com.sun.prism.Image;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.game.GameObject;
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
