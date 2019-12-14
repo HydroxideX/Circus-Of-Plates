@@ -1,6 +1,6 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory;
 
-import eg.edu.alexu.csd.oop.ClassesImplemented.ImageLoader;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Loader;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.PlateWithBase;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Shape;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool.PlatePool;
@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class PlateFactory implements IPlateFactory {
     private static IPlateFactory pf = null;
-    private static ImageLoader imgLoad;
+    private static Loader imgLoad;
     private static PlatePool platePool;
     private BufferedImage spriteImages;
     private Random rand;
@@ -21,7 +21,7 @@ public class PlateFactory implements IPlateFactory {
 
     private PlateFactory() {
         platePool = PlatePool.getInstance();
-        imgLoad = ImageLoader.getInstance();
+        imgLoad = Loader.getInstance();
         rand = new Random();
     }
 

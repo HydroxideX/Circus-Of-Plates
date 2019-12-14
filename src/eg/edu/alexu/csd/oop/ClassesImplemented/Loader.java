@@ -8,17 +8,17 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class ImageLoader {
-    private static ImageLoader img = null;
+public class Loader {
+    private static Loader img = null;
 
-    private ImageLoader() {
+    private Loader() {
     }
 
-    public static ImageLoader getInstance() {
+    public static Loader getInstance() {
         if (img == null) {
-            img = new ImageLoader();
+            img = new Loader();
         }
-        return (ImageLoader) img;
+        return (Loader) img;
     }
 
     public BufferedImage getImage(String path) {
