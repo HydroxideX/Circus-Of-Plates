@@ -1,35 +1,30 @@
-package eg.edu.alexu.csd.oop.ClassesImplemented;
+package eg.edu.alexu.csd.oop.ClassesImplemented.levels;
 
+import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.ImageObject;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 
-import javax.swing.*;
-import java.awt.*;
-import java.nio.channels.GatheringByteChannel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FirstLevel implements World {
+public class ThirdLevel implements World {
 
-    private int width, height, speed, controlSpeed;
-    private String status = "12";
-    private static int MAX_TIME = 1 * 60 * 1000;	// 1 minute
+    private int width, height;
+    private String status;
     private int score = 0;
     private long startTime = System.currentTimeMillis();
     private  List<GameObject> constantObjects;
     private  List<GameObject> movableObjects;
     private   List<GameObject> controlableObjects;
-    public FirstLevel (int x,int y) {
+    public ThirdLevel (int width,int height) {
         constantObjects = new ArrayList<>();
         movableObjects = new ArrayList<>();
         controlableObjects = new ArrayList<>();
-        ImageObject xr = new ImageObject(100, 100, "Resources/images.jpg", 1);
+        this.width= width;
+        this.height= height;
+        ImageObject xr = new Clown(100, 100, "Resources/images.jpg", 1);
         controlableObjects.add(xr);
-        width= 1000;
-        height= 1500;
-        speed = 10;
-        controlSpeed = 50;
-        status = "12";
     }
 
     @Override
@@ -61,9 +56,8 @@ public class FirstLevel implements World {
 
     @Override
     public boolean refresh() {
-        boolean timeout = System.currentTimeMillis() - startTime > MAX_TIME; // time end and game over
         GameObject spaceShip = controlableObjects.get(0);
-        return !timeout;
+        return true;
     }
 
     @Override
@@ -73,11 +67,11 @@ public class FirstLevel implements World {
 
     @Override
     public int getSpeed() {
-        return speed;
+        return 50;
     }
 
     @Override
     public int getControlSpeed() {
-        return controlSpeed;
+        return 10;
     }
 }
