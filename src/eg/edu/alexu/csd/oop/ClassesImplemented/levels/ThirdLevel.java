@@ -2,8 +2,11 @@ package eg.edu.alexu.csd.oop.ClassesImplemented.levels;
 
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.ImageObject;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
+import javafx.print.PageLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +26,12 @@ public class ThirdLevel implements World {
         controlableObjects = new ArrayList<>();
         this.width= width;
         this.height= height;
+        PlateFactory v = (PlateFactory) PlateFactory.getInstance();
+
         ImageObject xr = new Clown(100, 100, "Resources/images.jpg", 1);
         controlableObjects.add(xr);
+        GameObject vr = v.makePlate();
+        movableObjects.add(vr);
     }
 
     @Override
