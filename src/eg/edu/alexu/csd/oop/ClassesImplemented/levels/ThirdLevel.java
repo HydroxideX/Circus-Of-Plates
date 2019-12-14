@@ -34,8 +34,6 @@ public class ThirdLevel implements World {
         pf = (PlateFactory) PlateFactory.getInstance();
         pp = (PlatePool)PlatePool.getInstance();
         //GameObject vr = pf.makePlate();
-        v = (PlateFactory) PlateFactory.getInstance();
-
         ImageObject xr = new Clown(500, 480, "Resources/Clown/clown1.png", 1);
         controlableObjects.add(xr);
         ImageObject xrz = new Stick(460,485,"Resources/Sticks/leftstick_2.png");
