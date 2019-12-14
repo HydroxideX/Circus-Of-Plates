@@ -2,6 +2,7 @@ package eg.edu.alexu.csd.oop.ClassesImplemented.levels;
 
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.ImageObject;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Stick;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.PlateWithBase;
@@ -29,12 +30,15 @@ public class ThirdLevel implements World {
         this.height= height;
         v = (PlateFactory) PlateFactory.getInstance();
 
-        //ImageObject xr = new Clown(100, 100, "Resources/images.jpg", 1);
-        //controlableObjects.add(xr);
-        //GameObject vr = new Plate();
-        GameObject vr = v.makePlate();
+        ImageObject xr = new Clown(500, 480, "Resources/Clown/clown1.png", 1);
+        controlableObjects.add(xr);
+        ImageObject xrz = new Stick(460,485,"Resources/Sticks/leftstick_2.png");
+        controlableObjects.add(xrz);
+        ImageObject xry = new Stick(590,485,"Resources/Sticks/rightstick_2.png");
+        controlableObjects.add(xry);
 
-        movableObjects.add(vr);
+        //GameObject vr = new Plate();
+
     }
 
     @Override
@@ -66,15 +70,15 @@ public class ThirdLevel implements World {
 
     @Override
     public boolean refresh() {
-        //GameObject spaceShip = controlableObjects.get(0);
-        for(GameObject m : movableObjects){
+        GameObject spaceShip = controlableObjects.get(0);
+
+        /*for(GameObject m : movableObjects){
             m.setY((m.getY() + 1));
-            if(m.getY()==getHeight()){
-                // reuse the star in another position
+            if (m.getY()==getHeight()) {
                 m.setY(-1 * (int)(Math.random() * getHeight()));
             }
         }
-        movableObjects.add(v.makePlate());
+        movableObjects.add(v.makePlate());*/
         return true;
     }
 

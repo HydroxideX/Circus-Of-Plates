@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.IOException;
 
 public class Clown extends ImageObject {
-
     public Clown(int posX, int posY, String path) {
         super(posX, posY, path);
     }
@@ -21,13 +20,8 @@ public class Clown extends ImageObject {
     }
 
     @Override
-    public BufferedImage[] getSpriteImages() {
-        BufferedImage[] spriteImages = new BufferedImage[1];
-        try {
-            spriteImages[0] = ImageIO.read(new File("Stick.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return spriteImages;
+    public void setX(int mX) {
+        this.x = mX;
     }
+
 }
