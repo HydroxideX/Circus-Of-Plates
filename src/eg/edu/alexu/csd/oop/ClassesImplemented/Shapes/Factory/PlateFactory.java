@@ -48,7 +48,7 @@ public class PlateFactory implements IPlateFactory {
         else {
             spriteImages = imgLoad.getImage(dest + color + plateType + fileType);
             try {
-                plate = (Plate) Class.forName(plateType).newInstance();
+                plate = (Plate) Class.forName("eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates."+plateType).newInstance();
             } catch (ClassNotFoundException e) {
                 plate = new PlateWithBase();
                 e.printStackTrace();
