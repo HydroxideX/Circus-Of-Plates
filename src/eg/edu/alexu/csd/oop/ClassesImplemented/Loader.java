@@ -1,7 +1,7 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented;
 
 import com.sun.prism.Image;
-import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Shape;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.game.GameObject;
 
 import javax.imageio.ImageIO;
@@ -35,10 +35,10 @@ private ClassLoader classLoader;
             return null;
         }
     }
-    public Shape getClass (String name){
-        Shape plate ;
+   /* public Plate getClass (String name){
+        Plate plate ;
         try {
-            plate = (Shape) ClassLoader.loadClass(name).getConstructor().newInstance();
+            plate = (Plate) Class.forName(name).newInstance();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
@@ -46,5 +46,5 @@ private ClassLoader classLoader;
         } catch (InstantiationException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

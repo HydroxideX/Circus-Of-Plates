@@ -1,8 +1,8 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory;
 
 import eg.edu.alexu.csd.oop.ClassesImplemented.Loader;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.PlateWithBase;
-import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Shape;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool.PlatePool;
 import eg.edu.alexu.csd.oop.game.GameObject;
 
@@ -36,7 +36,7 @@ public class PlateFactory implements IPlateFactory {
         int randNum = rand.nextInt(6);
         String color = avaColors[randNum];
         String plateType = Types[rand.nextInt(3)];
-        Shape plate ; // edit this after dynamic loading
+        Plate plate ; // edit this after dynamic loading
         if (platePool.exists(color + fileType)) {
             plate = platePool.get(color + fileType);
             plate.setX(rand.nextInt(1960));
@@ -50,7 +50,7 @@ public class PlateFactory implements IPlateFactory {
         else {
             spriteImages = imgLoad.getImage(dest + color + plateType + fileType);
             try {
-                plate = (Shape) Class.forName(plateType).newInstance();
+                plate = (Plate) Class.forName(plateType).newInstance();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
@@ -59,7 +59,7 @@ public class PlateFactory implements IPlateFactory {
                 e.printStackTrace();
             }
         }
-        // plate = new PlateWithBase(rand.nextInt(1960), 0, spriteImages.getWidth(), spriteImages.getHeight(), color, spriteImages);
+         plate = new PlateWithBase(rand.nextInt(1960), 0, spriteImages.getWidth(), spriteImages.getHeight(), color, spriteImages);
         return (GameObject) plate;
     }
 }
