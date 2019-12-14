@@ -3,6 +3,7 @@ package eg.edu.alexu.csd.oop.ClassesImplemented;
 import com.sun.prism.Image;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.game.GameObject;
+import java.lang.reflect.*;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
@@ -34,7 +35,7 @@ private ClassLoader classLoader;
             return null;
         }
     }
-   /* public Plate getClass (String name){
+    /*public Plate getClass (String name){
         Plate plate ;
         try {
             plate = (Plate) Class.forName(name).newInstance();
