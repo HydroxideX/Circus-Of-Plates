@@ -72,9 +72,7 @@ public class ThirdLevel implements World {
             if(m.getY()==getHeight()){
                 // reuse the star in another position
                 m.setY(-1 * (int)(Math.random() * getHeight()));
-                m.setX((int)(Math.random() * getWidth()));
             }
-            m.setX(m.getX() + (Math.random() > 0.5 ? 1 : -1));
         }
         movableObjects.add(v.makePlate());
         return true;
