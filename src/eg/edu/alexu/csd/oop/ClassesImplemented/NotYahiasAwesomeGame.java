@@ -24,7 +24,7 @@ public class NotYahiasAwesomeGame {
         final GameEngine.GameController gameController = GameEngine.start("Very Simple Game in 99 Line of Code", new ThirdLevel(1200, 700), menuBar, Color.WHITE);
         newMenuItem.addActionListener(new ActionListener() {
             @Override public void actionPerformed(ActionEvent e) {
-                gameController.changeWorld(new FirstLevel(1200, 700));
+                gameController.changeWorld(new ThirdLevel(1200, 700));
             }
         });
         pauseMenuItem.addActionListener(new ActionListener() {
