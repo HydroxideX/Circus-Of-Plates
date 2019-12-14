@@ -63,6 +63,8 @@ public class Plate implements GameObject {
     public BufferedImage[] getSpriteImages() {
         try {
             spriteImages[0] = ImageIO.read(new File("Resources/images.jpg"));
+            width = spriteImages[0].getWidth();
+            height = spriteImages[0].getHeight();
         } catch (IOException e) {
             e.printStackTrace();
         }
