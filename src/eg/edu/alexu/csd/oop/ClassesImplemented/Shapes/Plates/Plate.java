@@ -71,4 +71,8 @@ public class Plate implements GameObject {
     public String getColor (){
         return this.color;
     }
+    public void setColor (String color) {this.color = color;}
+    public String getType(){
+        return "NormalPlate";
+    }
 }

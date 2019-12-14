@@ -37,9 +37,8 @@ public class PlateFactory implements IPlateFactory {
         String color = avaColors[randNum];
         String plateType = Types[rand.nextInt(4)];
         Plate plate ; // edit this after dynamic loading
-        if (platePool.exists(color + fileType)) {
-            plate = platePool.get(color + fileType);
-
+        if (platePool.exists(color + plateType)) {
+            plate = platePool.get(color + plateType);
         }
 
 
@@ -60,6 +59,7 @@ public class PlateFactory implements IPlateFactory {
                 e.printStackTrace();
             }
             plate.setSpriteImages(spriteImages);
+            plate.setColor(color);
         }
         plate.setX(rand.nextInt(1960));
         plate.setY(0);

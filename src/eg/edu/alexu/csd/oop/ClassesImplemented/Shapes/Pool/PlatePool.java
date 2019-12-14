@@ -24,10 +24,11 @@ public class PlatePool {
         return platePool.containsKey(type);
     }
     public void add (Plate p){
-       platePool.put(p.getColor() , p);
+       platePool.put(p.getColor()+p.getType() , p);
     }
     public Plate get (String type){
-        if(this.exists(type))return (Plate)platePool.remove(type);
+        if(this.exists(type)){
+            return (Plate)platePool.remove(type);}
         else throw new NullPointerException("GameObject Doesn't Exist in Pool");
     }
 }

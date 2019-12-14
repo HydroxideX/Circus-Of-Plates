@@ -6,4 +6,7 @@ public class PlateWithDeepBase extends Plate {
     /*public PlateWithDeepBase(int x, int y, int height, int width, String color, BufferedImage img) {
         super(x, y, height, width, color, img);
     }*/
+    public String getType(){
+        return "PlateWithDeepBase";
+    }
 }

@@ -6,15 +6,18 @@ import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Stick;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.PlateWithBase;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool.PlatePool;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 import javafx.print.PageLayout;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class ThirdLevel implements World {
-    PlateFactory v;
+    PlateFactory pf;
+    PlatePool pp ;
     private int width, height;
     private String status;
     private int score = 0;
@@ -28,7 +31,7 @@ public class ThirdLevel implements World {
         controlableObjects = new ArrayList<>();
         this.width= width;
         this.height= height;
-        v = (PlateFactory) PlateFactory.getInstance();
+        PlateFactory v = (PlateFactory) PlateFactory.getInstance();
 
         ImageObject xr = new Clown(500, 480, "Resources/Clown/clown1.png", 1);
         controlableObjects.add(xr);
@@ -38,6 +41,12 @@ public class ThirdLevel implements World {
         controlableObjects.add(xry);
 
         //GameObject vr = new Plate();
+        pf = (PlateFactory) PlateFactory.getInstance();
+        pp = (PlatePool)PlatePool.getInstance();
+        //ImageObject xr = new Clown(100, 100, "Resources/images.jpg", 1);
+        //controlableObjects.add(xr);
+        //GameObject vr = new Plate();
+        GameObject vr = pf.makePlate();
 
     }
 
@@ -79,6 +88,18 @@ public class ThirdLevel implements World {
             }
         }
         movableObjects.add(v.makePlate());*/
+        //GameObject spaceShip = controlableObjects.get(0);
+        Iterator<GameObject> it = movableObjects.iterator();
+        while (it.hasNext()){
+            GameObject m = it.next() ;
+            m.setY((m.getY() + 1));
+            if(m.getY()==getHeight()){
+                // reuse the star in another position
+                pp.add((Plate) m);
+                it.remove();
+            }
+        }
+        movableObjects.add(pf.makePlate());
         return true;
     }
 
