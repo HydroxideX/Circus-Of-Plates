@@ -1,6 +1,8 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.levels;
 
+
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 
@@ -55,7 +57,10 @@ public class FirstLevel implements World {
 
     @Override
     public boolean refresh() {
-        GameObject spaceShip = controlableObjects.get(0);
+        // time end and game over
+        //GameObject spaceShip = controlableObjects.get(0);
+        movableObjects.add(PlateFactory.getInstance().makePlate());
+        for(int i=0 ;i<movableObjects.size();i++)movableObjects.get(i).setY(movableObjects.get(i).getY()+1);
         return true;
     }
 
