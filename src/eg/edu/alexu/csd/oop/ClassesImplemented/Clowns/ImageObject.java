@@ -1,17 +1,18 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Clowns;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
+import javax.swing.*;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
+import net.coobird.thumbnailator.Thumbnails;
 
 public class ImageObject implements GameObject {
-    private static final int MAX_MSTATE = 1;
-    private BufferedImage[] spriteImages = new BufferedImage[MAX_MSTATE];
-    private int x;
+    BufferedImage[] spriteImages = new BufferedImage[1];
+    int x;
     private int y;
     private boolean visible;
     private int type;
@@ -25,14 +26,14 @@ public class ImageObject implements GameObject {
         this.y = posY;
         this.type = type;
         this.visible = true;
-
-
         try {
             spriteImages[0] = ImageIO.read(new File(path));
+            spriteImages[0] = Thumbnails.of(spriteImages[0]).scale(0.1).asBufferedImage();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
     @Override
     public int getX() {
@@ -59,14 +60,16 @@ public class ImageObject implements GameObject {
         return spriteImages;
     }
 
+
+
     @Override
     public int getWidth(){
-        return spriteImages[0].getWidth();
+        return spriteImages[0].getWidth() + 100;
     }
 
     @Override
     public int getHeight() {
-        return spriteImages[0].getHeight();
+        return spriteImages[0].getHeight() + 100;
     }
 
     @Override

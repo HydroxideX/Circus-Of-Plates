@@ -8,6 +8,7 @@ public class Stick extends ImageObject {
 
     private ArrayList observers;
 
+
     public Stick(int posX, int posY, String path) {
         super(posX, posY, path);
     }
