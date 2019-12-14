@@ -27,7 +27,7 @@ private ClassLoader classLoader;
     }
 
     public BufferedImage getImage(String path) {
-        System.out.println(path);
+      //  System.out.println(path);
         classLoader = Thread.currentThread().getContextClassLoader();
         InputStream input = classLoader.getResourceAsStream(path.toLowerCase());
         try {
