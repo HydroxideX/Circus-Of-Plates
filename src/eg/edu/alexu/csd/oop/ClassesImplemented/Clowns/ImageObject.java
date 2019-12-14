@@ -28,7 +28,7 @@ public class ImageObject implements GameObject {
 
 
         try {
-            spriteImages[0] = ImageIO.read(getClass().getResourceAsStream("hi.png"));
+            spriteImages[0] = ImageIO.read(new File(path));
         } catch (IOException e) {
             e.printStackTrace();
         }
