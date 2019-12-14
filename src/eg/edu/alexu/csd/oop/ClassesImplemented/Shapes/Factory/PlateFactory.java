@@ -36,13 +36,12 @@ public class PlateFactory implements IPlateFactory {
         int randNum = rand.nextInt(6);
         String color = avaColors[randNum];
         String plateType = Types[rand.nextInt(3)];
-        Shape plate = new PlateWithBase(0,0,0,0,"",spriteImages); // edit this after dynamic loading
+        Shape plate ; // edit this after dynamic loading
         if (platePool.exists(color + fileType)) {
             plate = platePool.get(color + fileType);
             plate.setX(rand.nextInt(1960));
             plate.setY(0);
             plate.isVisible = true;
-            return (GameObject) plate;
         }
 
 

@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented;
 
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 
@@ -62,7 +63,9 @@ public class FirstLevel implements World {
     @Override
     public boolean refresh() {
         boolean timeout = System.currentTimeMillis() - startTime > MAX_TIME; // time end and game over
-        GameObject spaceShip = controlableObjects.get(0);
+        //GameObject spaceShip = controlableObjects.get(0);
+        movableObjects.add(PlateFactory.getInstance().makePlate());
+        for(int i=0 ;i<movableObjects.size();i++)movableObjects.get(i).setY(movableObjects.get(i).getY()+1);
         return !timeout;
     }
 
