@@ -1,4 +1,4 @@
-package eg.edu.alexu.csd.oop.ClassesImplemented;
+package eg.edu.alexu.csd.oop.ClassesImplemented.Clowns;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -8,16 +8,15 @@ import javax.imageio.ImageIO;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
 
-public class ImageObject implements GameObject{
+public class ImageObject implements GameObject {
     private static final int MAX_MSTATE = 1;
-    // an array of sprite images that are drawn sequentially
     private BufferedImage[] spriteImages = new BufferedImage[MAX_MSTATE];
     private int x;
     private int y;
     private boolean visible;
     private int type;
 
-    public ImageObject (int posX, int posY, String path){
+    public ImageObject (int posX, int posY, String path) {
         this(posX, posY, path, 0);
     }
 
@@ -26,14 +25,13 @@ public class ImageObject implements GameObject{
         this.y = posY;
         this.type = type;
         this.visible = true;
-        // create a bunch of buffered images and place into an array, to be displayed sequentially
-        spriteImages[0] = Loader.getInstance().getImage("Resources/plates/orangeplatewithdeepbase.png");
 
-       /* try {
-            spriteImages[0] = ImageIO.read(getClass().getResourceAsStream("hi.png"));
+
+        try {
+            spriteImages[0] = ImageIO.read(new File(path));
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 
     @Override

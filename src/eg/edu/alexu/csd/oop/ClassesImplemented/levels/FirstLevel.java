@@ -1,0 +1,81 @@
+package eg.edu.alexu.csd.oop.ClassesImplemented.levels;
+
+
+import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
+import eg.edu.alexu.csd.oop.game.GameObject;
+import eg.edu.alexu.csd.oop.game.World;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class FirstLevel implements World {
+
+    private int width, height;
+    private String status;
+    private int score = 0;
+    private long startTime = System.currentTimeMillis();
+    private  List<GameObject> constantObjects;
+    private  List<GameObject> movableObjects;
+    private   List<GameObject> controlableObjects;
+    public FirstLevel (int width,int height) {
+        constantObjects = new ArrayList<>();
+        movableObjects = new ArrayList<>();
+        controlableObjects = new ArrayList<>();
+        this.width= width;
+        this.height= height;
+        GameObject firstClown = new Clown(100, 100, "Resources/images.jpg", 1);
+        controlableObjects.add(firstClown);
+    }
+
+    @Override
+    public List<GameObject> getConstantObjects() {
+        return constantObjects;
+    }
+
+    @Override
+    public List<GameObject> getMovableObjects() {
+        return movableObjects;
+    }
+
+    @Override
+    public List<GameObject> getControlableObjects() {
+        return controlableObjects;
+    }
+
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
+    }
+
+
+
+    @Override
+    public boolean refresh() {
+        // time end and game over
+        //GameObject spaceShip = controlableObjects.get(0);
+        movableObjects.add(PlateFactory.getInstance().makePlate());
+        for(int i=0 ;i<movableObjects.size();i++)movableObjects.get(i).setY(movableObjects.get(i).getY()+1);
+        return true;
+    }
+
+    @Override
+    public String getStatus() {
+        return status;
+    }
+
+    @Override
+    public int getSpeed() {
+        return 10;
+    }
+
+    @Override
+    public int getControlSpeed() {
+        return 10;
+    }
+}
