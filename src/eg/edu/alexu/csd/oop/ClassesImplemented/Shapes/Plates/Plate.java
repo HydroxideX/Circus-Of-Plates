@@ -2,15 +2,19 @@ package eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class Plate implements GameObject {
 
-    private BufferedImage[] spriteImages;
-    private int x, y, width, height;
-    public boolean isVisible;
-    private String color ;
-    private String type ;
+    private BufferedImage[] spriteImages = new BufferedImage[1];
+    private int x, y, width=100, height=100;
+    public boolean isVisible = true;
+    public Color color = Color.black;
+    private String type = "1";
     /*public Plate (int x , int y , int height , int width,String color,BufferedImage img){
         this.spriteImages[0] = img;
         this.setX(x);
@@ -57,14 +61,19 @@ public class Plate implements GameObject {
 
     @Override
     public BufferedImage[] getSpriteImages() {
-        return new BufferedImage[0];
+        try {
+            spriteImages[0] = ImageIO.read(new File("Resources/images.jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return spriteImages;
     }
     public void setSpriteImages(BufferedImage img) {
         this.spriteImages[0] = img;
         this.height = img.getHeight();
         this.width = img.getWidth();
     }
-    public String getColor (){
+    public Color getColor (){
         return this.color;
     }
 }
