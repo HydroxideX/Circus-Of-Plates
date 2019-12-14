@@ -15,7 +15,7 @@ public class PlateFactory implements IPlateFactory {
     private static PlatePool platePool;
     private BufferedImage spriteImages;
     private Random rand;
-    private String[] avaColors = new String[]{"blue", "black", "red", "yellow"};
+    private String[] avaColors = new String[]{"blue", "black", "red", "yellow" , "orange", "gold" , "cyan" , "green", "purple"};
     private String dest = "Resources/plates/", fileType = ".png";
     private String[] Types = new String[]{"PlateWithoutBase", "PlateWithDeepBase", "PlateWithBase", "Pot"};
 
@@ -33,9 +33,9 @@ public class PlateFactory implements IPlateFactory {
     }
 
     public GameObject makePlate() {
-        int randNum = rand.nextInt(3);
+        int randNum = rand.nextInt(9);
         String color = avaColors[randNum];
-        String plateType = Types[rand.nextInt(3)];
+        String plateType = Types[rand.nextInt(4)];
         Plate plate ; // edit this after dynamic loading
         if (platePool.exists(color + fileType)) {
             plate = platePool.get(color + fileType);
