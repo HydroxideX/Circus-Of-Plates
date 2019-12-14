@@ -81,8 +81,8 @@ public class ThirdLevel implements World {
                 it.remove();
             }
         }
-        movableObjects.add(pf.makePlate());
-        return true;*/
+        movableObjects.add(pf.makePlate());*/
+        return true;
     }
 
     @Override
