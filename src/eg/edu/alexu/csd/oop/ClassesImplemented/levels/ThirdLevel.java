@@ -4,6 +4,7 @@ import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.ImageObject;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.PlateWithBase;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 import javafx.print.PageLayout;
@@ -28,9 +29,9 @@ public class ThirdLevel implements World {
         this.height= height;
         PlateFactory v = (PlateFactory) PlateFactory.getInstance();
 
-        ImageObject xr = new Clown(100, 100, "Resources/images.jpg", 1);
-        controlableObjects.add(xr);
-        GameObject vr = v.makePlate();
+        //ImageObject xr = new Clown(100, 100, "Resources/images.jpg", 1);
+        //controlableObjects.add(xr);
+        GameObject vr = new Plate();
         movableObjects.add(vr);
     }
 
@@ -63,7 +64,16 @@ public class ThirdLevel implements World {
 
     @Override
     public boolean refresh() {
-        GameObject spaceShip = controlableObjects.get(0);
+        //GameObject spaceShip = controlableObjects.get(0);
+        for(GameObject m : movableObjects){
+            m.setY((m.getY() + 1));
+            if(m.getY()==getHeight()){
+                // reuse the star in another position
+                m.setY(-1 * (int)(Math.random() * getHeight()));
+                m.setX((int)(Math.random() * getWidth()));
+            }
+            m.setX(m.getX() + (Math.random() > 0.5 ? 1 : -1));
+        }
         return true;
     }
 
@@ -74,7 +84,7 @@ public class ThirdLevel implements World {
 
     @Override
     public int getSpeed() {
-        return 50;
+        return 1;
     }
 
     @Override

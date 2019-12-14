@@ -3,6 +3,8 @@ package eg.edu.alexu.csd.oop.ClassesImplemented;
 import com.sun.prism.Image;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.game.GameObject;
+
+import java.io.File;
 import java.lang.reflect.*;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -29,7 +31,7 @@ private ClassLoader classLoader;
         classLoader = Thread.currentThread().getContextClassLoader();
         InputStream input = classLoader.getResourceAsStream(path.toLowerCase());
         try {
-            return ImageIO.read(input);
+            return ImageIO.read(new File("Resources/images.jpg"));
           //  return ImageIO.read(getClass().getResourceAsStream(path));
         } catch (IOException e) {
             e.printStackTrace();
