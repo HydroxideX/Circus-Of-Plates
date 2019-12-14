@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ThirdLevel implements World {
-
+    PlateFactory v;
     private int width, height;
     private String status;
     private int score = 0;
@@ -27,11 +27,13 @@ public class ThirdLevel implements World {
         controlableObjects = new ArrayList<>();
         this.width= width;
         this.height= height;
-        PlateFactory v = (PlateFactory) PlateFactory.getInstance();
+        v = (PlateFactory) PlateFactory.getInstance();
 
         //ImageObject xr = new Clown(100, 100, "Resources/images.jpg", 1);
         //controlableObjects.add(xr);
-        GameObject vr = new Plate();
+        //GameObject vr = new Plate();
+        GameObject vr = v.makePlate();
+
         movableObjects.add(vr);
     }
 
@@ -74,6 +76,7 @@ public class ThirdLevel implements World {
             }
             m.setX(m.getX() + (Math.random() > 0.5 ? 1 : -1));
         }
+        movableObjects.add(v.makePlate());
         return true;
     }
 

@@ -31,7 +31,7 @@ private ClassLoader classLoader;
         classLoader = Thread.currentThread().getContextClassLoader();
         InputStream input = classLoader.getResourceAsStream(path.toLowerCase());
         try {
-            return ImageIO.read(new File("Resources/images.jpg"));
+            return  ImageIO.read(new File(path));
           //  return ImageIO.read(getClass().getResourceAsStream(path));
         } catch (IOException e) {
             e.printStackTrace();

@@ -13,7 +13,7 @@ public class Plate implements GameObject {
     private BufferedImage[] spriteImages = new BufferedImage[1];
     private int x, y, width=100, height=100;
     public boolean isVisible = true;
-    public Color color = Color.black;
+    public String color = "";
     private String type = "1";
     /*public Plate (int x , int y , int height , int width,String color,BufferedImage img){
         this.spriteImages[0] = img;
@@ -61,13 +61,6 @@ public class Plate implements GameObject {
 
     @Override
     public BufferedImage[] getSpriteImages() {
-        try {
-            spriteImages[0] = ImageIO.read(new File("Resources/images.jpg"));
-            width = spriteImages[0].getWidth();
-            height = spriteImages[0].getHeight();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         return spriteImages;
     }
     public void setSpriteImages(BufferedImage img) {
@@ -75,7 +68,7 @@ public class Plate implements GameObject {
         this.height = img.getHeight();
         this.width = img.getWidth();
     }
-    public Color getColor (){
+    public String getColor (){
         return this.color;
     }
 }
