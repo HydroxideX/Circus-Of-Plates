@@ -1,12 +1,11 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Clowns;
 
-import eg.edu.alexu.csd.oop.ClassesImplemented.Observer;
-
-import java.util.ArrayList;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class Clown extends ImageObject {
-
-    private ArrayList observers;
 
     public Clown(int posX, int posY, String path) {
         super(posX, posY, path);
@@ -21,21 +20,14 @@ public class Clown extends ImageObject {
 
     }
 
-    public void registerObserver(Observer o) {
-        observers.add(o);
-    }
-
-    public void removeObserver(Observer o) {
-        int i = observers.indexOf(o);
-        if (i >= 0) {
-            observers.remove(i);
+    @Override
+    public BufferedImage[] getSpriteImages() {
+        BufferedImage[] spriteImages = new BufferedImage[1];
+        try {
+            spriteImages[0] = ImageIO.read(new File("Stick.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-    }
-
-    public void notifyObservers(int diff) {
-        for (int i = 0; i < observers.size(); i++) {
-            Observer observer = (Observer)observers.get(i);
-            observer.update(diff);
-        }
+        return spriteImages;
     }
 }

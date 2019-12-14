@@ -55,8 +55,6 @@ public class SecondLevel implements World {
         return height;
     }
 
-
-
     @Override
     public boolean refresh() {
         GameObject clown;
