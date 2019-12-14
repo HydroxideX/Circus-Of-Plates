@@ -15,7 +15,7 @@ public class PlateFactory implements IPlateFactory {
     private static PlatePool platePool;
     private BufferedImage spriteImages;
     private Random rand;
-    private String[] avaColors = new String[]{"blue", "black", "red", "yellow" , "orange", "gold" , "cyan" , "green", "purple"};
+    private String[] avaColors = new String[]{"blue", "black", "red", "yellow" , "orange", "gold" , "cyan" , "green", "purple", "pink"};
     private String dest = "Resources/plates/", fileType = ".png";
     private String[] Types = new String[]{"PlateWithoutBase", "PlateWithDeepBase", "PlateWithBase", "Pot"};
 
