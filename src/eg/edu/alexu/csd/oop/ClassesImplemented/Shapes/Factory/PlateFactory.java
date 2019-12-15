@@ -41,14 +41,10 @@ public class PlateFactory implements IPlateFactory {
         randNum = rand.nextInt(4);
         String plateType = Types[randNum];
         String plateClassName = classesNames[randNum];
-        Plate plate ; // edit this after dynamic loading
+        Plate plate ;
         if (platePool.exists(color + plateType)) {
             plate = platePool.get(color + plateType);
         }
-
-
-        // dynamic loading
-
         else {
             spriteImages = loader.getImage(dest + color + plateType + fileType);
             plate =(Plate) loader.getNewInstance(plateClassName);
@@ -58,8 +54,6 @@ public class PlateFactory implements IPlateFactory {
         plate.setX(rand.nextInt(1960));
         plate.setY(0);
         plate.isVisible = true;
-       //  plate = new PlateWithBase(rand.nextInt(1960), 0, spriteImages.getWidth(), spriteImages.getHeight(), color, spriteImages);
-        //plate = new PlateWithBase();
         return (GameObject) plate;
     }
 }
