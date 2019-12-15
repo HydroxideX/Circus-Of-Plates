@@ -12,6 +12,7 @@ import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
@@ -42,33 +43,44 @@ private ClassLoader classLoader;
             return null;
         }
     }
-    public String [] getSupportedTypes (){
-        Plate plate ;
-        Set<Class<? extends Plate>> c = ref.getSubTypesOf(Plate.class);
-        String [] supportedTypes = new String[c.size()];
-        Iterator<Class<? extends Plate>> it = c.iterator();
+    public String [] getSupportedClasses (Class<?> classToFind){
+        Set<Class<? extends GameObject>> c = ref.getSubTypesOf(GameObject.class);
+        ArrayList<String> supportedClasses = new ArrayList<String>();
+        Iterator<Class<? extends GameObject>> it = c.iterator();
         int i = 0;
         while(it.hasNext()){
-            try {
-                plate = it.next().newInstance() ;
-                supportedTypes[i++] = plate.getType();
-                System.out.println(supportedTypes[i-1]);
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
+            Class<?> classTemp= it.next() ;
+            if(classToFind.isAssignableFrom(classTemp) && !classToFind.equals(classTemp)) {
+                supportedClasses.add(classTemp.getName());
+                //System.out.println(supportedClasses.get(i));
+                i++;
             }
         }
+        String [] s = new String[supportedClasses.size()];
+        for(int j =0 ;j<supportedClasses.size(); j++)s[j] = supportedClasses.get(j);
+        return  s;
+    }
+    public String [] getSupportedPlateTypes (String [] classNames){
+        int sz = classNames.length;
+        String [] supportedTypes  = new String[sz];
+        for(int i=0 ;i<sz ;i++){
+            Plate g = (Plate) this.getNewInstance(classNames[i]);
+            if(g != null)supportedTypes[i] = g.getType();
+          //  System.out.println(supportedTypes[i]);
+
+        }
         return supportedTypes;
-        /*
+    }
+    public GameObject getNewInstance (String s){
         try {
-            plate = (Plate) Class.forName(name).newInstance();
-        } catch (ClassNotFoundException e) {
+            return (GameObject)Class.forName(s).newInstance();
+        } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
-        } catch (InstantiationException e) {
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }*/
+        }
+        return null;
     }
 }

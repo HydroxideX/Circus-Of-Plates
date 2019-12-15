@@ -33,7 +33,7 @@ public class ThirdLevel implements World {
         this.height= height;
         pf = (PlateFactory) PlateFactory.getInstance();
         pp = (PlatePool)PlatePool.getInstance();
-        ImageObject xr = new Clown(500, 480, "Resources/Clown/clown1.png", 1);
+       ImageObject xr = new Clown(500, 480, "Resources/Clown/clown1.png", 1);
         controlableObjects.add(xr);
         ImageObject xrz = new Stick(460,485,"Resources/Sticks/leftstick_2.png");
         controlableObjects.add(xrz);
@@ -71,7 +71,7 @@ public class ThirdLevel implements World {
     @Override
     public boolean refresh() {
         //GameObject spaceShip = controlableObjects.get(0);
-        /*Iterator<GameObject> it = movableObjects.iterator();
+        Iterator<GameObject> it = movableObjects.iterator();
         while (it.hasNext()){
             GameObject m = it.next() ;
             m.setY((m.getY() + 1));
@@ -81,7 +81,7 @@ public class ThirdLevel implements World {
                 it.remove();
             }
         }
-        movableObjects.add(pf.makePlate());*/
+        movableObjects.add(pf.makePlate());
         return true;
     }
 
