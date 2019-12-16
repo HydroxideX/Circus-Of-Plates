@@ -2,10 +2,10 @@ package eg.edu.alexu.csd.oop.ClassesImplemented.States;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
 
-public class StackedState extends State{
+public class StackedState implements IState{
+    GameObject g ;
     public StackedState (GameObject g){
-       super(g);
-    }
+this .g  =g ;    }
     public void Update(int diff){
         int newX = g.getX()+diff;
         g.setX(newX);

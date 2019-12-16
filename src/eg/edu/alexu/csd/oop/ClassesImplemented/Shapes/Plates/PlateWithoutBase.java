@@ -5,9 +5,7 @@ import eg.edu.alexu.csd.oop.game.GameObject;
 import java.awt.image.BufferedImage;
 
 public class PlateWithoutBase extends Plate implements GameObject {
-   /* public PlateWithoutBase(int x, int y, int height, int width, String color, BufferedImage img) {
-        super(x, y, height, width, color, img);
-    }*/public String getType(){
+   public String getType(){
        return "PlateWithoutBase";
    }
 }
