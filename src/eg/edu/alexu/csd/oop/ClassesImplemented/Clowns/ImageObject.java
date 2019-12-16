@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Clowns;
 
+import eg.edu.alexu.csd.oop.ArrayListIterator;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Loader;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Observer;
 import eg.edu.alexu.csd.oop.game.GameObject;
@@ -88,8 +89,9 @@ public class ImageObject implements GameObject {
     }
 
     public void notifyObservers(int diff) {
-        for (int i = 0; i < observers.size(); i++) {
-            Observer observer = (Observer)observers.get(i);
+        ArrayListIterator iterator = new ArrayListIterator(observers);
+        while (iterator.hasNext()){
+            Observer observer = (Observer)iterator.next();
             observer.update(diff);
         }
     }

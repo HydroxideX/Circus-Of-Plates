@@ -1,0 +1,23 @@
+package eg.edu.alexu.csd.oop;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class ArrayIterator implements Iterator {
+    private Object[] array;
+    private int i;
+    ArrayIterator(Object[] x){
+        array = x;
+        i = 0;
+    }
+    @Override
+    public boolean hasNext() {
+        if (i == array.length) return false;
+        return true;
+    }
+
+    @Override
+    public Object next() {
+        return array[i++];
+    }
+}
