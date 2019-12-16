@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates;
 
+import eg.edu.alexu.csd.oop.ClassesImplemented.States.IState;
 import eg.edu.alexu.csd.oop.game.GameObject;
 
 import javax.imageio.ImageIO;
@@ -11,18 +12,11 @@ import java.io.IOException;
 public class Plate implements GameObject {
 
     private BufferedImage[] spriteImages = new BufferedImage[1];
-    private int x, y, width=100, height=100;
+    private int x, y, width = 100, height = 100;
     public boolean isVisible = true;
     public String color = "";
     private String type = "1";
-    /*public Plate (int x , int y , int height , int width,String color,BufferedImage img){
-        this.spriteImages[0] = img;
-        this.setX(x);
-        this.setY(y);
-        this.width = width;
-        this.height = height;
-        this.color = color;
-    }*/
+    private IState state ;
     @Override
     public int getX() {
         return x;
@@ -63,16 +57,22 @@ public class Plate implements GameObject {
     public BufferedImage[] getSpriteImages() {
         return spriteImages;
     }
+
     public void setSpriteImages(BufferedImage img) {
         this.spriteImages[0] = img;
         this.height = img.getHeight();
         this.width = img.getWidth();
     }
-    public String getColor (){
+
+    public String getColor() {
         return this.color;
     }
-    public void setColor (String color) {this.color = color;}
-    public String getType(){
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getType() {
         return "NormalPlate";
     }
 }

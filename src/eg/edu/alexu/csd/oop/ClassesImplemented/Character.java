@@ -19,7 +19,7 @@ public class Character implements GameObject {
         spriteImages = new BufferedImage[1];
         {
             //try {
-                spriteImages[0] = Loader.getInstance().getImage("Resources/plates/orangeplatewithdeepbase.png");
+                spriteImages[0] = Loader.getInstance().getImage("Resources/plates/orangeplatewithdeepbase.png",1);
                // spriteImages[0] = ImageIO.read(getClass().getResourceAsStream("images.jpg"));
             //} catch (IOException e) {
               //  e.printStackTrace();

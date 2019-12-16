@@ -7,8 +7,8 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 
-public class PlatePool {
-    private static PlatePool pp = null;
+public class PlatePool implements IPool {
+    private static PlatePool pp =null;
     private HashMap<String, Plate >platePool;
     private PlatePool() {
         platePool = new HashMap<String, Plate>();
@@ -20,13 +20,16 @@ public class PlatePool {
         }
         return (PlatePool) pp;
     }
-    public boolean exists (String type){
+    @Override
+    public boolean exists(String type){
         return platePool.containsKey(type);
     }
-    public void add (Plate p){
+    @Override
+    public void add(Plate p){
        platePool.put(p.getColor()+p.getType() , p);
     }
-    public Plate get (String type){
+    @Override
+    public Plate get(String type){
         if(this.exists(type)){
             return (Plate)platePool.remove(type);}
         else throw new NullPointerException("GameObject Doesn't Exist in Pool");

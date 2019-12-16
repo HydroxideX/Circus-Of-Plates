@@ -6,15 +6,18 @@ import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Stick;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.PlateWithBase;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool.PlatePool;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 import javafx.print.PageLayout;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class ThirdLevel implements World {
-    PlateFactory v;
+    PlateFactory pf;
+    PlatePool pp ;
     private int width, height;
     private String status;
     private int score = 0;
@@ -28,17 +31,16 @@ public class ThirdLevel implements World {
         controlableObjects = new ArrayList<>();
         this.width= width;
         this.height= height;
-        v = (PlateFactory) PlateFactory.getInstance();
-
-        ImageObject xr = new Clown(500, 480, "Resources/Clown/clown1.png", 1);
+        pf = (PlateFactory) PlateFactory.getInstance();
+        pp = (PlatePool)PlatePool.getInstance();
+        Clown xr = new Clown(500, 480, "Resources/Clown/clown1.png", 1);
         controlableObjects.add(xr);
-        ImageObject xrz = new Stick(460,485,"Resources/Sticks/leftstick_2.png");
-        controlableObjects.add(xrz);
-        ImageObject xry = new Stick(590,485,"Resources/Sticks/rightstick_2.png");
-        controlableObjects.add(xry);
-
-        //GameObject vr = new Plate();
-
+        Stick xrz = new Stick(465,490,"Resources/Sticks/leftstick_2.png");
+        movableObjects.add(xrz);
+        Stick xry = new Stick(590,485,"Resources/Sticks/rightstick_2.png");
+        movableObjects.add(xry);
+        xr.registerObserver(xrz);
+        xr.registerObserver(xry);
     }
 
     @Override
@@ -70,15 +72,18 @@ public class ThirdLevel implements World {
 
     @Override
     public boolean refresh() {
-        GameObject spaceShip = controlableObjects.get(0);
-
-        /*for(GameObject m : movableObjects){
+        //GameObject spaceShip = controlableObjects.get(0);
+        Iterator<GameObject> it = constantObjects.iterator();
+        while (it.hasNext()){
+            GameObject m = it.next() ;
             m.setY((m.getY() + 1));
-            if (m.getY()==getHeight()) {
-                m.setY(-1 * (int)(Math.random() * getHeight()));
+            if(m.getY()==getHeight()){
+                // reuse the star in another position
+                pp.add((Plate) m);
+                it.remove();
             }
         }
-        movableObjects.add(v.makePlate());*/
+        constantObjects.add(pf.makePlate());
         return true;
     }
 

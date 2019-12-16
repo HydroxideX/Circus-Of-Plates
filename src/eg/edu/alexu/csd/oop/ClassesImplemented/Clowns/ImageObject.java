@@ -1,37 +1,33 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Clowns;
 
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.swing.*;
-
+import eg.edu.alexu.csd.oop.ArrayListIterator;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Loader;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Observer;
 import eg.edu.alexu.csd.oop.game.GameObject;
-import net.coobird.thumbnailator.Thumbnails;
+
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 public class ImageObject implements GameObject {
     BufferedImage[] spriteImages = new BufferedImage[1];
+    private ArrayList observers = new ArrayList();
+    Loader loader;
     int x;
     private int y;
     private boolean visible;
     private int type;
 
-    public ImageObject (int posX, int posY, String path) {
+    public ImageObject(int posX, int posY, String path) {
         this(posX, posY, path, 0);
     }
 
-    public ImageObject (int posX, int posY, String path, int type) {
+    public ImageObject(int posX, int posY, String path, int type) {
         this.x = posX;
         this.y = posY;
         this.type = type;
         this.visible = true;
-        try {
-            spriteImages[0] = ImageIO.read(new File(path));
-            spriteImages[0] = Thumbnails.of(spriteImages[0]).scale(0.1).asBufferedImage();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        loader = Loader.getInstance();
+        spriteImages[0] = loader.getImage(path, 0.1);
     }
 
 
@@ -61,9 +57,8 @@ public class ImageObject implements GameObject {
     }
 
 
-
     @Override
-    public int getWidth(){
+    public int getWidth() {
         return spriteImages[0].getWidth() + 100;
     }
 
@@ -77,7 +72,7 @@ public class ImageObject implements GameObject {
         return visible;
     }
 
-    public void setVisible(boolean visible){
+    public void setVisible(boolean visible) {
         this.visible = visible;
     }
 
@@ -89,4 +84,15 @@ public class ImageObject implements GameObject {
         this.type = type;
     }
 
+    public void registerObserver(Observer o) {
+        observers.add(o);
+    }
+
+    public void notifyObservers(int diff) {
+        ArrayListIterator iterator = new ArrayListIterator(observers);
+        while (iterator.hasNext()){
+            Observer observer = (Observer)iterator.next();
+            observer.update(diff);
+        }
+    }
 }
