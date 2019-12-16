@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Stick extends ImageObject implements Observer {
 
-    private ArrayList observers = new ArrayList();
+    ArrayList observers = new ArrayList();
 
 
     public Stick(int posX, int posY, String path) {
@@ -19,7 +19,7 @@ public class Stick extends ImageObject implements Observer {
     @Override
     public boolean update(int diff) {
         if(this.getX() + diff < 0) return false;
-        if(this.getX() + this.getWidth() > 1000) return false;
+        if(this.getX() + this.getWidth() + diff > 1000) return false;
         this.setX(this.getX()+diff);
         notifyObservers(diff);
         return true;
