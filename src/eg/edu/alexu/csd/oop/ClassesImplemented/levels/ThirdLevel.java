@@ -106,22 +106,20 @@ public class ThirdLevel implements World {
 
 
     boolean intersect(Plate m){
-        if(m.getY() == stick1.getY()){
-            int center = (2*m.getX() + m.getWidth()) / 2;
-            if(center < stick1.getX()+ stick1.getWidth() && center > stick1.getX()) {
-                intersectionHeight -= m.getHeight();
-                m.setY(intersectionHeight);
-                m.setX(( 2*stick1.getX()+ stick1.getWidth())/2 - 30);
-                stick1.registerObserver(m);
-                return true;
-            }
-            if(center < stick2.getX()+ stick2.getWidth() && center > stick2.getX()) {
-                intersectionHeight2 -= m.getHeight();
-                m.setY(intersectionHeight2);
-                stick2.registerObserver(m);
-                m.setX(( 2*stick2.getX()+ stick2.getWidth())/2 - 30);
-                return true;
-            }
+        int center = (2*m.getX() + m.getWidth()) / 2;
+        if(m.getY() == intersectionHeight && center < stick1.getX()+ stick1.getWidth() && center > stick1.getX()) {
+            intersectionHeight -= m.getHeight();
+            m.setY(intersectionHeight);
+            m.setX(( 2*stick1.getX()+ stick1.getWidth())/2 - 30);
+            stick1.registerObserver(m);
+            return true;
+        }
+        if(m.getY() == intersectionHeight2 && center < stick2.getX()+ stick2.getWidth() && center > stick2.getX()) {
+            intersectionHeight2 -= m.getHeight();
+            m.setY(intersectionHeight2);
+            stick2.registerObserver(m);
+            m.setX(( 2*stick2.getX()+ stick2.getWidth())/2 - 30);
+            return true;
         }
         return false;
     }
