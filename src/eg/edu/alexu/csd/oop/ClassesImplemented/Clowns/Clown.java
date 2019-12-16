@@ -13,10 +13,12 @@ public class Clown extends ImageObject {
 
     public Clown(int posX, int posY, String path) {
         super(posX, posY, path);
-    }
+        spriteImages[0] = loader.getImageWithLengthAndWidth(path, 190,100);
+}
 
     public Clown(int posX, int posY, String path, int type) {
         super(posX, posY, path, type);
+        spriteImages[0] = loader.getImageWithLengthAndWidth(path, 190,100);
     }
 
     @Override
@@ -26,10 +28,19 @@ public class Clown extends ImageObject {
 
     @Override
     public void setX(int mX) {
-        notifyObservers(this.x-mX);
+        notifyObservers(mX-this.x);
         this.x = mX;
     }
 
+    @Override
+    public int getWidth() {
+        return spriteImages[0].getWidth();
+    }
+
+    @Override
+    public int getHeight() {
+        return spriteImages[0].getHeight();
+    }
 
 
 }
