@@ -1,12 +1,15 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Clowns;
 
 import eg.edu.alexu.csd.oop.ClassesImplemented.Loader;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Observer;
 import eg.edu.alexu.csd.oop.game.GameObject;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 public class ImageObject implements GameObject {
     BufferedImage[] spriteImages = new BufferedImage[1];
+    private ArrayList observers = new ArrayList();
     Loader loader;
     int x;
     private int y;
@@ -80,4 +83,14 @@ public class ImageObject implements GameObject {
         this.type = type;
     }
 
+    public void registerObserver(Observer o) {
+        observers.add(o);
+    }
+
+    public void notifyObservers(int diff) {
+        for (int i = 0; i < observers.size(); i++) {
+            Observer observer = (Observer)observers.get(i);
+            observer.update(diff);
+        }
+    }
 }
