@@ -73,7 +73,7 @@ public class ThirdLevel implements World {
     @Override
     public boolean refresh() {
         //GameObject spaceShip = controlableObjects.get(0);
-        Iterator<GameObject> it = constantObjects.iterator();
+        /*Iterator<GameObject> it = constantObjects.iterator();
         while (it.hasNext()){
             GameObject m = it.next() ;
             m.setY((m.getY() + 1));
@@ -83,7 +83,7 @@ public class ThirdLevel implements World {
                 it.remove();
             }
         }
-        constantObjects.add(pf.makePlate());
+        constantObjects.add(pf.makePlate());*/
         return true;
     }
 

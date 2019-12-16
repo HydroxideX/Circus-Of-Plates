@@ -22,7 +22,7 @@ public class Loader {
     private Loader() {
     }
 
-    public static Loader getInstance() {
+    public static synchronized Loader getInstance() {
         if (img == null) {
             img = new Loader();
         }
@@ -39,6 +39,22 @@ public class Loader {
             bufferedImage = ImageIO.read(new File(path));
             int width = (int) (bufferedImage.getWidth() * scale), height = (int) (bufferedImage.getHeight() * scale);
             bufferedImage = Scalr.resize(bufferedImage, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.FIT_TO_WIDTH, width, height, Scalr.OP_ANTIALIAS);
+            return bufferedImage;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public BufferedImage getImageWithLengthAndWidth(String path, int length, int width) {
+        // System.out.println(path);
+        classLoader = Thread.currentThread().getContextClassLoader();
+        InputStream input = classLoader.getResourceAsStream(path.toLowerCase());
+        BufferedImage bufferedImage;
+        try {
+            // return Thumbnails.of(ImageIO.read(new File(path))).scale(scale).asBufferedImage();
+            bufferedImage = ImageIO.read(new File(path));
+            bufferedImage = Scalr.resize(bufferedImage, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.FIT_TO_WIDTH, width, length, Scalr.OP_ANTIALIAS);
             return bufferedImage;
         } catch (IOException e) {
             e.printStackTrace();
