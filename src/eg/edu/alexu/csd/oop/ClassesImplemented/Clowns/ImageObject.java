@@ -59,12 +59,12 @@ public class ImageObject implements GameObject {
 
     @Override
     public int getWidth() {
-        return spriteImages[0].getWidth();
+        return spriteImages[0].getHeight();
     }
 
     @Override
     public int getHeight() {
-        return spriteImages[0].getHeight();
+        return spriteImages[0].getWidth();
     }
 
     @Override
