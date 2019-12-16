@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class ImageObject implements GameObject {
     BufferedImage[] spriteImages = new BufferedImage[1];
-    ArrayList observers = new ArrayList();
+    public ArrayList observers = new ArrayList();
     Loader loader;
     int x;
     private int y;
@@ -84,6 +84,13 @@ public class ImageObject implements GameObject {
 
     public void registerObserver(Observer o) {
         observers.add(o);
+    }
+
+    public void removeObserver(Observer o) {
+        int i = observers.indexOf(o);
+        if (i >= 0) {
+            observers.remove(i);
+        }
     }
 
     public boolean notifyObservers(int diff) {

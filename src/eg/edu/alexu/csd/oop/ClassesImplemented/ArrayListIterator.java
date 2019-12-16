@@ -10,6 +10,7 @@ public class ArrayListIterator implements Iterator {
         myArraylist = x;
         i = 0;
     }
+
     @Override
     public boolean hasNext() {
         if(myArraylist.size() == i) return false;
@@ -19,5 +20,10 @@ public class ArrayListIterator implements Iterator {
     @Override
     public Object next() {
         return myArraylist.get(i++);
+    }
+
+    @Override
+    public void remove(){
+        myArraylist.remove(myArraylist.size()-1);
     }
 }
