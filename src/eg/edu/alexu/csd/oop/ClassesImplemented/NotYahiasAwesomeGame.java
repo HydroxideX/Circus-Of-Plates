@@ -21,10 +21,10 @@ public class NotYahiasAwesomeGame {
         menu.add(pauseMenuItem);
         menu.add(resumeMenuItem);
         menuBar.add(menu);
-        final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new ThirdLevel(1200, 700), menuBar, Color.WHITE);
+        final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new ThirdLevel(1000, 700), menuBar, Color.WHITE);
         newMenuItem.addActionListener(new ActionListener() {
             @Override public void actionPerformed(ActionEvent e) {
-                gameController.changeWorld(new ThirdLevel(1200, 700));
+                gameController.changeWorld(new ThirdLevel(1000, 700));
             }
         });
         pauseMenuItem.addActionListener(new ActionListener() {

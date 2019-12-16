@@ -1,22 +1,16 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Clowns;
 
-import eg.edu.alexu.csd.oop.ClassesImplemented.Observer;
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-
 public class Clown extends ImageObject {
 
 
     public Clown(int posX, int posY, String path) {
         super(posX, posY, path);
-    }
+        spriteImages[0] = loader.getImageWithLengthAndWidth(path, 190,100);
+}
 
     public Clown(int posX, int posY, String path, int type) {
         super(posX, posY, path, type);
+        spriteImages[0] = loader.getImageWithLengthAndWidth(path, 190,100);
     }
 
     @Override
@@ -26,10 +20,8 @@ public class Clown extends ImageObject {
 
     @Override
     public void setX(int mX) {
-        notifyObservers(this.x-mX);
+        notifyObservers(mX - this.x);
         this.x = mX;
     }
-
-
 
 }

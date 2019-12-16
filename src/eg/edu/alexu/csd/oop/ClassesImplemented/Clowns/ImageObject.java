@@ -1,6 +1,6 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Clowns;
 
-import eg.edu.alexu.csd.oop.ArrayListIterator;
+import eg.edu.alexu.csd.oop.ClassesImplemented.ArrayListIterator;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Loader;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Observer;
 import eg.edu.alexu.csd.oop.game.GameObject;
@@ -59,12 +59,12 @@ public class ImageObject implements GameObject {
 
     @Override
     public int getWidth() {
-        return spriteImages[0].getWidth() + 100;
+        return spriteImages[0].getHeight();
     }
 
     @Override
     public int getHeight() {
-        return spriteImages[0].getHeight() + 100;
+        return spriteImages[0].getWidth();
     }
 
     @Override

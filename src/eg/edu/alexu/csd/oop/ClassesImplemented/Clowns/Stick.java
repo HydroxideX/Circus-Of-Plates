@@ -15,7 +15,7 @@ public class Stick extends ImageObject implements Observer {
 
     @Override
     public void update(int diff) {
-        this.setX(this.getX()-diff);
+        this.setX(this.getX()+diff);
         notifyObservers(diff);
     }
 }
