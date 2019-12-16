@@ -75,4 +75,10 @@ public class Plate implements GameObject {
     public String getType() {
         return "NormalPlate";
     }
+    public void setState(IState state){
+        this.state = state;
+    }
+    public void update (int diff){
+        state.Update(diff);
+    }
 }
