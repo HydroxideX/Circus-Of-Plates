@@ -54,7 +54,7 @@ public class Loader {
         try {
             // return Thumbnails.of(ImageIO.read(new File(path))).scale(scale).asBufferedImage();
             bufferedImage = ImageIO.read(new File(path));
-            bufferedImage = Scalr.resize(bufferedImage, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.FIT_TO_WIDTH, width, length, Scalr.OP_ANTIALIAS);
+            bufferedImage = Scalr.resize(bufferedImage, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.FIT_EXACT, width, length, Scalr.OP_ANTIALIAS);
             return bufferedImage;
         } catch (IOException e) {
             e.printStackTrace();

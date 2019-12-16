@@ -79,7 +79,8 @@ public class Plate implements GameObject, Observer {
     public void setState(IState state){
         this.state = state;
     }
-    public void update (int diff){
+    public boolean update (int diff){
         state.Update(diff);
+        return true;
     }
 }
