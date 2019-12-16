@@ -1,6 +1,8 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Clowns;
 
+import eg.edu.alexu.csd.oop.ClassesImplemented.ArrayListIterator;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Loader;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Observer;
 
 public class Clown extends ImageObject {
 
@@ -27,6 +29,25 @@ public class Clown extends ImageObject {
     public void setX(int mX) {
         if(!notifyObservers(mX - this.x)) return;
         this.x = mX;
+    }
+
+    @Override
+    public boolean notifyObservers(int diff) {
+        ArrayListIterator iterator = new ArrayListIterator(observers);
+        while (iterator.hasNext()){
+            Observer observer = (Observer)iterator.next();
+            boolean correct = observer.update(diff);
+            if(!correct){
+                ArrayListIterator iterator2 = new ArrayListIterator(observers);
+                while (iterator2.hasNext()){
+                    Observer observer2 = (Observer)iterator2.next();
+                    if(observer2 == observer) break;
+                    observer2.update(-diff);
+                }
+                return false;
+            }
+        }
+        return true;
     }
 
 }
