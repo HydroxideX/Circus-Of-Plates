@@ -8,6 +8,7 @@ import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.PlateWithBase;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool.PlatePool;
+import eg.edu.alexu.csd.oop.ClassesImplemented.States.StackedState;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 import javafx.print.PageLayout;
@@ -28,7 +29,7 @@ public class ThirdLevel implements World {
     private  List<GameObject> constantObjects;
     private  List<GameObject> movableObjects;
     private   List<GameObject> controlableObjects;
-    private int intersectionHeight;
+    private int intersectionHeight,intersectionHeight2;
     public ThirdLevel (int width,int height) {
         constantObjects = new ArrayList<>();
         movableObjects = new ArrayList<>();
@@ -46,11 +47,7 @@ public class ThirdLevel implements World {
         xr.registerObserver(stick1);
         xr.registerObserver(stick2);
         intersectionHeight = stick1.getY();
-        constantObjects.add(pf.makePlate());
-        constantObjects.add(pf.makePlate());
-        constantObjects.add(pf.makePlate());
-        constantObjects.add(pf.makePlate());
-        constantObjects.add(pf.makePlate());
+        intersectionHeight2 = stick2.getY();
     }
 
     @Override
@@ -94,10 +91,12 @@ public class ThirdLevel implements World {
                 it.remove();
             }
             if (intersect(m)) {
+                m.setState(new StackedState(m));
                 removed.add(m);
                 movableObjects.add(m);
             }
         }
+        constantObjects.add(pf.makePlate());
         it = removed.iterator();
         while(it.hasNext()){
             constantObjects.remove(it.next());
@@ -110,17 +109,17 @@ public class ThirdLevel implements World {
         if(m.getY() == stick1.getY()){
             int center = (2*m.getX() + m.getWidth()) / 2;
             if(center < stick1.getX()+ stick1.getWidth() && center > stick1.getX()) {
-                m.setY(intersectionHeight+m.getHeight());
-                intersectionHeight += m.getHeight();
-                m.setX(( 2*stick1.getX()+ stick1.getWidth())/2);
+                intersectionHeight -= m.getHeight();
+                m.setY(intersectionHeight);
+                m.setX(( 2*stick1.getX()+ stick1.getWidth())/2 - 30);
                 stick1.registerObserver(m);
                 return true;
             }
             if(center < stick2.getX()+ stick2.getWidth() && center > stick2.getX()) {
-                m.setY(intersectionHeight+m.getHeight());
-                intersectionHeight += m.getHeight();
+                intersectionHeight2 -= m.getHeight();
+                m.setY(intersectionHeight2);
                 stick2.registerObserver(m);
-                m.setX(( 2*stick2.getX()+ stick2.getWidth())/2);
+                m.setX(( 2*stick2.getX()+ stick2.getWidth())/2 - 30);
                 return true;
             }
         }
