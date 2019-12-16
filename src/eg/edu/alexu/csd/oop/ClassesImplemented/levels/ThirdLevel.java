@@ -37,7 +37,7 @@ public class ThirdLevel implements World {
         controlableObjects.add(xr);
         Stick xrz = new Stick(465,490,"Resources/Sticks/leftstick_2.png");
         movableObjects.add(xrz);
-        Stick xry = new Stick(590,485,"Resources/Sticks/rightstick_2.png");
+        Stick xry = new Stick(700,490,"Resources/Sticks/rightstick_2.png");
         movableObjects.add(xry);
         xr.registerObserver(xrz);
         xr.registerObserver(xry);

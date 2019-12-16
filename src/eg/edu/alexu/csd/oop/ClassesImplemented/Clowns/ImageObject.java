@@ -26,8 +26,6 @@ public class ImageObject implements GameObject {
         this.y = posY;
         this.type = type;
         this.visible = true;
-        loader = Loader.getInstance();
-        spriteImages[0] = loader.getImage(path, 0.1);
     }
 
 
@@ -59,12 +57,12 @@ public class ImageObject implements GameObject {
 
     @Override
     public int getWidth() {
-        return spriteImages[0].getHeight();
+        return spriteImages[0].getWidth();
     }
 
     @Override
     public int getHeight() {
-        return spriteImages[0].getWidth();
+        return spriteImages[0].getHeight();
     }
 
     @Override
@@ -88,11 +86,15 @@ public class ImageObject implements GameObject {
         observers.add(o);
     }
 
-    public void notifyObservers(int diff) {
+    public boolean notifyObservers(int diff) {
         ArrayListIterator iterator = new ArrayListIterator(observers);
         while (iterator.hasNext()){
             Observer observer = (Observer)iterator.next();
-            observer.update(diff);
+            boolean correct = observer.update(diff);
+            if(!correct){
+                return false;
+            }
         }
+        return true;
     }
 }

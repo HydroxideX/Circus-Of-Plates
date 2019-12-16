@@ -1,16 +1,21 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Clowns;
 
+import eg.edu.alexu.csd.oop.ClassesImplemented.Loader;
+
 public class Clown extends ImageObject {
 
 
     public Clown(int posX, int posY, String path) {
         super(posX, posY, path);
-        spriteImages[0] = loader.getImageWithLengthAndWidth(path, 190,100);
-}
+        loader = Loader.getInstance();
+        spriteImages[0] = loader.getImageWithLengthAndWidth(path, 200,200);
+    }
 
     public Clown(int posX, int posY, String path, int type) {
         super(posX, posY, path, type);
-        spriteImages[0] = loader.getImageWithLengthAndWidth(path, 190,100);
+        loader = Loader.getInstance();
+        spriteImages[0] = loader.getImageWithLengthAndWidth(path, 200, 200);
+        System.out.println(spriteImages[0].getHeight() + " "+spriteImages[0].getWidth());
     }
 
     @Override
@@ -20,7 +25,7 @@ public class Clown extends ImageObject {
 
     @Override
     public void setX(int mX) {
-        notifyObservers(mX - this.x);
+        if(!notifyObservers(mX - this.x)) return;
         this.x = mX;
     }
 
