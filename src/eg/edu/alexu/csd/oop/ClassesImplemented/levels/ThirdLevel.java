@@ -33,12 +33,14 @@ public class ThirdLevel implements World {
         this.height= height;
         pf = (PlateFactory) PlateFactory.getInstance();
         pp = (PlatePool)PlatePool.getInstance();
-       ImageObject xr = new Clown(500, 480, "Resources/Clown/clown1.png", 1);
+        Clown xr = new Clown(500, 480, "Resources/Clown/clown1.png", 1);
         controlableObjects.add(xr);
-        ImageObject xrz = new Stick(460,485,"Resources/Sticks/leftstick_2.png");
-        controlableObjects.add(xrz);
-        ImageObject xry = new Stick(590,485,"Resources/Sticks/rightstick_2.png");
-        controlableObjects.add(xry);
+        Stick xrz = new Stick(460,485,"Resources/Sticks/leftstick_2.png");
+        constantObjects.add(xrz);
+        Stick xry = new Stick(590,485,"Resources/Sticks/rightstick_2.png");
+        constantObjects.add(xry);
+        xr.registerObserver(xrz);
+        xr.registerObserver(xry);
     }
 
     @Override
