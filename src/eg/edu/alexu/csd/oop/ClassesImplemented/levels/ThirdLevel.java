@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.levels;
 
+import eg.edu.alexu.csd.oop.ClassesImplemented.ArrayListIterator;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Background;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.ImageObject;
@@ -100,7 +101,6 @@ public class ThirdLevel implements World {
             if (intersect(m)) {
                 m.setState(new StackedState(m));
                 removed.add(m);
-                movableObjects.add(m);
             }
         }
         if(time == 0)
@@ -115,21 +115,70 @@ public class ThirdLevel implements World {
 
     boolean intersect(Plate m){
         int center = (2*m.getX() + m.getWidth()) / 2;
-        if(m.getY() == intersectionHeight && center < stick1.getX()+ stick1.getWidth() && center > stick1.getX()) {
+        if(m.getY()+m.getHeight() == intersectionHeight && center < stick1.getX()+ stick1.getWidth() && center > stick1.getX()) {
             intersectionHeight -= m.getHeight();
             m.setY(intersectionHeight);
             m.setX(( 2*stick1.getX()+ stick1.getWidth())/2 - 30);
             stick1.registerObserver(m);
+            movableObjects.add(m);
+            if(checkColor(stick1,1)){
+                removeLastThree(stick1,1);
+                score++;
+            }
             return true;
         }
-        if(m.getY() == intersectionHeight2 && center < stick2.getX()+ stick2.getWidth() && center > stick2.getX()) {
+        if(m.getY()+m.getHeight() == intersectionHeight2 && center < stick2.getX()+ stick2.getWidth() && center > stick2.getX()) {
             intersectionHeight2 -= m.getHeight();
             m.setY(intersectionHeight2);
             stick2.registerObserver(m);
             m.setX(( 2*stick2.getX()+ stick2.getWidth())/2 - 30);
+            movableObjects.add(m);
+            if(checkColor(stick2,2)){
+                removeLastThree(stick2,2);
+                score++;
+            }
             return true;
         }
         return false;
+    }
+
+    private boolean checkColor(Stick stick,int stickNo){
+        String lastColor="";
+        String color = "";
+        int count = 0;
+        Iterator it = stick.observers.iterator();
+        while(it.hasNext()){
+            Plate current = (Plate)it.next();
+            color = current.getColor();
+            if(color.equals(lastColor)) count++;
+            else count = 0;
+            if(count == 2) return true;
+            lastColor = color;
+        }
+        return false;
+    }
+
+    private void removeLastThree(Stick stick,int stickNo){
+        Iterator it = new ArrayListIterator(stick.observers);
+        for(int i = 0;i <3 ;i++) {
+            Plate m = (Plate)getLastAndRemove(stick);
+            movableObjects.remove(m);
+            if (stickNo == 1) {
+                intersectionHeight += m.getHeight();
+            } else {
+                intersectionHeight2 += m.getHeight();
+            }
+        }
+    }
+
+    private Object getLastAndRemove(Stick stick){
+        Iterator it = new ArrayListIterator(stick.observers);
+        Plate m = new Plate();
+        while(it.hasNext()){
+            m = (Plate)it.next();
+        }
+        it.remove();
+        return m;
     }
 
     @Override
@@ -139,7 +188,7 @@ public class ThirdLevel implements World {
 
     @Override
     public int getSpeed() {
-        return 1;
+        return 2;
     }
 
     @Override
