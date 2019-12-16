@@ -20,6 +20,7 @@ import java.util.List;
 
 public class ThirdLevel implements World {
     PlateFactory pf;
+    int time = 0;
     PlatePool pp ;
     Stick stick1;
     Stick stick2;
@@ -86,6 +87,10 @@ public class ThirdLevel implements World {
         ArrayList removed = new ArrayList();
         if(it.hasNext())
         it.next();
+        time++;
+        if(time == 300){
+            time = 0;
+        }
         while (it.hasNext()){
             Plate m = (Plate) it.next();
             m.setY((m.getY() + 1));
@@ -98,7 +103,7 @@ public class ThirdLevel implements World {
                 movableObjects.add(m);
             }
         }
-        if(constantObjects.size() < 10)
+        if(time == 0)
             constantObjects.add(pf.makePlate());
         it = removed.iterator();
         while(it.hasNext()){
