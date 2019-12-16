@@ -87,7 +87,7 @@ public class ThirdLevel implements World {
             Plate m = (Plate) it.next() ;
             m.setY((m.getY() + 1));
             if(m.getY() == getHeight()){
-                pp.add( m);
+               // pp.add( m);
                 it.remove();
             }
             if (intersect(m)) {
@@ -96,6 +96,7 @@ public class ThirdLevel implements World {
                 movableObjects.add(m);
             }
         }
+        if(constantObjects.size() < 10)
         constantObjects.add(pf.makePlate());
         it = removed.iterator();
         while(it.hasNext()){
