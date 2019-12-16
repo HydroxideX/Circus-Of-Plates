@@ -85,6 +85,7 @@ public class ThirdLevel implements World {
         GameObject spaceShip = controlableObjects.get(0);
         Iterator it = constantObjects.iterator();
         ArrayList removed = new ArrayList();
+
         while (it.hasNext()){
             Plate m = (Plate) it.next() ;
             m.setY((m.getY() + 1));
@@ -101,7 +102,6 @@ public class ThirdLevel implements World {
         while(it.hasNext()){
             constantObjects.remove(it.next());
         }
-
         return true;
     }
 
