@@ -46,7 +46,7 @@ public class PlateFactory implements IPlateFactory {
             plate = platePool.get(color + plateType);
         }
         else {
-            spriteImages = loader.getImage(dest + color + plateType + fileType);
+            spriteImages = loader.getImage(dest + color + plateType + fileType , 0.9);
             plate =(Plate) loader.getNewInstance(plateClassName);
             plate.setSpriteImages(spriteImages);
             plate.setColor(color);
