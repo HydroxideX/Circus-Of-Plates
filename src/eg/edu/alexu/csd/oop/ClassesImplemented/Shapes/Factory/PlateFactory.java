@@ -52,7 +52,7 @@ public class PlateFactory implements IPlateFactory {
             plate.setSpriteImages(spriteImages);
             plate.setColor(color);
         }
-        plate.setX(rand.nextInt(1150));
+        plate.setX(rand.nextInt(950));
         plate.setY(0);
         plate.isVisible = true;
         plate.setState(new FallingState(plate));
