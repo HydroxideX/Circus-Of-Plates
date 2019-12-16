@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Clown extends ImageObject {
-    
+
 
     public Clown(int posX, int posY, String path) {
         super(posX, posY, path);
