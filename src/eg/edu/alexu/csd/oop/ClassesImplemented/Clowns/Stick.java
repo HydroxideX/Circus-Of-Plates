@@ -7,9 +7,6 @@ import java.util.ArrayList;
 
 public class Stick extends ImageObject implements Observer {
 
-    ArrayList observers = new ArrayList();
-
-
     public Stick(int posX, int posY, String path) {
         super(posX, posY, path);
         loader = Loader.getInstance();
@@ -24,4 +21,5 @@ public class Stick extends ImageObject implements Observer {
         notifyObservers(diff);
         return true;
     }
+
 }
