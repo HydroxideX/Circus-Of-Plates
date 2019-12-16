@@ -40,14 +40,14 @@ public class ThirdLevel implements World {
         pp = (PlatePool)PlatePool.getInstance();
         Clown xr = new Clown(500, 480, "Resources/Clown/clown1.png", 1);
         controlableObjects.add(xr);
-        stick1 = new Stick(465,490,"Resources/Sticks/leftstick_2.png");
+       /* stick1 = new Stick(465,490,"Resources/Sticks/leftstick_2.png");
         movableObjects.add(stick1);
         stick2 = new Stick(700,490,"Resources/Sticks/rightstick_2.png");
         movableObjects.add(stick2);
         xr.registerObserver(stick1);
         xr.registerObserver(stick2);
         intersectionHeight = stick1.getY();
-        intersectionHeight2 = stick2.getY();
+        intersectionHeight2 = stick2.getY();*/
     }
 
     @Override
@@ -79,8 +79,7 @@ public class ThirdLevel implements World {
 
     @Override
     public boolean refresh() {
-        GameObject spaceShip = controlableObjects.get(0);
-        Iterator it = constantObjects.iterator();
+        Iterator it = movableObjects.iterator();
         ArrayList removed = new ArrayList();
         while (it.hasNext()){
             Plate m = (Plate) it.next() ;
@@ -89,18 +88,18 @@ public class ThirdLevel implements World {
                // pp.add( m);
                 it.remove();
             }
-            if (intersect(m)) {
+            /*if (intersect(m)) {
                 m.setState(new StackedState(m));
                 removed.add(m);
                 movableObjects.add(m);
-            }
+            }*/
         }
-        if(constantObjects.size() < 10)
-        constantObjects.add(pf.makePlate());
-        it = removed.iterator();
+        if(movableObjects.size() < 10)
+        movableObjects.add(pf.makePlate());
+        /*it = removed.iterator();
         while(it.hasNext()){
             constantObjects.remove(it.next());
-        }
+        }*/
         return true;
     }
 
