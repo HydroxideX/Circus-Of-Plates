@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.levels;
 
+import eg.edu.alexu.csd.oop.ClassesImplemented.Background;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.ImageObject;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Stick;
@@ -38,16 +39,18 @@ public class ThirdLevel implements World {
         this.height= height;
         pf = (PlateFactory) PlateFactory.getInstance();
         pp = (PlatePool)PlatePool.getInstance();
-        Clown xr = new Clown(500, 480, "Resources/Clown/clown1.png", 1);
-        controlableObjects.add(xr);
-       /* stick1 = new Stick(465,490,"Resources/Sticks/leftstick_2.png");
+        Clown firstClown = new Clown(500, 480, "Resources/Clown/clown1.png", 1);
+        controlableObjects.add(firstClown);
+        GameObject background = new Background(0,0,1000,700,"Resources/images.jpg");
+        constantObjects.add(background);
+        stick1 = new Stick(465,490,"Resources/Sticks/leftstick_2.png");
         movableObjects.add(stick1);
         stick2 = new Stick(700,490,"Resources/Sticks/rightstick_2.png");
         movableObjects.add(stick2);
-        xr.registerObserver(stick1);
-        xr.registerObserver(stick2);
+        firstClown.registerObserver(stick1);
+        firstClown.registerObserver(stick2);
         intersectionHeight = stick1.getY();
-        intersectionHeight2 = stick2.getY();*/
+        intersectionHeight2 = stick2.getY();
     }
 
     @Override
@@ -79,28 +82,28 @@ public class ThirdLevel implements World {
 
     @Override
     public boolean refresh() {
-        Iterator it = movableObjects.iterator();
+        Iterator it = constantObjects.iterator();
         ArrayList removed = new ArrayList();
-
+        if(it.hasNext())
+        it.next();
         while (it.hasNext()){
-            Plate m = (Plate) it.next() ;
+            Plate m = (Plate) it.next();
             m.setY((m.getY() + 1));
             if(m.getY() == getHeight()){
-               // pp.add( m);
                 it.remove();
             }
-            /*if (intersect(m)) {
+            if (intersect(m)) {
                 m.setState(new StackedState(m));
                 removed.add(m);
                 movableObjects.add(m);
-            }*/
+            }
         }
-        if(movableObjects.size() < 10)
-        movableObjects.add(pf.makePlate());
-        /*it = removed.iterator();
+        if(constantObjects.size() < 10)
+            constantObjects.add(pf.makePlate());
+        it = removed.iterator();
         while(it.hasNext()){
             constantObjects.remove(it.next());
-        }*/
+        }
         return true;
     }
 
