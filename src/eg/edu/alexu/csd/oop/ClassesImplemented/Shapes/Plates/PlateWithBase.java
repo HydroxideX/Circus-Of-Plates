@@ -5,9 +5,6 @@ import eg.edu.alexu.csd.oop.game.GameObject;
 import java.awt.image.BufferedImage;
 
 public class PlateWithBase extends Plate implements GameObject{
-    /*public PlateWithBase (int x , int y , int height , int width,String color,BufferedImage img){
-        super(x ,y ,height ,width, color, img);
-    }*/
     public String getType(){
         return "PlateWithBase";
     }

@@ -2,10 +2,10 @@ package eg.edu.alexu.csd.oop.ClassesImplemented.States;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
 
-public class FallingState extends State {
+public class FallingState implements IState {
     GameObject g ;
     public FallingState (GameObject g){
-       super(g);
+      this.g = g;
     }
     public void Update(int diff){
         int newY = g.getY()+diff;
