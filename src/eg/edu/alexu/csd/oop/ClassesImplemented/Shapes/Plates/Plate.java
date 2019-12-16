@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates;
 
+import eg.edu.alexu.csd.oop.ClassesImplemented.Observer;
 import eg.edu.alexu.csd.oop.ClassesImplemented.States.IState;
 import eg.edu.alexu.csd.oop.game.GameObject;
 
@@ -9,7 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Plate implements GameObject {
+public class Plate implements GameObject, Observer {
 
     private BufferedImage[] spriteImages = new BufferedImage[1];
     private int x, y, width = 100, height = 100;
@@ -74,5 +75,11 @@ public class Plate implements GameObject {
 
     public String getType() {
         return "NormalPlate";
+    }
+    public void setState(IState state){
+        this.state = state;
+    }
+    public void update (int diff){
+        state.Update(diff);
     }
 }

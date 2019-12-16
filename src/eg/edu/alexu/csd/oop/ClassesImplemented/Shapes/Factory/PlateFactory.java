@@ -4,6 +4,7 @@ import eg.edu.alexu.csd.oop.ClassesImplemented.Loader;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.PlateWithBase;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool.PlatePool;
+import eg.edu.alexu.csd.oop.ClassesImplemented.States.FallingState;
 import eg.edu.alexu.csd.oop.game.GameObject;
 
 import java.awt.image.BufferedImage;
@@ -51,9 +52,10 @@ public class PlateFactory implements IPlateFactory {
             plate.setSpriteImages(spriteImages);
             plate.setColor(color);
         }
-        plate.setX(rand.nextInt(1960));
+        plate.setX(rand.nextInt(1150));
         plate.setY(0);
         plate.isVisible = true;
+        plate.setState(new FallingState(plate));
         return (GameObject) plate;
     }
 }
