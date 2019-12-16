@@ -3,6 +3,7 @@ package eg.edu.alexu.csd.oop.ClassesImplemented.levels;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.ImageObject;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Stick;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.IPlateFactory;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.PlateWithBase;
@@ -18,13 +19,16 @@ import java.util.List;
 public class ThirdLevel implements World {
     PlateFactory pf;
     PlatePool pp ;
+    Stick stick1;
+    Stick stick2;
     private int width, height;
-    private String status;
+    private String status = "Score: ";
     private int score = 0;
     private long startTime = System.currentTimeMillis();
     private  List<GameObject> constantObjects;
     private  List<GameObject> movableObjects;
     private   List<GameObject> controlableObjects;
+    private int intersectionHeight;
     public ThirdLevel (int width,int height) {
         constantObjects = new ArrayList<>();
         movableObjects = new ArrayList<>();
@@ -35,12 +39,18 @@ public class ThirdLevel implements World {
         pp = (PlatePool)PlatePool.getInstance();
         Clown xr = new Clown(500, 480, "Resources/Clown/clown1.png", 1);
         controlableObjects.add(xr);
-        Stick xrz = new Stick(465,490,"Resources/Sticks/leftstick_2.png");
-        movableObjects.add(xrz);
-        Stick xry = new Stick(700,490,"Resources/Sticks/rightstick_2.png");
-        movableObjects.add(xry);
-        xr.registerObserver(xrz);
-        xr.registerObserver(xry);
+        stick1 = new Stick(465,490,"Resources/Sticks/leftstick_2.png");
+        movableObjects.add(stick1);
+        stick2 = new Stick(700,490,"Resources/Sticks/rightstick_2.png");
+        movableObjects.add(stick2);
+        xr.registerObserver(stick1);
+        xr.registerObserver(stick2);
+        intersectionHeight = stick1.getY();
+        constantObjects.add(pf.makePlate());
+        constantObjects.add(pf.makePlate());
+        constantObjects.add(pf.makePlate());
+        constantObjects.add(pf.makePlate());
+        constantObjects.add(pf.makePlate());
     }
 
     @Override
@@ -72,24 +82,54 @@ public class ThirdLevel implements World {
 
     @Override
     public boolean refresh() {
-        //GameObject spaceShip = controlableObjects.get(0);
-        /*Iterator<GameObject> it = constantObjects.iterator();
+        GameObject spaceShip = controlableObjects.get(0);
+        Iterator it = constantObjects.iterator();
+        ArrayList removed = new ArrayList();
         while (it.hasNext()){
-            GameObject m = it.next() ;
+            Plate m = (Plate) it.next() ;
             m.setY((m.getY() + 1));
-            if(m.getY()==getHeight()){
-                // reuse the star in another position
-                pp.add((Plate) m);
+            if(m.getY() == getHeight()){
+                pp.add( m);
                 it.remove();
             }
+            if (intersect(m)) {
+                removed.add(m);
+                movableObjects.add(m);
+            }
         }
-        constantObjects.add(pf.makePlate());*/
+        it = removed.iterator();
+        while(it.hasNext()){
+            constantObjects.remove(it.next());
+        }
+
         return true;
+    }
+
+
+    boolean intersect(Plate m){
+        if(m.getY() == stick1.getY()){
+            int center = (2*m.getX() + m.getWidth()) / 2;
+            if(center < stick1.getX()+ stick1.getWidth() && center > stick1.getX()) {
+                m.setY(intersectionHeight+m.getHeight());
+                intersectionHeight += m.getHeight();
+                m.setX(( 2*stick1.getX()+ stick1.getWidth())/2);
+                stick1.registerObserver(m);
+                return true;
+            }
+            if(center < stick2.getX()+ stick2.getWidth() && center > stick2.getX()) {
+                m.setY(intersectionHeight+m.getHeight());
+                intersectionHeight += m.getHeight();
+                stick2.registerObserver(m);
+                m.setX(( 2*stick2.getX()+ stick2.getWidth())/2);
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
     public String getStatus() {
-        return status;
+        return status+ " "+ score;
     }
 
     @Override
@@ -99,6 +139,6 @@ public class ThirdLevel implements World {
 
     @Override
     public int getControlSpeed() {
-        return 10;
+        return 20;
     }
 }
