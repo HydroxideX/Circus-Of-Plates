@@ -6,7 +6,7 @@ import java.util.Iterator;
 public class ArrayIterator implements Iterator {
     private Object[] array;
     private int i;
-    ArrayIterator(Object[] x){
+    public ArrayIterator(Object[] x){
         array = x;
         i = 0;
     }
