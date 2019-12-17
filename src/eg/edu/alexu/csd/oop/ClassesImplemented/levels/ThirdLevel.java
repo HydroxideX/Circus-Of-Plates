@@ -41,7 +41,7 @@ public class ThirdLevel implements World {
         this.height= height;
         pf = (PlateFactory) PlateFactory.getInstance();
         pp = (PlatePool)PlatePool.getInstance();
-        Clown firstClown = new Clown(500, 480, "Resources/Clown/clown1.png", 1);
+        Clown firstClown = new Clown(500, 480, "Resources/yahia.jpg", 1);
         controlableObjects.add(firstClown);
         GameObject background = new Background(0,0,1000,700,"Resources/images.jpg");
         constantObjects.add(background);
