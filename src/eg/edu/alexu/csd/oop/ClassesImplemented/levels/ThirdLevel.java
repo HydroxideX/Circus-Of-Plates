@@ -104,7 +104,7 @@ public class ThirdLevel implements World {
             }
         }
         if(time == 0)
-            constantObjects.add(pf.makePlate());
+            constantObjects.add(pf.makePlate(11));
         it = removed.iterator();
         while(it.hasNext()){
             constantObjects.remove(it.next());

@@ -104,7 +104,7 @@ public class FirstLevel implements World {
             }
         }
         if(time == 0)
-            constantObjects.add(pf.makePlate());
+            constantObjects.add(pf.makePlate(3));
         it = removed.iterator();
         while(it.hasNext()){
             constantObjects.remove(it.next());
