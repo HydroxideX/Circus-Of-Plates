@@ -41,6 +41,7 @@ public class ChooseChar extends Application {
             e.printStackTrace();
         }
         Button clown2=new Button(null,clown);
+        clown2.setStyle("-fx-base: mistyrose;");
         clown2.setOnAction(e->{
             Levels.clownPath="Resources/Clown/clown2.png";
         });
@@ -52,6 +53,7 @@ public class ChooseChar extends Application {
             e.printStackTrace();
         }
         Button clown3=new Button(null,clown);
+        clown3.setStyle("-fx-base: mistyrose;");
         clown3.setOnAction(e->{
             Levels.clownPath="Resources/Clown/clown3.png";
         });   try {
@@ -62,6 +64,7 @@ public class ChooseChar extends Application {
             e.printStackTrace();
         }
         Button clown4=new Button(null,clown);
+        clown4.setStyle("-fx-base: mistyrose;");
         clown4.setOnAction(e->{
             Levels.clownPath="Resources/Clown/clown4.png";
         });try {
@@ -72,6 +75,7 @@ public class ChooseChar extends Application {
             e.printStackTrace();
         }
         Button clown5=new Button(null,clown);
+        clown5.setStyle("-fx-base: mistyrose;");
         clown5.setOnAction(e->{
             Levels.clownPath="Resources/Clown/clown5.png";
         });

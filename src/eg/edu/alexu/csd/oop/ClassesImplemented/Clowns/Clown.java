@@ -4,20 +4,41 @@ import eg.edu.alexu.csd.oop.ClassesImplemented.ArrayListIterator;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.Loader;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Observer;
 
+import java.util.ArrayList;
+
 public class Clown extends ImageObject {
+    public Stick stick1 = new Stick(465,490,"Resources/Sticks/leftstick_2.png");
+    public Stick stick2 = new Stick(700,490,"Resources/Sticks/rightstick_2.png");
 
-
-    public Clown(int posX, int posY, String path) {
-        super(posX, posY, path);
+    public Clown(int posX, int posY, String clownPath) {
+        super(posX, posY, clownPath);
         loader = Loader.getInstance();
-        spriteImages[0] = loader.getImageWithLengthAndWidth(path, 200,200);
+        Clown firstClown = new Clown(500, 480, clownPath, 1);
+        if(clownPath.contains("1") || clownPath.contains("2") ) {
+            spriteImages[0] = loader.getImageWithLengthAndWidth(clownPath, 200,200);
+            stick1 = new Stick(this.getX()-35,this.getY()+ 5,"Resources/Sticks/leftstick_2.png");
+            stick2 = new Stick(this.getX()+195,this.getY()+5,"Resources/Sticks/rightstick_2.png");
+        }
+        else {
+            spriteImages[0] = loader.getImageWithLengthAndWidth(clownPath, 200, 200);
+            stick1 = new Stick(this.getX()-32,this.getY() + 80,"Resources/Sticks/leftstick_2.png");
+            stick2 = new Stick(this.getX()+195,this.getY() + 80,"Resources/Sticks/rightstick_2.png");
+        }
     }
 
-    public Clown(int posX, int posY, String path, int type) {
-        super(posX, posY, path, type);
+    public Clown(int posX, int posY, String clownPath, int type) {
+        super(posX, posY, clownPath, type);
         loader = Loader.getInstance();
-        spriteImages[0] = loader.getImageWithLengthAndWidth(path, 200, 200);
-        System.out.println(spriteImages[0].getHeight() + " "+spriteImages[0].getWidth());
+        if(clownPath.contains("1") || clownPath.contains("2") ) {
+            spriteImages[0] = loader.getImageWithLengthAndWidth(clownPath, 200,200);
+            stick1 = new Stick(this.getX()-35,this.getY()+ 5,"Resources/Sticks/leftstick_2.png");
+            stick2 = new Stick(this.getX()+195,this.getY()+5,"Resources/Sticks/rightstick_2.png");
+        }
+        else {
+            spriteImages[0] = loader.getImageWithLengthAndWidth(clownPath, 200, 200);
+            stick1 = new Stick(this.getX()-32,this.getY() + 80,"Resources/Sticks/leftstick_2.png");
+            stick2 = new Stick(this.getX()+192,this.getY() + 80,"Resources/Sticks/rightstick_2.png");
+        }
     }
 
     @Override
@@ -51,3 +72,5 @@ public class Clown extends ImageObject {
     }
 
 }
+
+
