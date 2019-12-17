@@ -1,9 +1,7 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Clowns;
 
-import eg.edu.alexu.csd.oop.ClassesImplemented.Loader;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.Loader;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Observer;
-
-import java.util.ArrayList;
 
 public class Stick extends ImageObject implements Observer {
 

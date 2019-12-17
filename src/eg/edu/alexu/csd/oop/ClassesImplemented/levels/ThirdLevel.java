@@ -10,11 +10,13 @@ import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.PlateWithBase;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool.PlatePool;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.Shelf;
 import eg.edu.alexu.csd.oop.ClassesImplemented.States.StackedState;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 import javafx.print.PageLayout;
 
+import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -53,6 +55,11 @@ public class ThirdLevel implements World {
         firstClown.registerObserver(stick2);
         intersectionHeight = stick1.getY();
         intersectionHeight2 = stick2.getY();
+
+
+        constantObjects.add(new Shelf(0 , 50));
+        constantObjects.add(new Shelf(0 , 100));
+
     }
 
     @Override
@@ -86,7 +93,7 @@ public class ThirdLevel implements World {
     public boolean refresh() {
         Iterator it = constantObjects.iterator();
         ArrayList removed = new ArrayList();
-        if(it.hasNext())
+        for(int i=0 ;i<3 && it.hasNext() ; i++)
         it.next();
         time++;
         if(time == 300){
@@ -94,7 +101,8 @@ public class ThirdLevel implements World {
         }
         while (it.hasNext()){
             Plate m = (Plate) it.next();
-            m.setY((m.getY() + 1));
+            m.update(1);
+            //m.setY((m.getY() + 1));
             if(m.getY() == getHeight()){
                 it.remove();
             }

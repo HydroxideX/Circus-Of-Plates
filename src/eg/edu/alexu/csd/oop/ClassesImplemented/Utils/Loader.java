@@ -1,4 +1,4 @@
-package eg.edu.alexu.csd.oop.ClassesImplemented;
+package eg.edu.alexu.csd.oop.ClassesImplemented.Utils;
 
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.game.GameObject;

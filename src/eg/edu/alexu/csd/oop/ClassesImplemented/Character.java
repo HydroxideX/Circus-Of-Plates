@@ -1,13 +1,9 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented;
 
+import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.Loader;
 import eg.edu.alexu.csd.oop.game.GameObject;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 public class Character implements GameObject {
     private BufferedImage[] spriteImages;
