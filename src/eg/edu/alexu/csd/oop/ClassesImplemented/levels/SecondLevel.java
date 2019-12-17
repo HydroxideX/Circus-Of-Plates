@@ -1,5 +1,7 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.levels;
 
+import eg.edu.alexu.csd.oop.ClassesImplemented.ArrayIterator;
+import eg.edu.alexu.csd.oop.ClassesImplemented.ArrayListIterator;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Background;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
@@ -23,8 +25,11 @@ public class SecondLevel extends newWorld {
         pp = (PlatePool)PlatePool.getInstance();
         GameObject background = new Background(0,0,1000,700,"Resources/images.jpg");
         constantObjects.add(background);
-        Clown firstClown = new Clown(500, 480, clownPath, 1);
+        Clown firstClown = new Clown(200, 480, clownPath, 1);
         clownsArray.add(firstClown);
+        Clown secondClown = new Clown(500, 480, clownPath, 1);
+        clownsArray.add(secondClown);
+        clownsX = new Integer[clownsArray.size()];
         addClownsAndEverything(clownsArray,sticksArray,movableObjects,controlableObjects,clownsX);
     }
 
@@ -56,6 +61,29 @@ public class SecondLevel extends newWorld {
         it = removed.iterator();
         while(it.hasNext()){
             constantObjects.remove(it.next());
+        }
+        ArrayIterator iterator = new ArrayIterator(clownsX);
+        ArrayListIterator iterator1 = new ArrayListIterator(clownsArray);
+        int diff = clownsArray.get(0).getX() - clownsX[0];
+        Clown clown;
+        while (iterator.hasNext()) {
+            clown = (Clown) iterator1.next();
+            Integer x = (Integer) iterator.next();
+            if (diff != clown.getX() - x){
+                iterator = new ArrayIterator(clownsX);
+                iterator1 = new ArrayListIterator(clownsArray);
+                while (iterator.hasNext()) {
+                    clown = (Clown) iterator1.next();
+                    clown.setX((Integer) iterator.next());
+                }
+                break;
+            }
+        }
+        iterator1 = new ArrayListIterator(clownsArray);
+        int counter = 0;
+        while (iterator1.hasNext()) {
+            clown = (Clown) iterator1.next();
+            clownsX[counter++] = clown.getX();
         }
         return true;
     }
