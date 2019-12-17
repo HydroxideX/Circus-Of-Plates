@@ -33,7 +33,7 @@ public class ThirdLevel implements World {
     private  List<GameObject> movableObjects;
     private   List<GameObject> controlableObjects;
     private int intersectionHeight,intersectionHeight2;
-    public ThirdLevel (int width,int height) {
+    public ThirdLevel (int width,int height,String clownPath) {
         constantObjects = new ArrayList<>();
         movableObjects = new ArrayList<>();
         controlableObjects = new ArrayList<>();
@@ -41,7 +41,7 @@ public class ThirdLevel implements World {
         this.height= height;
         pf = (PlateFactory) PlateFactory.getInstance();
         pp = (PlatePool)PlatePool.getInstance();
-        Clown firstClown = new Clown(500, 480, "Resources/yahia.jpg", 1);
+        Clown firstClown = new Clown(500, 480, clownPath, 1);
         controlableObjects.add(firstClown);
         GameObject background = new Background(0,0,1000,700,"Resources/images.jpg");
         constantObjects.add(background);

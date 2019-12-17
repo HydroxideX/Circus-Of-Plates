@@ -23,8 +23,8 @@ public class Gui extends Application {
         Button exit=new Button("Exit");
         Button options=new Button("Options");
         play.setOnAction(e->{
-            NotYahiasAwesomeGame.main(new String[2]);
-            primaryStage.show();
+            Levels levels=new Levels();
+            levels.start(new Stage());
         });
         exit.setOnAction(e->{
             System.exit(0);

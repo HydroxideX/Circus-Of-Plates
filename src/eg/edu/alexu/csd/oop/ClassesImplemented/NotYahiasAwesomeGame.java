@@ -1,6 +1,7 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented;
 
 import eg.edu.alexu.csd.oop.ClassesImplemented.levels.FirstLevel;
+import eg.edu.alexu.csd.oop.ClassesImplemented.levels.SecondLevel;
 import eg.edu.alexu.csd.oop.ClassesImplemented.levels.ThirdLevel;
 import eg.edu.alexu.csd.oop.game.GameEngine;
 
@@ -10,7 +11,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class NotYahiasAwesomeGame {
-    public static void main(String[] args) {
+    private static String levelName;
+    private static String clownPath;
+    public NotYahiasAwesomeGame(String levelName, String clownPath)
+    {
+        NotYahiasAwesomeGame.levelName =levelName;
+        NotYahiasAwesomeGame.clownPath =clownPath;
+    }
+    public void Start () {
         JMenuBar  menuBar = new JMenuBar();;
         JMenu menu = new JMenu("File");
         JMenuItem newMenuItem = new JMenuItem("New");
@@ -21,22 +29,77 @@ public class NotYahiasAwesomeGame {
         menu.add(pauseMenuItem);
         menu.add(resumeMenuItem);
         menuBar.add(menu);
+        if(levelName.equals("level3")) {
 
-        final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new ThirdLevel(1000, 700),menuBar,2, Color.WHITE);
-        newMenuItem.addActionListener(new ActionListener() {
-            @Override public void actionPerformed(ActionEvent e) {
-                gameController.changeWorld(new ThirdLevel(1000, 700));
-            }
-        });
-        pauseMenuItem.addActionListener(new ActionListener() {
-            @Override public void actionPerformed(ActionEvent e) {
-                gameController.pause();
-            }
-        });
-        resumeMenuItem.addActionListener(new ActionListener() {
-            @Override public void actionPerformed(ActionEvent e) {
-                gameController.resume();
-            }
-        });
+            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new ThirdLevel(1000, 700,clownPath), menuBar, 2, Color.WHITE);
+
+            newMenuItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    gameController.changeWorld(new ThirdLevel(1000, 700, clownPath));
+                }
+            });
+
+            pauseMenuItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    gameController.pause();
+                }
+            });
+            resumeMenuItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    gameController.resume();
+                }
+            });
+        }
+        else if(levelName.equals("level2")) {
+
+            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new SecondLevel(1000, 700,clownPath), menuBar, 2, Color.WHITE);
+
+            newMenuItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    gameController.changeWorld(new SecondLevel(1000, 700, clownPath));
+                }
+            });
+
+            pauseMenuItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    gameController.pause();
+                }
+            });
+            resumeMenuItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    gameController.resume();
+                }
+            });
+        }
+        else if(levelName.equals("level1")) {
+
+            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new FirstLevel(1000, 700,clownPath), menuBar, 2, Color.WHITE);
+
+            newMenuItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    gameController.changeWorld(new FirstLevel(1000, 700, clownPath));
+                }
+            });
+
+            pauseMenuItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    gameController.pause();
+                }
+            });
+            resumeMenuItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    gameController.resume();
+                }
+            });
+        }
     }
 }

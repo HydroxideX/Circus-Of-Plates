@@ -19,7 +19,8 @@ public class Options extends Application {
         VBox vBox=new VBox();
         Button chooseChar=new Button("Choose Character");
         chooseChar.setOnAction(e->{
-
+            ChooseChar chooseChar1=new ChooseChar();
+            chooseChar1.start(new Stage());
         });
         Button audio =new Button("Audio");
         audio.setOnAction(e->{
