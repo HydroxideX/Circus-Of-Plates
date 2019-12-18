@@ -34,6 +34,8 @@ public class Gui extends Application {
     }
     static MediaPlayer mediaPlayer;
     static boolean muteAduio=false;
+    static ArrayList<MediaPlayer> mediaPlayers;
+    static File[] directoryListing;
     @Override
     public void start(Stage primaryStage) {
         playMusic();
@@ -156,8 +158,8 @@ public class Gui extends Application {
         });
         mediaPlayer.play();*/
         File dir = new File("Resources/Audio");
-        File[] directoryListing = dir.listFiles();
-        ArrayList<MediaPlayer> mediaPlayers=new ArrayList<>();
+        directoryListing = dir.listFiles();
+        mediaPlayers=new ArrayList<>();
         if (directoryListing != null) {
             for (File child : directoryListing) {
                  Media sound = new Media(new File(child.getPath()).toURI().toString());
@@ -165,7 +167,6 @@ public class Gui extends Application {
                 mediaPlayers.add(mediaPlayer);
             }
             mediaPlayer=mediaPlayers.get(0);
-            mediaPlayer.play();
             for (int i = 0; i < mediaPlayers.size(); i++) {
                 final MediaPlayer player     = mediaPlayers.get(i);
                 final MediaPlayer nextPlayer = mediaPlayers.get((i + 1) % mediaPlayers.size());
@@ -176,6 +177,8 @@ public class Gui extends Application {
                     }
                 });
             }
+            mediaPlayer=mediaPlayers.get((int) (Math.random()*(mediaPlayers.size()-1)));
+            mediaPlayer.play();
         }
     }
 }

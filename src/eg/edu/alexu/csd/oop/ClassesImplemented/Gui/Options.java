@@ -107,11 +107,8 @@ public class Options extends Application {
         audio.setTranslateY(-20);
         audio.setStyle("-fx-background-color: transparent;");
         audio.setOnAction(e->{
-            Gui.mediaPlayer.setMute(true);
-            Gui.muteAduio= !Gui.muteAduio;
-            if(!Gui.muteAduio) {
-                Gui.mediaPlayer.setMute(false);
-            }
+            Music music=new Music();
+            music.start(new Stage());
         });
         try {
             clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/BackB.png")));
