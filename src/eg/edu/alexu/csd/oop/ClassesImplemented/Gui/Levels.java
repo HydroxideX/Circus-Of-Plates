@@ -76,7 +76,7 @@ public class Levels extends Application {
         level1.setOnAction(e->{
             NotYahiasAwesomeGame notYahiasAwesomeGame=new NotYahiasAwesomeGame("level1",clownPath);
             notYahiasAwesomeGame.Start();
-            playMusic();
+           // playMusic();
             primaryStage.close();
         });
         try {
@@ -109,7 +109,7 @@ public class Levels extends Application {
         level2.setOnAction(e->{
             NotYahiasAwesomeGame notYahiasAwesomeGame=new NotYahiasAwesomeGame("level2",clownPath);
             notYahiasAwesomeGame.Start();
-            playMusic();
+            //playMusic();
             primaryStage.close();
         });
         try {
@@ -142,7 +142,7 @@ public class Levels extends Application {
         level3.setOnAction(e->{
             NotYahiasAwesomeGame notYahiasAwesomeGame=new NotYahiasAwesomeGame("level3",clownPath);
             notYahiasAwesomeGame.Start();
-            playMusic();
+            //playMusic();
             primaryStage.close();
         });
         try {
