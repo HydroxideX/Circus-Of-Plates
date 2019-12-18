@@ -112,6 +112,8 @@ public class newWorld implements World {
         }
         if (time == 0)
             shelfhandler.throwPlates();
+        //test only
+        shelfhandler.makeSpecialPlates();
         //constantObjects.add(rm.makePlate(5));
         it = removed.iterator();
         while (it.hasNext()) {
