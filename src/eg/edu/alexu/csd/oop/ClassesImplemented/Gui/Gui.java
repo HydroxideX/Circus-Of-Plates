@@ -141,7 +141,9 @@ public class Gui extends Application {
             }
         });
         mediaPlayer.play();*/
-        File dir = new File("Audio");
+       // String path=getClass().getClassLoader().getResource("database.properties").getFile().toString();
+        File dir = new File(getClass().getClassLoader().getResource("Resources/Audio").getFile());
+        boolean x=dir.exists();
         directoryListing = dir.listFiles();
         mediaPlayers=new ArrayList<>();
         if (directoryListing != null) {
