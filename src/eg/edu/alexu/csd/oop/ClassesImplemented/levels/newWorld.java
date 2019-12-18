@@ -34,7 +34,6 @@ public class newWorld implements World {
     ArrayList<Clown> clownsArray = new ArrayList<>();
     intersectPlates intersection = new intersectPlates();
     Integer[] clownsX;
-    // Randomizer rm ;
     ShelfHandler shelfhandler;
 
     public void addClownsAndEverything(ArrayList<Clown> clownsArray, ArrayList<Pair<Stick, Integer>> sticksArray, List<GameObject> movableObjects, List<GameObject> controlableObjects, Integer[] clownsX) {
@@ -105,7 +104,6 @@ public class newWorld implements World {
         }
         if (time == 0)
             shelfhandler.throwPlates();
-        //constantObjects.add(rm.makePlate(5));
         it = removed.iterator();
         while (it.hasNext()) {
             constantObjects.remove(it.next());

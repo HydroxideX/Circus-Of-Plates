@@ -37,7 +37,6 @@ public class ShelfHandler {
     public void makePlates() {
         for (int i = 0; i < shelfObjects.size(); i++) shelfObjects.get(i).makePlate(mode);
     }
-
     public synchronized void updateShelfs() {
         for (int i = 0; i < shelfObjects.size(); i++) shelfObjects.get(i).update();
 

@@ -30,23 +30,21 @@ public class Loader {
     }
 
     public BufferedImage getImage(String path, double scale) {
-        // System.out.println(path);
         classLoader = Thread.currentThread().getContextClassLoader();
         InputStream input = classLoader.getResourceAsStream(path.toLowerCase());
         BufferedImage bufferedImage;
-        // return Thumbnails.of(ImageIO.read(new File(path))).scale(scale).asBufferedImage();
         bufferedImage = getImage(path);
         int width = (int) (bufferedImage.getWidth() * scale), height = (int) (bufferedImage.getHeight() * scale);
         bufferedImage = Scalr.resize(bufferedImage, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.FIT_TO_WIDTH, width, height, Scalr.OP_ANTIALIAS);
         return bufferedImage;
     }
+    public void loadAllImages (){
 
+    }
     public BufferedImage getImageWithLengthAndWidth(String path, int length, int width) {
-        // System.out.println(path);
         classLoader = Thread.currentThread().getContextClassLoader();
         InputStream input = classLoader.getResourceAsStream(path.toLowerCase());
         BufferedImage bufferedImage;
-        // return Thumbnails.of(ImageIO.read(new File(path))).scale(scale).asBufferedImage();
         bufferedImage = getImage(path);
         bufferedImage = Scalr.resize(bufferedImage, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.FIT_EXACT, width, length, Scalr.OP_ANTIALIAS);
         return bufferedImage;
