@@ -44,6 +44,29 @@ public class Randomizer {
         movableObjects.add(p);
         platesOnShelf.add(p);
     }
+
+    public void makeSpecialPlate() {
+        Plate p;
+        if (platesOnShelf.size() > 0) {
+            p = (Plate) platesOnShelf.get(platesOnShelf.size() - 1);
+            if ((diff==1 && p.getX() - 100 < 0)|(diff==-1 && p.getX() + 100 > 1200)) {
+                return;
+            }
+        }
+        p = (Plate) pf.makeSpecialPlate();
+        p.setX(minX);
+        p.setY(minY);
+        movableObjects.add(p);
+        platesOnShelf.add(p);
+        int x = (platesOnShelf.size()==1)?0:(randNum.nextInt(platesOnShelf.size()-1)) ;
+        p = (Plate) platesOnShelf.get(x);
+        platesOnShelf.remove(p);
+        movableObjects.remove(p);
+        p.setState(new FallingState(p));
+        constantObjects.add(p);
+        this.makeSpecialPlate();
+    }
+
     public synchronized void  update() {
         for (int i = 0; i < platesOnShelf.size(); i++) {
             Plate p = (Plate) platesOnShelf.get(i);
