@@ -11,15 +11,19 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Collections;
 
 public class Levels extends Application {
-    public static String clownPath="Resources/Clown/clown1.png";
+    public static String clownPath="Clown/clown1.png";
 
     public static void main(String[] args) {
         launch(args);
@@ -29,27 +33,19 @@ public class Levels extends Application {
     public void start(Stage primaryStage) {
         VBox vBox=new VBox();
         vBox.setSpacing(10);
-        try {
-            vBox.setBackground(
-                    new Background(null,
-                            Collections.singletonList(new BackgroundImage(
-                                    new Image(new FileInputStream("Resources/menuBackground.png"), 300, 400, false, true),
-                                    BackgroundRepeat.NO_REPEAT,
-                                    BackgroundRepeat.NO_REPEAT,
-                                    BackgroundPosition.DEFAULT,
-                                    BackgroundSize.DEFAULT))));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        vBox.setBackground(
+                new Background(null,
+                        Collections.singletonList(new BackgroundImage(
+                                new Image("Resources/menuBackground.png", 300, 400, false, true),
+                                BackgroundRepeat.NO_REPEAT,
+                                BackgroundRepeat.NO_REPEAT,
+                                BackgroundPosition.DEFAULT,
+                                BackgroundSize.DEFAULT))));
         vBox.setAlignment(Pos.CENTER);
         ImageView clown= null;
-        try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/EasyB.png")));
-            clown.setFitWidth(150);
-            clown.setFitHeight(30);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        clown = new ImageView(new Image("Resources/Buttons/EasyB.png"));
+        clown.setFitWidth(150);
+        clown.setFitHeight(30);
         Button level1 = new Button(null, clown);
         DropShadow shadow = new DropShadow();
 //Adding the shadow when the mouse cursor is on
@@ -75,13 +71,9 @@ public class Levels extends Application {
            // playMusic();
             primaryStage.close();
         });
-        try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/MediumB.png")));
-            clown.setFitWidth(150);
-            clown.setFitHeight(30);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        clown = new ImageView(new Image("Resources/Buttons/MediumB.png"));
+        clown.setFitWidth(150);
+        clown.setFitHeight(30);
         Button level2 = new Button(null, clown);
          shadow = new DropShadow();
 //Adding the shadow when the mouse cursor is on
@@ -108,13 +100,9 @@ public class Levels extends Application {
             //playMusic();
             primaryStage.close();
         });
-        try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/HardB.png")));
-            clown.setFitWidth(150);
-            clown.setFitHeight(30);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        clown = new ImageView(new Image("Resources/Buttons/HardB.png"));
+        clown.setFitWidth(150);
+        clown.setFitHeight(30);
         Button level3 = new Button(null, clown);
         shadow = new DropShadow();
 //Adding the shadow when the mouse cursor is on
@@ -138,16 +126,12 @@ public class Levels extends Application {
         level3.setOnAction(e->{
             NotYahiasAwesomeGame notYahiasAwesomeGame=new NotYahiasAwesomeGame("level3",clownPath);
             notYahiasAwesomeGame.Start();
-            playMusic();
+            //playMusic();
             primaryStage.close();
         });
-        try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/BackB.png")));
-            clown.setFitWidth(150);
-            clown.setFitHeight(30);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        clown = new ImageView(new Image("Resources/Buttons/BackB.png"));
+        clown.setFitWidth(150);
+        clown.setFitHeight(30);
         Button back= new Button(null, clown);
          finalShadow1 = finalShadow;
         DropShadow finalShadow2 = finalShadow1;
@@ -179,10 +163,16 @@ public class Levels extends Application {
     private void playMusic()
     {
         Gui.mediaPlayer.setMute(true);
-        if(!Gui.muteAudio)
+        if(!Gui.muteAduio)
         {
-            Gui.mediaPlayer.pause();
-            Gui.mediaPlayer = Gui.mediaPlayers.get(0);
+            String musicFile = "Resources/Audio/NyaNya.mp3";     // For example
+            Media sound = new Media(new File(musicFile).toURI().toString());
+            Gui.mediaPlayer = new MediaPlayer(sound);
+           Gui. mediaPlayer.setOnEndOfMedia(new Runnable() {
+                public void run() {
+                    Gui.mediaPlayer.seek(Duration.ZERO);
+                }
+            });
            Gui.mediaPlayer.play();
         }
     }

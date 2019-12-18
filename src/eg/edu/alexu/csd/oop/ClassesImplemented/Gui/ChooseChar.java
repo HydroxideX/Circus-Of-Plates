@@ -26,13 +26,9 @@ public class ChooseChar extends Application {
     @Override
     public void start(Stage primaryStage) {
         ImageView clown= null;
-        try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/Clown/clown1.png")));
-            clown.setFitWidth(70);
-            clown.setFitHeight(85);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        clown = new ImageView(new Image("Resources/Clown/clown1.png"));
+        clown.setFitWidth(70);
+        clown.setFitHeight(85);
         Button clown1 = new Button(null, clown);
         DropShadow shadow = new DropShadow();
 //Adding the shadow when the mouse cursor is on
@@ -57,13 +53,9 @@ public class ChooseChar extends Application {
             Levels.clownPath="Resources/Clown/clown1.png";
             primaryStage.close();
         });
-        try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/Clown/clown2.png")));
-            clown.setFitWidth(70);
-            clown.setFitHeight(85);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        clown = new ImageView(new Image("Resources/Clown/clown2.png"));
+        clown.setFitWidth(70);
+        clown.setFitHeight(85);
         Button clown2=new Button(null,clown);
         shadow = new DropShadow();
 //Adding the shadow when the mouse cursor is on
@@ -87,17 +79,13 @@ public class ChooseChar extends Application {
 
         clown2.setStyle("-fx-background-color: transparent;");
         clown2.setOnAction(e->{
-            Levels.clownPath="Resources/Clown/clown2.png";
+            Levels.clownPath="Clown/clown2.png";
             primaryStage.close();
 
         });
-        try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/Clown/clown3.png")));
-            clown.setFitWidth(70);
-            clown.setFitHeight(85);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        clown = new ImageView(new Image("Resources/Clown/clown3.png"));
+        clown.setFitWidth(70);
+        clown.setFitHeight(85);
         Button clown3=new Button(null,clown);
         shadow = new DropShadow();
 //Adding the shadow when the mouse cursor is on
@@ -121,16 +109,13 @@ public class ChooseChar extends Application {
 
         clown3.setStyle("-fx-background-color: transparent;");
         clown3.setOnAction(e->{
-            Levels.clownPath="Resources/Clown/clown3.png";
+            Levels.clownPath="Clown/clown3.png";
             primaryStage.close();
 
-        });   try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/Clown/clown4.png")));
-            clown.setFitWidth(70);
-            clown.setFitHeight(85);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        });
+        clown = new ImageView(new Image("Resources/Clown/clown4.png"));
+        clown.setFitWidth(70);
+        clown.setFitHeight(85);
         Button clown4=new Button(null,clown);
         shadow = new DropShadow();
 //Adding the shadow when the mouse cursor is on
@@ -154,16 +139,13 @@ public class ChooseChar extends Application {
         clown4.setTranslateY(-30);
 
         clown4.setOnAction(e->{
-            Levels.clownPath="Resources/Clown/clown4.png";
+            Levels.clownPath="Clown/clown4.png";
             primaryStage.close();
 
-        });try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/Clown/clown5.png")));
-            clown.setFitWidth(70);
-            clown.setFitHeight(85);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        });
+        clown = new ImageView(new Image("Resources/Clown/clown5.png"));
+        clown.setFitWidth(70);
+        clown.setFitHeight(85);
         Button clown5=new Button(null,clown);
         shadow = new DropShadow();
 //Adding the shadow when the mouse cursor is on
@@ -187,34 +169,26 @@ public class ChooseChar extends Application {
         clown5.setTranslateY(-30);
 
         clown5.setOnAction(e->{
-            Levels.clownPath="Resources/Clown/clown5.png";
+            Levels.clownPath="Clown/clown5.png";
             primaryStage.close();
 
         });
         HBox hBox=new HBox();
         VBox vBox=new VBox();
         vBox.setSpacing(10);
-        try {
-            vBox.setBackground(
-                    new Background(null,
-                            Collections.singletonList(new BackgroundImage(
-                                    new Image(new FileInputStream("Resources/menuBackground.png"), 300, 400, false, true),
-                                    BackgroundRepeat.NO_REPEAT,
-                                    BackgroundRepeat.NO_REPEAT,
-                                    BackgroundPosition.DEFAULT,
-                                    BackgroundSize.DEFAULT))));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        vBox.setBackground(
+                new Background(null,
+                        Collections.singletonList(new BackgroundImage(
+                                new Image("Resources/menuBackground.png", 300, 400, false, true),
+                                BackgroundRepeat.NO_REPEAT,
+                                BackgroundRepeat.NO_REPEAT,
+                                BackgroundPosition.DEFAULT,
+                                BackgroundSize.DEFAULT))));
         vBox.setAlignment(Pos.CENTER);
 
-        try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/BackB.png")));
-            clown.setFitWidth(170);
-            clown.setFitHeight(30);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        clown = new ImageView(new Image("Resources/Buttons/BackB.png"));
+        clown.setFitWidth(170);
+        clown.setFitHeight(30);
         Button back= new Button(null, clown);
         DropShadow finalShadow1 = new DropShadow();
         DropShadow finalShadow2 = finalShadow1;

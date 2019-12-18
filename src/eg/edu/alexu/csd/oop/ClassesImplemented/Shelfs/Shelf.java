@@ -12,7 +12,7 @@ public class Shelf implements GameObject {
     private Boolean isvisible ;
     public Shelf (int x,int y){
         loader = Loader.getInstance();
-        img[0] = loader.getImage("Resources\\Shelfs\\shelf.png",1);
+        img[0] = loader.getImage("Shelfs/shelf.png",1);
         this.width = img[0].getWidth();
         this.height = img[0] .getHeight();
         this.x= x ;

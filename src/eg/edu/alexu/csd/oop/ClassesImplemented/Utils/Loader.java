@@ -34,16 +34,11 @@ public class Loader {
         classLoader = Thread.currentThread().getContextClassLoader();
         InputStream input = classLoader.getResourceAsStream(path.toLowerCase());
         BufferedImage bufferedImage;
-        try {
-            // return Thumbnails.of(ImageIO.read(new File(path))).scale(scale).asBufferedImage();
-            bufferedImage = ImageIO.read(new File(path));
-            int width = (int) (bufferedImage.getWidth() * scale), height = (int) (bufferedImage.getHeight() * scale);
-            bufferedImage = Scalr.resize(bufferedImage, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.FIT_TO_WIDTH, width, height, Scalr.OP_ANTIALIAS);
-            return bufferedImage;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+        // return Thumbnails.of(ImageIO.read(new File(path))).scale(scale).asBufferedImage();
+        bufferedImage = getImage(path);
+        int width = (int) (bufferedImage.getWidth() * scale), height = (int) (bufferedImage.getHeight() * scale);
+        bufferedImage = Scalr.resize(bufferedImage, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.FIT_TO_WIDTH, width, height, Scalr.OP_ANTIALIAS);
+        return bufferedImage;
     }
 
     public BufferedImage getImageWithLengthAndWidth(String path, int length, int width) {
@@ -51,15 +46,20 @@ public class Loader {
         classLoader = Thread.currentThread().getContextClassLoader();
         InputStream input = classLoader.getResourceAsStream(path.toLowerCase());
         BufferedImage bufferedImage;
+        // return Thumbnails.of(ImageIO.read(new File(path))).scale(scale).asBufferedImage();
+        bufferedImage = getImage(path);
+        bufferedImage = Scalr.resize(bufferedImage, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.FIT_EXACT, width, length, Scalr.OP_ANTIALIAS);
+        return bufferedImage;
+    }
+
+    public BufferedImage getImage(String path) {
+        BufferedImage image = null;
         try {
-            // return Thumbnails.of(ImageIO.read(new File(path))).scale(scale).asBufferedImage();
-            bufferedImage = ImageIO.read(new File(path));
-            bufferedImage = Scalr.resize(bufferedImage, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.FIT_EXACT, width, length, Scalr.OP_ANTIALIAS);
-            return bufferedImage;
+            image = ImageIO.read(getClass().getClassLoader().getResource(path));
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
         }
+        return image;
     }
 
     public String[] getSupportedClasses(Class<?> classToFind) {

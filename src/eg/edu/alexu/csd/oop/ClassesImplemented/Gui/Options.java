@@ -32,27 +32,19 @@ public class Options extends Application {
     public void start(Stage primaryStage) {
         VBox vBox=new VBox();
         vBox.setSpacing(10);
-        try {
-            vBox.setBackground(
-                    new Background(null,
-                            Collections.singletonList(new BackgroundImage(
-                                    new Image(new FileInputStream("Resources/menuBackground.png"), 300, 400, false, true),
-                                    BackgroundRepeat.NO_REPEAT,
-                                    BackgroundRepeat.NO_REPEAT,
-                                    BackgroundPosition.DEFAULT,
-                                    BackgroundSize.DEFAULT))));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        vBox.setBackground(
+                new Background(null,
+                        Collections.singletonList(new BackgroundImage(
+                                new Image("Resources/menuBackground.png", 300, 400, false, true),
+                                BackgroundRepeat.NO_REPEAT,
+                                BackgroundRepeat.NO_REPEAT,
+                                BackgroundPosition.DEFAULT,
+                                BackgroundSize.DEFAULT))));
         vBox.setAlignment(Pos.CENTER);
         ImageView clown= null;
-        try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/ChooseClown.png")));
-            clown.setFitWidth(150);
-            clown.setFitHeight(30);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        clown = new ImageView(new Image("Resources/Buttons/ChooseClown.png"));
+        clown.setFitWidth(150);
+        clown.setFitHeight(30);
         Button chooseChar= new Button(null, clown);
 
         DropShadow finalShadow2 =new DropShadow();
@@ -79,13 +71,9 @@ public class Options extends Application {
         });
 
 
-        try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/MusicB.png")));
-            clown.setFitWidth(150);
-            clown.setFitHeight(30);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        clown = new ImageView(new Image("Resources/Buttons/MusicB.png"));
+        clown.setFitWidth(150);
+        clown.setFitHeight(30);
         Button audio= new Button(null, clown);
 
          finalShadow2 =new DropShadow();
@@ -110,13 +98,9 @@ public class Options extends Application {
             Music music=new Music();
             music.start(new Stage());
         });
-        try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/BackB.png")));
-            clown.setFitWidth(150);
-            clown.setFitHeight(30);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        clown = new ImageView(new Image("Resources/Buttons/BackB.png"));
+        clown.setFitWidth(150);
+        clown.setFitHeight(30);
         Button back= new Button(null, clown);
 
         finalShadow2 = new DropShadow();
@@ -139,6 +123,7 @@ public class Options extends Application {
 
         back.setOnAction(e->{
             primaryStage.close();
+
         });
 
         vBox.getChildren().addAll(chooseChar,audio,back);

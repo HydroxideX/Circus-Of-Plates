@@ -2,6 +2,7 @@ package eg.edu.alexu.csd.oop.ClassesImplemented.Gui;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -10,10 +11,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,7 +33,7 @@ public class Gui extends Application {
         launch(args);
     }
     static MediaPlayer mediaPlayer;
-    static boolean muteAudio =false;
+    static boolean muteAduio=false;
     static ArrayList<MediaPlayer> mediaPlayers;
     static File[] directoryListing;
     @Override
@@ -36,27 +41,19 @@ public class Gui extends Application {
         playMusic();
         VBox vBox =new VBox();
         vBox.setSpacing(15);
-        try {
-            vBox.setBackground(
-                         new Background(null,
-                                 Collections.singletonList(new BackgroundImage(
-                                         new Image(new FileInputStream("Resources/menuBackground.png"), 300, 400, false, true),
-                                         BackgroundRepeat.NO_REPEAT,
-                                         BackgroundRepeat.NO_REPEAT,
-                                         BackgroundPosition.DEFAULT,
-                                         BackgroundSize.DEFAULT))));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        vBox.setBackground(
+                     new Background(null,
+                             Collections.singletonList(new BackgroundImage(
+                                     new Image("Resources/menuBackground.png", 300, 400, false, true),
+                                     BackgroundRepeat.NO_REPEAT,
+                                     BackgroundRepeat.NO_REPEAT,
+                                     BackgroundPosition.DEFAULT,
+                                     BackgroundSize.DEFAULT))));
         vBox.setAlignment(Pos.CENTER);
         ImageView clown= null;
-        try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/PlayB.png")));
-            clown.setFitWidth(150);
-            clown.setFitHeight(30);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        clown = new ImageView(new Image("Resources/Buttons/PlayB.png"));
+        clown.setFitWidth(150);
+        clown.setFitHeight(30);
         Button play = new Button(null, clown);
         DropShadow shadow = new DropShadow();
         DropShadow finalShadow3 = shadow;
@@ -75,13 +72,9 @@ public class Gui extends Application {
                 });
         play.setTranslateY(-20);
         play.setStyle("-fx-background-color: transparent;");
-        try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/QuitB.png")));
-            clown.setFitWidth(150);
-            clown.setFitHeight(30);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        clown = new ImageView(new Image("Resources/Buttons/QuitB.png"));
+        clown.setFitWidth(150);
+        clown.setFitHeight(30);
         Button exit = new Button(null, clown);
         DropShadow finalShadow4 = shadow;
         exit.addEventHandler(MouseEvent.MOUSE_ENTERED,
@@ -99,13 +92,9 @@ public class Gui extends Application {
                 });
         exit.setTranslateY(-20);
         exit.setStyle("-fx-background-color: transparent;");
-        try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/OptionsB.png")));
-            clown.setFitWidth(150);
-            clown.setFitHeight(30);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        clown = new ImageView(new Image("Resources/Buttons/OptionsB.png"));
+        clown.setFitWidth(150);
+        clown.setFitHeight(30);
         Button options = new Button(null, clown);
         DropShadow finalShadow5 = shadow;
         options.addEventHandler(MouseEvent.MOUSE_ENTERED,
@@ -152,7 +141,7 @@ public class Gui extends Application {
             }
         });
         mediaPlayer.play();*/
-        File dir = new File("Resources/Audio");
+        File dir = new File("Audio");
         directoryListing = dir.listFiles();
         mediaPlayers=new ArrayList<>();
         if (directoryListing != null) {
@@ -165,11 +154,8 @@ public class Gui extends Application {
             for (int i = 0; i < mediaPlayers.size(); i++) {
                 final MediaPlayer player     = mediaPlayers.get(i);
                 final MediaPlayer nextPlayer = mediaPlayers.get((i + 1) % mediaPlayers.size());
-
                 player.setOnEndOfMedia(new Runnable() {
                     @Override public void run() {
-                        if(muteAudio)
-                            nextPlayer.setMute(true);
                         mediaPlayer=nextPlayer;
                         mediaPlayer.play();
                     }

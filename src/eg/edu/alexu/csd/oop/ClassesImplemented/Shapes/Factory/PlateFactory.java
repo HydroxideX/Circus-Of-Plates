@@ -17,7 +17,7 @@ public class PlateFactory implements IPlateFactory {
     private BufferedImage spriteImages;
     private Random rand;
     private String[] avaColors = new String[]{"blue", "black", "red", "darkred", "yellow" , "orange", "gold" , "cyan" , "green", "purple", "pink"};
-    private String dest = "Resources/plates/", fileType = ".png";
+    private String dest = "Plates/", fileType = ".png";
     private String[] Types ;
     private String []classesNames ;
 
@@ -48,7 +48,7 @@ public class PlateFactory implements IPlateFactory {
             plate = platePool.get(color + plateType);
         }
         else {
-            spriteImages = loader.getImage(dest + color + plateType + fileType , 0.7);
+            spriteImages = loader.getImage(dest + color + plateType.toLowerCase() + fileType , 0.7);
             plate =(Plate) loader.getNewInstance(plateClassName);
             plate.setSpriteImages(spriteImages);
             plate.setColor(color);
