@@ -31,12 +31,12 @@ public class NotYahiasAwesomeGame {
         menuBar.add(menu);
         if(levelName.equals("level3")) {
 
-            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new ThirdLevel(1000, 700,clownPath), menuBar, 2, Color.WHITE);
+            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new ThirdLevel(1200, 600,clownPath), menuBar, 2, Color.WHITE);
 
             newMenuItem.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    gameController.changeWorld(new ThirdLevel(1000, 700, clownPath));
+                    gameController.changeWorld(new ThirdLevel(1200, 600, clownPath));
                 }
             });
 
@@ -55,12 +55,12 @@ public class NotYahiasAwesomeGame {
         }
         else if(levelName.equals("level2")) {
 
-            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new SecondLevel(1000, 700,clownPath), menuBar, 2, Color.WHITE);
+            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new SecondLevel(1200, 600,clownPath), menuBar, 2, Color.WHITE);
 
             newMenuItem.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    gameController.changeWorld(new SecondLevel(1000, 700, clownPath));
+                    gameController.changeWorld(new SecondLevel(1200, 600, clownPath));
                 }
             });
 
@@ -79,12 +79,12 @@ public class NotYahiasAwesomeGame {
         }
         else if(levelName.equals("level1")) {
 
-            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new FirstLevel(1000, 700,clownPath), menuBar, 2, Color.WHITE);
+            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new FirstLevel(1200, 600,clownPath), menuBar, 2, Color.WHITE);
 
             newMenuItem.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    gameController.changeWorld(new FirstLevel(1000, 700, clownPath));
+                    gameController.changeWorld(new FirstLevel(1200, 600, clownPath));
                 }
             });
 
