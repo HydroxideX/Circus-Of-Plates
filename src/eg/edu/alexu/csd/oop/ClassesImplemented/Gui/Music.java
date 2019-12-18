@@ -100,8 +100,8 @@ public class Music extends Application {
         mute.setStyle("-fx-background-color: transparent;");
         mute.setOnAction(e -> {
             Gui.mediaPlayer.setMute(true);
-            Gui.muteAduio = !Gui.muteAduio;
-            if (!Gui.muteAduio) {
+            Gui.muteAudio = !Gui.muteAudio;
+            if (!Gui.muteAudio) {
                 Gui.mediaPlayer.setMute(false);
             }
             changeSoundIcon();
@@ -113,7 +113,7 @@ public class Music extends Application {
             dropBox.getItems().add(x.getName());
         }
         dropBox.setOnAction(e -> {
-            Gui.muteAduio = false;
+            Gui.muteAudio = false;
             changeSoundIcon();
             int index = 0;
             for (File temp : Gui.directoryListing) {
@@ -140,10 +140,10 @@ public class Music extends Application {
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
     }
-    
+
     private void changeSoundIcon() {
         ImageView clown= null;
-        if(Gui.muteAduio)
+        if(Gui.muteAudio)
         {
             clown = new ImageView(new Image("Resources/Buttons/Mute.png"));
             clown.setFitWidth(60);

@@ -33,7 +33,7 @@ public class Gui extends Application {
         launch(args);
     }
     static MediaPlayer mediaPlayer;
-    static boolean muteAduio=false;
+    static boolean muteAudio=false;
     static ArrayList<MediaPlayer> mediaPlayers;
     static File[] directoryListing;
     @Override
@@ -156,11 +156,14 @@ public class Gui extends Application {
                 final MediaPlayer nextPlayer = mediaPlayers.get((i + 1) % mediaPlayers.size());
                 player.setOnEndOfMedia(new Runnable() {
                     @Override public void run() {
+                        if(muteAudio)
+                            nextPlayer.setMute(true);
                         mediaPlayer=nextPlayer;
                         mediaPlayer.play();
                     }
                 });
             }
+
             mediaPlayer=mediaPlayers.get((int) (Math.random()*(mediaPlayers.size()-1)));
             mediaPlayer.play();
         }
