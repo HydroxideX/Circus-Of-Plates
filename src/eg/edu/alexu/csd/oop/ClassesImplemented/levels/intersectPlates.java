@@ -20,7 +20,7 @@ public class intersectPlates {
             Pair < Stick, Integer> current = (Pair<Stick, Integer>) currentElement;
             int intersectionHeight = current.getValue();
             Stick stick = current.getKey();
-            if(m.getY()+m.getHeight() == intersectionHeight && center < stick.getX()+ stick.getWidth() && center > stick.getX()) {
+            if(m.getY()+m.getHeight() == intersectionHeight && center-30 < stick.getX()+ stick.getWidth() && center+30 > stick.getX()) {
                 intersectionHeight -= m.getHeight();
                 m.setY(intersectionHeight);
                 m.setX(( 2*stick.getX()+ stick.getWidth())/2 - 30);

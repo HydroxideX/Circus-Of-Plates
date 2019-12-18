@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory;
 
+import eg.edu.alexu.csd.oop.ClassesImplemented.States.FallingState;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.Loader;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool.PlatePool;
@@ -55,7 +56,7 @@ public class PlateFactory implements IPlateFactory {
         plate.setX(rand.nextInt(950));
         plate.setY(0);
         plate.isVisible = true;
-        plate.setState(new OnShelfState(plate));
+        plate.setState(new FallingState(plate));
         return (GameObject) plate;
     }
 }

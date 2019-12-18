@@ -23,7 +23,7 @@ public class SecondLevel extends newWorld {
         this.height= height;
         pf = (PlateFactory) PlateFactory.getInstance();
         pp = (PlatePool)PlatePool.getInstance();
-        GameObject background = new Background(0,0,1000,700,"Resources/images.jpg");
+        GameObject background = new Background(0,0,1200,600,"Resources/images.jpg");
         constantObjects.add(background);
         Clown firstClown = new Clown(200, 480, clownPath, 1);
         clownsArray.add(firstClown);

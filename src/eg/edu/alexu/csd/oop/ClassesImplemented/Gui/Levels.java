@@ -23,7 +23,7 @@ import java.io.FileNotFoundException;
 import java.util.Collections;
 
 public class Levels extends Application {
-    public static String clownPath="Resources/Clown/clown1.png";
+    public static String clownPath="Resources/Clown/clown3.png";
 
     public static void main(String[] args) {
         launch(args);
