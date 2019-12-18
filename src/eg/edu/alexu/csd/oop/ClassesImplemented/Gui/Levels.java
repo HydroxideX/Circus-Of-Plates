@@ -142,7 +142,7 @@ public class Levels extends Application {
         level3.setOnAction(e->{
             NotYahiasAwesomeGame notYahiasAwesomeGame=new NotYahiasAwesomeGame("level3",clownPath);
             notYahiasAwesomeGame.Start();
-            //playMusic();
+            playMusic();
             primaryStage.close();
         });
         try {
@@ -185,14 +185,8 @@ public class Levels extends Application {
         Gui.mediaPlayer.setMute(true);
         if(!Gui.muteAduio)
         {
-            String musicFile = "Resources/Audio/NyaNya.mp3";     // For example
-            Media sound = new Media(new File(musicFile).toURI().toString());
-            Gui.mediaPlayer = new MediaPlayer(sound);
-           Gui. mediaPlayer.setOnEndOfMedia(new Runnable() {
-                public void run() {
-                    Gui.mediaPlayer.seek(Duration.ZERO);
-                }
-            });
+            Gui.mediaPlayer.pause();
+            Gui.mediaPlayer = Gui.mediaPlayers.get(0);
            Gui.mediaPlayer.play();
         }
     }
