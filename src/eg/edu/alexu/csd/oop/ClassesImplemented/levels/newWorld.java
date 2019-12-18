@@ -86,7 +86,7 @@ public class newWorld implements World {
         for(int i=0 ;i<2&&(it.hasNext()) ; i++)
             it.next();
         time++;
-        if(time == 300){
+        if(time == 100){
             time = 0;
         }
         rm.update();
@@ -104,7 +104,7 @@ public class newWorld implements World {
             score = z[0];
         }
         if(time == 0)
-            rm.throwPlate(3);
+            rm.throwPlate(5);
             //constantObjects.add(rm.makePlate(5));
         it = removed.iterator();
         while(it.hasNext()){

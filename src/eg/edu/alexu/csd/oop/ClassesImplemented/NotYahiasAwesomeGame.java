@@ -31,7 +31,7 @@ public class NotYahiasAwesomeGame {
         menuBar.add(menu);
         if(levelName.equals("level3")) {
 
-            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new ThirdLevel(1200, 600,clownPath), menuBar, 2, Color.WHITE);
+            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new ThirdLevel(1200, 600,clownPath), menuBar,JFrame.EXIT_ON_CLOSE, Color.WHITE);
 
             newMenuItem.addActionListener(new ActionListener() {
                 @Override
@@ -55,7 +55,7 @@ public class NotYahiasAwesomeGame {
         }
         else if(levelName.equals("level2")) {
 
-            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new SecondLevel(1200, 600,clownPath), menuBar, 2, Color.WHITE);
+            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new SecondLevel(1200, 600,clownPath), menuBar, JFrame.EXIT_ON_CLOSE, Color.WHITE);
 
             newMenuItem.addActionListener(new ActionListener() {
                 @Override
@@ -79,7 +79,7 @@ public class NotYahiasAwesomeGame {
         }
         else if(levelName.equals("level1")) {
 
-            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new FirstLevel(1200, 600,clownPath), menuBar, 2, Color.WHITE);
+            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new FirstLevel(1200, 600,clownPath), menuBar, JFrame.EXIT_ON_CLOSE, Color.WHITE);
 
             newMenuItem.addActionListener(new ActionListener() {
                 @Override
