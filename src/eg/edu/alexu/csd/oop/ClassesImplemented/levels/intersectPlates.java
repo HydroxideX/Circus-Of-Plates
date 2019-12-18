@@ -23,7 +23,7 @@ public class intersectPlates {
             if(m.getY()+m.getHeight() == intersectionHeight && center-30 < stick.getX()+ stick.getWidth() && center+30 > stick.getX()) {
                 intersectionHeight -= m.getHeight();
                 m.setY(intersectionHeight);
-                m.setX(( 2*stick.getX()+ stick.getWidth())/2 - 30);
+                m.setX(( 2*stick.getX()+ stick.getWidth())/2 - 32);
                 stick.registerObserver(m);
                 movableObjects.add(m);
                 if(checkColor(stick)){

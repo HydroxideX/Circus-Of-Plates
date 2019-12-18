@@ -12,9 +12,10 @@ import eg.edu.alexu.csd.oop.game.GameObject;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Map;
 
 public class ThirdLevel extends newWorld {
-
+    int swapTime = 0;
     public ThirdLevel (int width,int height,String clownPath) {
         constantObjects = new ArrayList<>();
         movableObjects = new ArrayList<>();
@@ -25,12 +26,8 @@ public class ThirdLevel extends newWorld {
         pp = (PlatePool)PlatePool.getInstance();
         GameObject background = new Background(0,0,1200,600,"Resources/images.jpg");
         constantObjects.add(background);
-        Clown firstClown = new Clown(200, 480, clownPath, 1);
+        Clown firstClown = new Clown(200, 400, clownPath, 1);
         clownsArray.add(firstClown);
-        Clown secondClown = new Clown(500, 480, clownPath, 1);
-        clownsArray.add(secondClown);
-        Clown thirdClown = new Clown(800, 480, clownPath, 1);
-        clownsArray.add(thirdClown);
         clownsX = new Integer[clownsArray.size()];
         addClownsAndEverything(clownsArray,sticksArray,movableObjects,controlableObjects,clownsX);
     }
@@ -42,12 +39,17 @@ public class ThirdLevel extends newWorld {
         if(it.hasNext())
             it.next();
         time++;
-        if(time == 300){
+        if(time == 150){
             time = 0;
+        }
+        swapTime++;
+        if(swapTime == 300) {
+            swapTime = 0;
         }
         while (it.hasNext()){
             Plate m = (Plate) it.next();
-            m.setY((m.getY() + 1));
+            if(swapTime == 0) m.setX((int) (Math.random()*1000));
+            m.update(1);
             if(m.getY() == getHeight()){
                 it.remove();
             }
@@ -59,7 +61,7 @@ public class ThirdLevel extends newWorld {
             score = z[0];
         }
         if(time == 0)
-            constantObjects.add(pf.makePlate(11));
+            constantObjects.add(pf.makePlate(5));
         it = removed.iterator();
         while(it.hasNext()){
             constantObjects.remove(it.next());
@@ -92,7 +94,7 @@ public class ThirdLevel extends newWorld {
 
     @Override
     public int getSpeed() {
-        return 2;
+        return 10;
     }
 
     @Override
