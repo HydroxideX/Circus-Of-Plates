@@ -17,7 +17,7 @@ import javafx.stage.StageStyle;
 import java.util.Collections;
 
 public class Levels extends Application {
-    public static String clownPath="Clown/clown1.png";
+    public static String clownPath="Clown/clown2.png";
 
     public static void main(String[] args) {
         launch(args);

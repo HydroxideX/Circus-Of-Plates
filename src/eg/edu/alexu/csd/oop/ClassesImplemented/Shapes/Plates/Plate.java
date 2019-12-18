@@ -17,7 +17,7 @@ public class Plate implements GameObject, Observer {
     public boolean isVisible = true;
     public String color = "";
     private String type = "1";
-    private IState state ;
+    private IState state;
     @Override
     public int getX() {
         return x;

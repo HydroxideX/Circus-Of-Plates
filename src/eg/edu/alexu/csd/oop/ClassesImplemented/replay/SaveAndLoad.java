@@ -61,6 +61,9 @@ public class SaveAndLoad {
         a.save((GameObject) stick);
         v = a.load();
         System.out.println(v);
+        a.save((GameObject) zx);
+        v = a.load();
+        System.out.println(v);
     }
 
 }
