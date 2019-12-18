@@ -19,7 +19,7 @@ public class Loader {
     private Reflections ref = new Reflections();
     private ClassLoader classLoader;
 
-    private Loader() {
+    public Loader() {
     }
 
     public static synchronized Loader getInstance() {

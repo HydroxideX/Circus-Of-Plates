@@ -1,15 +1,12 @@
-package eg.edu.alexu.csd.oop.ClassesImplemented.Clowns;
+package eg.edu.alexu.csd.oop.ClassesImplemented.Stick;
 
+import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.ImageObject;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.Loader;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Observer;
 
-public class Stick extends ImageObject implements Observer {
+import java.io.Serializable;
 
-    public Stick(int posX, int posY, String path) {
-        super(posX, posY, path);
-        loader = Loader.getInstance();
-        spriteImages[0] = loader.getImage(path, 0.1);
-    }
+public class Stick extends ImageObject implements Observer, Serializable {
 
     @Override
     public boolean update(int diff) {
