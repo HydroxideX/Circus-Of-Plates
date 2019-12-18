@@ -83,7 +83,7 @@ public class newWorld implements World {
     public boolean refresh() {
         Iterator it = constantObjects.iterator();
         ArrayList removed = new ArrayList();
-        if(it.hasNext())
+        for(int i=0 ;i<3&&(it.hasNext()) ; i++)
             it.next();
         time++;
         if(time == 300){
