@@ -40,7 +40,7 @@ public class PlateFactory implements IPlateFactory {
         if(mode >avaColors.length || mode<0)return null;
         int randNum = rand.nextInt(mode);
         String color = avaColors[randNum];
-        randNum = rand.nextInt(4);
+        randNum = rand.nextInt(Types.length);
         String plateType = Types[randNum];
         String plateClassName = classesNames[randNum];
         Plate plate ;

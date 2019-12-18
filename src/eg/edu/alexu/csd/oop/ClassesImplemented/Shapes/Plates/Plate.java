@@ -83,4 +83,7 @@ public class Plate implements GameObject, Observer {
         state.Update(diff);
         return true;
     }
+    public int getYError(){
+        return 0;
+    }
 }

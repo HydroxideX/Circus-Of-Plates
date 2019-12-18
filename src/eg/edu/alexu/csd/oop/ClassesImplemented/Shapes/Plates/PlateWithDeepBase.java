@@ -8,4 +8,7 @@ public class PlateWithDeepBase extends Plate implements GameObject {
     public String getType(){
         return "PlateWithDeepBase";
     }
+    public int getYError(){
+        return 54;
+    }
 }

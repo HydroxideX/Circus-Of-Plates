@@ -83,7 +83,7 @@ public class newWorld implements World {
     public boolean refresh() {
         Iterator it = constantObjects.iterator();
         ArrayList removed = new ArrayList();
-        for(int i=0 ;i<3&&(it.hasNext()) ; i++)
+        for(int i=0 ;i<2&&(it.hasNext()) ; i++)
             it.next();
         time++;
         if(time == 300){
@@ -104,7 +104,7 @@ public class newWorld implements World {
             score = z[0];
         }
         if(time == 0)
-            rm.makePlate(3);
+            rm.throwPlate(3);
             //constantObjects.add(rm.makePlate(5));
         it = removed.iterator();
         while(it.hasNext()){
