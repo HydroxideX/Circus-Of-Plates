@@ -1,6 +1,6 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Gui;
 
-import eg.edu.alexu.csd.oop.ClassesImplemented.NotYahiasAwesomeGame;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Facade;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -11,15 +11,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.Collections;
 
 public class Levels extends Application {
@@ -66,8 +60,8 @@ public class Levels extends Application {
         level1.setTranslateY(-20);
         level1.setStyle("-fx-background-color: transparent;");
         level1.setOnAction(e->{
-            NotYahiasAwesomeGame notYahiasAwesomeGame=new NotYahiasAwesomeGame("level1",clownPath);
-            notYahiasAwesomeGame.Start();
+            Facade facade =new Facade("level1",clownPath);
+            facade.Start();
            // playMusic();
             primaryStage.close();
         });
@@ -95,8 +89,8 @@ public class Levels extends Application {
         level2.setTranslateY(-20);
         level2.setStyle("-fx-background-color: transparent;");
         level2.setOnAction(e->{
-            NotYahiasAwesomeGame notYahiasAwesomeGame=new NotYahiasAwesomeGame("level2",clownPath);
-            notYahiasAwesomeGame.Start();
+            Facade facade =new Facade("level2",clownPath);
+            facade.Start();
             //playMusic();
             primaryStage.close();
         });
@@ -124,8 +118,8 @@ public class Levels extends Application {
         level3.setTranslateY(-20);
         level3.setStyle("-fx-background-color: transparent;");
         level3.setOnAction(e->{
-            NotYahiasAwesomeGame notYahiasAwesomeGame=new NotYahiasAwesomeGame("level3",clownPath);
-            notYahiasAwesomeGame.Start();
+            Facade facade =new Facade("level3",clownPath);
+            facade.Start();
             playMusic();
             primaryStage.close();
         });

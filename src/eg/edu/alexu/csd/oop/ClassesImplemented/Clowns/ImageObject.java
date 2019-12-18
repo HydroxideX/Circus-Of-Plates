@@ -1,6 +1,6 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Clowns;
 
-import eg.edu.alexu.csd.oop.ClassesImplemented.ArrayListIterator;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.ArrayListIterator;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.Loader;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Observer;
 import eg.edu.alexu.csd.oop.game.GameObject;
@@ -9,25 +9,13 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class ImageObject implements GameObject {
-    BufferedImage[] spriteImages = new BufferedImage[1];
+    public BufferedImage[] spriteImages = new BufferedImage[1];
     public ArrayList observers = new ArrayList();
     Loader loader;
     int x;
-    private int y;
-    private boolean visible;
-    private int type;
-
-    public ImageObject(int posX, int posY, String path) {
-        this(posX, posY, path, 0);
-    }
-
-    public ImageObject(int posX, int posY, String path, int type) {
-        this.x = posX;
-        this.y = posY;
-        this.type = type;
-        this.visible = true;
-    }
-
+    int y;
+    public boolean visible = true;
+    public int type;
 
     @Override
     public int getX() {

@@ -1,8 +1,6 @@
-package eg.edu.alexu.csd.oop.ClassesImplemented.levels;
+package eg.edu.alexu.csd.oop.ClassesImplemented.Utils;
 
-import eg.edu.alexu.csd.oop.ClassesImplemented.ArrayListIterator;
-import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
-import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Stick;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Stick.Stick;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import javafx.util.Pair;
@@ -12,7 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class intersectPlates {
-    boolean intersect(Plate m, ArrayList <Pair<Stick,Integer> > sticksArray, int[] score, List<GameObject> movableObjects){
+    public boolean intersect(Plate m, ArrayList <Pair<Stick,Integer> > sticksArray, int[] score, List<GameObject> movableObjects){
         ArrayListIterator iterator = new ArrayListIterator(sticksArray);
         while (iterator.hasNext()) {
             Object currentElement = iterator.next();

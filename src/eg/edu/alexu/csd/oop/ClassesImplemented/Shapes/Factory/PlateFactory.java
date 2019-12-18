@@ -59,4 +59,15 @@ public class PlateFactory implements IPlateFactory {
         plate.setState(new OnShelfState(plate));
         return (GameObject) plate;
     }
+    public GameObject makeSpecialPlate(){
+        Plate plate ;
+        spriteImages = loader.getImage(dest + "special" + fileType , 0.7);
+        plate =(Plate) loader.getNewInstance("SpecialPlate");
+        plate.setSpriteImages(spriteImages);
+        plate.setX(rand.nextInt(950));
+        plate.setY(0);
+        plate.isVisible = true;
+        plate.setState(new OnShelfState(plate));
+        return (GameObject) plate;
+    }
 }

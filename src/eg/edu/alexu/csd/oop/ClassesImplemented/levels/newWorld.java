@@ -1,14 +1,17 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.levels;
 
-import eg.edu.alexu.csd.oop.ClassesImplemented.ArrayIterator;
-import eg.edu.alexu.csd.oop.ClassesImplemented.ArrayListIterator;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.ArrayIterator;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.ArrayListIterator;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
-import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Stick;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Stick.Stick;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool.PlatePool;
 import eg.edu.alexu.csd.oop.ClassesImplemented.States.StackedState;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.ShelfHandler;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.intersectPlates;
+import eg.edu.alexu.csd.oop.ClassesImplemented.replay.SaveAndLoad;
+import eg.edu.alexu.csd.oop.ClassesImplemented.replay.SaveAndLoadIO;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 import javafx.util.Pair;
@@ -33,6 +36,7 @@ public class newWorld implements World {
     ArrayList<Pair<Stick, Integer>> sticksArray = new ArrayList<>();
     ArrayList<Clown> clownsArray = new ArrayList<>();
     intersectPlates intersection = new intersectPlates();
+    private ArrayList <ArrayList <GameObject> > allData = new ArrayList<>();
     Integer[] clownsX;
     ShelfHandler shelfhandler;
 
@@ -79,6 +83,7 @@ public class newWorld implements World {
 
     @Override
     public boolean refresh() {
+        if(score == 1) endGame();
         Iterator it = constantObjects.iterator();
         ArrayList removed = new ArrayList();
         for (int i = 0; i < levelMode+1 && (it.hasNext()); i++)
@@ -87,6 +92,7 @@ public class newWorld implements World {
         time++;
         if (time == 100) {
             time = 0;
+            addMomentToArray();
         }
         shelfhandler.updateShelfs();
         while (it.hasNext()) {
@@ -104,6 +110,9 @@ public class newWorld implements World {
         }
         if (time == 0)
             shelfhandler.throwPlates();
+        //test only
+        shelfhandler.makeSpecialPlates();
+        //constantObjects.add(rm.makePlate(5));
         it = removed.iterator();
         while (it.hasNext()) {
             constantObjects.remove(it.next());
@@ -132,6 +141,18 @@ public class newWorld implements World {
             clownsX[counter++] = clown.getX();
         }
         return true;
+    }
+
+    private void addMomentToArray(){
+        ArrayList <GameObject> allArray = new ArrayList<>();
+        allArray.addAll(constantObjects);
+        allArray.addAll(movableObjects);
+        allArray.addAll(controlableObjects);
+        allData.add(allArray);
+    }
+    private void endGame(){
+        SaveAndLoad saveAndLoad = new SaveAndLoad();
+        //saveAndLoad.save(allData);
     }
 
     @Override

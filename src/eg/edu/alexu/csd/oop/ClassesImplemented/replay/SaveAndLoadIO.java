@@ -9,35 +9,41 @@ import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Stick.StickFactory;
 import eg.edu.alexu.csd.oop.game.GameObject;
-
-import java.beans.XMLDecoder;
-import java.beans.XMLEncoder;
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-public class SaveAndLoad {
-    ArrayList <ArrayList <GameObject> > allData = new ArrayList<>();
+public class SaveAndLoadIO implements java.io.Serializable
+{
 
-    public void save(GameObject allData1) {
-        //this.allData = allData;
-        try {
-            XMLEncoder xmlEncoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("lastGame.xml")));
-            xmlEncoder.writeObject(allData1);
-            xmlEncoder.close();
-
-        } catch (FileNotFoundException e) {
-            System.out.println("Wrong ");
+    public void saveData(Object allData)
+    {
+        try
+        {
+            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("lastGame.xml"));
+            os.writeObject(allData);
+            os.close();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
         }
     }
 
-    public GameObject load(){
+    public GameObject loadData()
+    {
         try {
-            XMLDecoder xmlDecoder = new XMLDecoder(new BufferedInputStream(new FileInputStream("lastGame.xml")));
-            GameObject allData1 = (GameObject) xmlDecoder.readObject();
-            xmlDecoder.close();
-            return allData1;
-        } catch (Exception e){
-            System.out.println("File Not Found");
+        GameObject allData;
+            ObjectInputStream is = new ObjectInputStream(new FileInputStream("lastGame.xml"));
+            allData = (GameObject) is.readObject();
+            is.close();
+            return allData;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
         }
         return null;
     }
@@ -62,5 +68,4 @@ public class SaveAndLoad {
         v = a.load();
         System.out.println(v);
     }
-
 }

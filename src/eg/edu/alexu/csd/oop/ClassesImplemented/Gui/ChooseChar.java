@@ -13,8 +13,6 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.Collections;
 
 public class ChooseChar extends Application {

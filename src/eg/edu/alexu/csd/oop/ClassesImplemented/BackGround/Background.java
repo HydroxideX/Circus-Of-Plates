@@ -1,21 +1,15 @@
-package eg.edu.alexu.csd.oop.ClassesImplemented;
+package eg.edu.alexu.csd.oop.ClassesImplemented.BackGround;
 
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.Loader;
 import eg.edu.alexu.csd.oop.game.GameObject;
 
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 
-public class Background implements GameObject {
-    private int x,y,width,height;
-    BufferedImage[] spriteImages = new BufferedImage[1];
-    public Background(int x, int y, int width, int height ,String path){
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-        Loader loader = Loader.getInstance();
-        spriteImages[0] = loader.getImageWithLengthAndWidth(path, height, width);
-    }
+public class Background implements GameObject, Serializable {
+    public int x = 0,y = 0,width = 0,height = 0;
+    public BufferedImage[] spriteImages = new BufferedImage[1];
+
     @Override
     public int getX() {
         return x;
@@ -38,12 +32,12 @@ public class Background implements GameObject {
 
     @Override
     public int getWidth() {
-        return spriteImages[0].getWidth();
+        return width;
     }
 
     @Override
     public int getHeight() {
-        return spriteImages[0].getHeight();
+        return height;
     }
 
     @Override

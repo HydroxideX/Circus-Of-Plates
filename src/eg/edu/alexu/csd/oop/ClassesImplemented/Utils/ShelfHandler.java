@@ -5,6 +5,7 @@ import eg.edu.alexu.csd.oop.game.GameObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class ShelfHandler {
     private List<GameObject> constatntObjects, movingObjects;
@@ -36,6 +37,12 @@ public class ShelfHandler {
 
     public void makePlates() {
         for (int i = 0; i < shelfObjects.size(); i++) shelfObjects.get(i).makePlate(mode);
+    }
+
+    public void makeSpecialPlates(){
+        Random rand =new Random();
+        int randNum = rand.nextInt(shelfObjects.size());
+        shelfObjects.get(randNum).makeSpecialPlate();
     }
     public synchronized void updateShelfs() {
         for (int i = 0; i < shelfObjects.size(); i++) shelfObjects.get(i).update();
