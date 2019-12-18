@@ -7,7 +7,9 @@ import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool.PlatePool;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.Shelf;
 import eg.edu.alexu.csd.oop.ClassesImplemented.States.StackedState;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.Randomizer;
 import eg.edu.alexu.csd.oop.game.GameObject;
 
 import java.util.ArrayList;
@@ -29,6 +31,11 @@ public class ThirdLevel extends newWorld {
         clownsArray.add(firstClown);
         clownsX = new Integer[clownsArray.size()];
         addClownsAndEverything(clownsArray,sticksArray,movableObjects,controlableObjects,clownsX);
+        constantObjects.add(new Shelf(0,50));
+        constantObjects.add(new Shelf(0,100));
+        rm = new Randomizer(movableObjects,constantObjects);
+
+
     }
 
     @Override

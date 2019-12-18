@@ -56,7 +56,7 @@ public class PlateFactory implements IPlateFactory {
         plate.setX(rand.nextInt(950));
         plate.setY(0);
         plate.isVisible = true;
-        plate.setState(new FallingState(plate));
+        plate.setState(new OnShelfState(plate));
         return (GameObject) plate;
     }
 }

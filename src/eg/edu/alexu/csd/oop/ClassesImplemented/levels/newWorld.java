@@ -5,6 +5,8 @@ import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Stick;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool.PlatePool;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.Shelf;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.Randomizer;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 import javafx.util.Pair;
@@ -29,7 +31,7 @@ public class newWorld implements World {
     ArrayList <Clown> clownsArray = new ArrayList<>();
     intersectPlates intersection = new intersectPlates();
     Integer[] clownsX;
-
+    Randomizer rm ;
 
     public void addClownsAndEverything(ArrayList <Clown> clownsArray, ArrayList<Pair<Stick,Integer>> sticksArray,List<GameObject> movableObjects, List<GameObject> controlableObjects, Integer[] clownsX){
         ArrayListIterator iterator = new ArrayListIterator(clownsArray);
@@ -45,7 +47,8 @@ public class newWorld implements World {
             clown.registerObserver(clown.stick1);
             clown.registerObserver(clown.stick2);
         }
-    }
+
+         }
 
     @Override
     public List<GameObject> getConstantObjects() {

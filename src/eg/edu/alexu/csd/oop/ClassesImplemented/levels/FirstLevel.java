@@ -7,7 +7,9 @@ import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool.PlatePool;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.Shelf;
 import eg.edu.alexu.csd.oop.ClassesImplemented.States.StackedState;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.Randomizer;
 import eg.edu.alexu.csd.oop.game.GameObject;
 
 import java.util.ArrayList;
@@ -31,13 +33,17 @@ public class FirstLevel extends newWorld {
         clownsArray.add(secondClown);
         clownsX = new Integer[clownsArray.size()];
         addClownsAndEverything(clownsArray,sticksArray,movableObjects,controlableObjects,clownsX);
+        constantObjects.add(new Shelf(0,50));
+        constantObjects.add(new Shelf(0,100));
+        rm = new Randomizer(movableObjects,constantObjects);
+
     }
 
     @Override
     public boolean refresh() {
         Iterator it = constantObjects.iterator();
         ArrayList removed = new ArrayList();
-        if(it.hasNext())
+        for(int i=0 ;i<3 &&(it.hasNext()) ; i++)
             it.next();
         time++;
         if(time == 300){
@@ -45,7 +51,7 @@ public class FirstLevel extends newWorld {
         }
         while (it.hasNext()){
             Plate m = (Plate) it.next();
-            m.setY((m.getY() + 1));
+            m.update(1);
             if(m.getY() == getHeight()){
                 it.remove();
             }
