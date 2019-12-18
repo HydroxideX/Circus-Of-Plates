@@ -14,7 +14,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -107,8 +106,8 @@ public class Music extends Application {
         mute.setStyle("-fx-background-color: transparent;");
         mute.setOnAction(e->{
             Gui.mediaPlayer.setMute(true);
-            Gui.muteAduio= !Gui.muteAduio;
-            if(!Gui.muteAduio) {
+            Gui.muteAudio = !Gui.muteAudio;
+            if(!Gui.muteAudio) {
                 Gui.mediaPlayer.setMute(false);
             }
             changeSoundIcon();
@@ -120,7 +119,7 @@ public class Music extends Application {
             dropBox.getItems().add(x.getName());
         }
         dropBox.setOnAction(e->{
-            Gui.muteAduio=false;
+            Gui.muteAudio =false;
             changeSoundIcon();
             int index=0;
             for(File temp:Gui.directoryListing)
@@ -154,7 +153,7 @@ public class Music extends Application {
 
     private void changeSoundIcon() {
         ImageView clown= null;
-        if(Gui.muteAduio)
+        if(Gui.muteAudio)
         {
             try {
                 clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/Mute.png")));

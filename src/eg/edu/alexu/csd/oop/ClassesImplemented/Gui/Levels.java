@@ -11,13 +11,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Collections;
@@ -183,7 +179,7 @@ public class Levels extends Application {
     private void playMusic()
     {
         Gui.mediaPlayer.setMute(true);
-        if(!Gui.muteAduio)
+        if(!Gui.muteAudio)
         {
             Gui.mediaPlayer.pause();
             Gui.mediaPlayer = Gui.mediaPlayers.get(0);

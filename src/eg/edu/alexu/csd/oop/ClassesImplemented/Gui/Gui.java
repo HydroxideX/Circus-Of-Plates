@@ -2,7 +2,6 @@ package eg.edu.alexu.csd.oop.ClassesImplemented.Gui;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,14 +10,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -33,7 +28,7 @@ public class Gui extends Application {
         launch(args);
     }
     static MediaPlayer mediaPlayer;
-    static boolean muteAduio=false;
+    static boolean muteAudio =false;
     static ArrayList<MediaPlayer> mediaPlayers;
     static File[] directoryListing;
     @Override
@@ -173,7 +168,7 @@ public class Gui extends Application {
 
                 player.setOnEndOfMedia(new Runnable() {
                     @Override public void run() {
-                        if(muteAduio)
+                        if(muteAudio)
                             nextPlayer.setMute(true);
                         mediaPlayer=nextPlayer;
                         mediaPlayer.play();
