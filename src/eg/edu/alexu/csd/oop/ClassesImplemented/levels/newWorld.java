@@ -95,7 +95,7 @@ public class newWorld implements World {
         if (time == 100) {
             time = 0;
         }
-        shelfhandler.updateShelfs();
+       shelfhandler.updateShelfs();
         while (it.hasNext()) {
             Plate m = (Plate) it.next();
             m.update(1);
@@ -112,7 +112,7 @@ public class newWorld implements World {
         if (time == 0)
             shelfhandler.throwPlates();
         //test only
-        shelfhandler.makeSpecialPlates();
+        //shelfhandler.makeSpecialPlates();
         //constantObjects.add(rm.makePlate(5));
         it = removed.iterator();
         while (it.hasNext()) {

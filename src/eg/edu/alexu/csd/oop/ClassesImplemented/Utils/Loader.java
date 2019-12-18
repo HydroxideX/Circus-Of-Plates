@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Utils;
 
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.ISpecial;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import org.imgscalr.Scalr;
@@ -52,6 +53,7 @@ public class Loader {
 
     public BufferedImage getImage(String path) {
         BufferedImage image = null;
+        //System.out.println(path);
         try {
             image = ImageIO.read(getClass().getClassLoader().getResource(path));
         } catch (IOException e) {
@@ -67,7 +69,7 @@ public class Loader {
         int i = 0;
         while (it.hasNext()) {
             Class<?> classTemp = it.next();
-            if (classToFind.isAssignableFrom(classTemp) && !classToFind.equals(classTemp)) {
+            if (classToFind.isAssignableFrom(classTemp) && !classToFind.equals(classTemp) && !ISpecial.class.isAssignableFrom(classTemp)) {
                 supportedClasses.add(classTemp.getName());
                 //System.out.println(supportedClasses.get(i));
                 i++;

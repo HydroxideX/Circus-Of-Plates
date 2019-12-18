@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory;
 
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.SpecialPlate;
 import eg.edu.alexu.csd.oop.ClassesImplemented.States.FallingState;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.Loader;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
@@ -53,19 +54,18 @@ public class PlateFactory implements IPlateFactory {
             plate.setSpriteImages(spriteImages);
             plate.setColor(color);
         }
-        plate.setX(rand.nextInt(950));
-        plate.setY(0);
+        //plate.setX(rand.nextInt(950));
+       // plate.setY(0);
         plate.isVisible = true;
         plate.setState(new OnShelfState(plate));
         return (GameObject) plate;
     }
     public GameObject makeSpecialPlate(){
         Plate plate ;
+        //System.out.println("came here");
         spriteImages = loader.getImage(dest + "special" + fileType , 0.7);
-        plate =(Plate) loader.getNewInstance("SpecialPlate");
+        plate =(Plate) new SpecialPlate();
         plate.setSpriteImages(spriteImages);
-        plate.setX(rand.nextInt(950));
-        plate.setY(0);
         plate.isVisible = true;
         plate.setState(new OnShelfState(plate));
         return (GameObject) plate;

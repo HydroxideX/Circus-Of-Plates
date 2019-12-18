@@ -41,7 +41,7 @@ public class ShelfHandler {
 
     public void makeSpecialPlates(){
         Random rand =new Random();
-        int randNum = rand.nextInt(shelfObjects.size());
+        int randNum =  (shelfObjects.size()==1)?0:rand.nextInt(shelfObjects.size());
         shelfObjects.get(randNum).makeSpecialPlate();
     }
     public synchronized void updateShelfs() {
