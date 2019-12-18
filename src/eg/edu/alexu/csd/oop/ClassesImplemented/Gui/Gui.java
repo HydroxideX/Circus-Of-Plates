@@ -33,7 +33,7 @@ public class Gui extends Application {
         launch(args);
     }
     static MediaPlayer mediaPlayer;
-    static boolean muteAduio=false;
+    static boolean muteAudio=false;
     static ArrayList<MediaPlayer> mediaPlayers;
     static File[] directoryListing;
     @Override
@@ -41,27 +41,19 @@ public class Gui extends Application {
         playMusic();
         VBox vBox =new VBox();
         vBox.setSpacing(15);
-        try {
-            vBox.setBackground(
-                         new Background(null,
-                                 Collections.singletonList(new BackgroundImage(
-                                         new Image(new FileInputStream("Resources/menuBackground.png"), 300, 400, false, true),
-                                         BackgroundRepeat.NO_REPEAT,
-                                         BackgroundRepeat.NO_REPEAT,
-                                         BackgroundPosition.DEFAULT,
-                                         BackgroundSize.DEFAULT))));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        vBox.setBackground(
+                     new Background(null,
+                             Collections.singletonList(new BackgroundImage(
+                                     new Image("Resources/menuBackground.png", 300, 400, false, true),
+                                     BackgroundRepeat.NO_REPEAT,
+                                     BackgroundRepeat.NO_REPEAT,
+                                     BackgroundPosition.DEFAULT,
+                                     BackgroundSize.DEFAULT))));
         vBox.setAlignment(Pos.CENTER);
         ImageView clown= null;
-        try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/PlayB.png")));
-            clown.setFitWidth(150);
-            clown.setFitHeight(30);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        clown = new ImageView(new Image("Resources/Buttons/PlayB.png"));
+        clown.setFitWidth(150);
+        clown.setFitHeight(30);
         Button play = new Button(null, clown);
         DropShadow shadow = new DropShadow();
         DropShadow finalShadow3 = shadow;
@@ -80,13 +72,9 @@ public class Gui extends Application {
                 });
         play.setTranslateY(-20);
         play.setStyle("-fx-background-color: transparent;");
-        try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/QuitB.png")));
-            clown.setFitWidth(150);
-            clown.setFitHeight(30);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        clown = new ImageView(new Image("Resources/Buttons/QuitB.png"));
+        clown.setFitWidth(150);
+        clown.setFitHeight(30);
         Button exit = new Button(null, clown);
         DropShadow finalShadow4 = shadow;
         exit.addEventHandler(MouseEvent.MOUSE_ENTERED,
@@ -104,13 +92,9 @@ public class Gui extends Application {
                 });
         exit.setTranslateY(-20);
         exit.setStyle("-fx-background-color: transparent;");
-        try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/OptionsB.png")));
-            clown.setFitWidth(150);
-            clown.setFitHeight(30);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        clown = new ImageView(new Image("Resources/Buttons/OptionsB.png"));
+        clown.setFitWidth(150);
+        clown.setFitHeight(30);
         Button options = new Button(null, clown);
         DropShadow finalShadow5 = shadow;
         options.addEventHandler(MouseEvent.MOUSE_ENTERED,
@@ -157,7 +141,9 @@ public class Gui extends Application {
             }
         });
         mediaPlayer.play();*/
-        File dir = new File("Resources/Audio");
+       // String path=getClass().getClassLoader().getResource("database.properties").getFile().toString();
+        File dir = new File(getClass().getClassLoader().getResource("Resources/Audio").getFile());
+        boolean x=dir.exists();
         directoryListing = dir.listFiles();
         mediaPlayers=new ArrayList<>();
         if (directoryListing != null) {
@@ -172,11 +158,14 @@ public class Gui extends Application {
                 final MediaPlayer nextPlayer = mediaPlayers.get((i + 1) % mediaPlayers.size());
                 player.setOnEndOfMedia(new Runnable() {
                     @Override public void run() {
+                        if(muteAudio)
+                            nextPlayer.setMute(true);
                         mediaPlayer=nextPlayer;
                         mediaPlayer.play();
                     }
                 });
             }
+
             mediaPlayer=mediaPlayers.get((int) (Math.random()*(mediaPlayers.size()-1)));
             mediaPlayer.play();
         }
