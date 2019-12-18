@@ -19,6 +19,7 @@ public class SecondLevel extends newWorld {
         constantObjects = new ArrayList<>();
         movableObjects = new ArrayList<>();
         controlableObjects = new ArrayList<>();
+        allData = new ArrayList<>();
         BackGroundFactory backGroundFactory = BackGroundFactory.getInstance();
         ClownFactory clownFactory = ClownFactory.getInstance();
         StickFactory stickFactory = StickFactory.getInstance();
@@ -27,7 +28,7 @@ public class SecondLevel extends newWorld {
         this.levelMode = 2;
         pf = (PlateFactory) PlateFactory.getInstance();
         pp = (PlatePool)PlatePool.getInstance();
-        GameObject background = backGroundFactory.getBackGround(0,0,1200,600,"Resources/images.jpg");
+        GameObject background = backGroundFactory.getBackGround(0,0,1200,600,"images.jpg");
         constantObjects.add(background);
         Clown firstClown = clownFactory.getclown(200, 400, clownPath, 1);
         clownsArray.add(firstClown);

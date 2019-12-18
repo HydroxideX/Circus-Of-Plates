@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.levels;
 
+import eg.edu.alexu.csd.oop.ClassesImplemented.Gui.Gui;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.ArrayIterator;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.ArrayListIterator;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
@@ -14,6 +15,7 @@ import eg.edu.alexu.csd.oop.ClassesImplemented.replay.SaveAndLoad;
 import eg.edu.alexu.csd.oop.ClassesImplemented.replay.SaveAndLoadIO;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
+import javafx.stage.Stage;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
@@ -36,7 +38,7 @@ public class newWorld implements World {
     ArrayList<Pair<Stick, Integer>> sticksArray = new ArrayList<>();
     ArrayList<Clown> clownsArray = new ArrayList<>();
     intersectPlates intersection = new intersectPlates();
-    private ArrayList <ArrayList <GameObject> > allData = new ArrayList<>();
+    static ArrayList <ArrayList <GameObject> > allData;
     Integer[] clownsX;
     // Randomizer rm ;
     ShelfHandler shelfhandler;
@@ -93,7 +95,6 @@ public class newWorld implements World {
         time++;
         if (time == 100) {
             time = 0;
-            addMomentToArray();
         }
         shelfhandler.updateShelfs();
         while (it.hasNext()) {
@@ -139,6 +140,7 @@ public class newWorld implements World {
             clown = (Clown) iterator1.next();
             clownsX[counter++] = clown.getX();
         }
+        addMomentToArray();
         return true;
     }
 
@@ -149,7 +151,7 @@ public class newWorld implements World {
         allArray.addAll(controlableObjects);
         allData.add(allArray);
     }
-    private void endGame(){
+    void endGame(){
         SaveAndLoad saveAndLoad = new SaveAndLoad();
         //saveAndLoad.save(allData);
     }
