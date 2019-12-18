@@ -55,6 +55,7 @@ public class ChooseChar extends Application {
         clown1.setStyle("-fx-background-color: transparent;");
         clown1.setOnAction(e->{
             Levels.clownPath="Resources/Clown/clown1.png";
+            primaryStage.close();
         });
         try {
             clown = new ImageView(new Image(new FileInputStream("Resources/Clown/clown2.png")));
@@ -87,6 +88,8 @@ public class ChooseChar extends Application {
         clown2.setStyle("-fx-background-color: transparent;");
         clown2.setOnAction(e->{
             Levels.clownPath="Resources/Clown/clown2.png";
+            primaryStage.close();
+
         });
         try {
             clown = new ImageView(new Image(new FileInputStream("Resources/Clown/clown3.png")));
@@ -119,6 +122,8 @@ public class ChooseChar extends Application {
         clown3.setStyle("-fx-background-color: transparent;");
         clown3.setOnAction(e->{
             Levels.clownPath="Resources/Clown/clown3.png";
+            primaryStage.close();
+
         });   try {
             clown = new ImageView(new Image(new FileInputStream("Resources/Clown/clown4.png")));
             clown.setFitWidth(70);
@@ -150,6 +155,8 @@ public class ChooseChar extends Application {
 
         clown4.setOnAction(e->{
             Levels.clownPath="Resources/Clown/clown4.png";
+            primaryStage.close();
+
         });try {
             clown = new ImageView(new Image(new FileInputStream("Resources/Clown/clown5.png")));
             clown.setFitWidth(70);
@@ -181,6 +188,8 @@ public class ChooseChar extends Application {
 
         clown5.setOnAction(e->{
             Levels.clownPath="Resources/Clown/clown5.png";
+            primaryStage.close();
+
         });
         HBox hBox=new HBox();
         VBox vBox=new VBox();
