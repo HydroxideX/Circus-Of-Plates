@@ -8,7 +8,7 @@ public class Stick extends ImageObject implements Observer {
     public Stick(int posX, int posY, String path) {
         super(posX, posY, path);
         loader = Loader.getInstance();
-        spriteImages[0] = loader.getImage(path, 0.05);
+        spriteImages[0] = loader.getImage(path, 0.1);
     }
 
     @Override

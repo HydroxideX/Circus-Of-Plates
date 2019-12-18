@@ -25,10 +25,8 @@ public class FirstLevel extends newWorld {
         pp = (PlatePool)PlatePool.getInstance();
         GameObject background = new Background(0,0,1200,600,"Resources/images.jpg");
         constantObjects.add(background);
-        Clown firstClown = new Clown(200, 480, clownPath, 1);
+        Clown firstClown = new Clown(200, 400, clownPath, 1);
         clownsArray.add(firstClown);
-        Clown secondClown = new Clown(500, 480, clownPath, 1);
-        clownsArray.add(secondClown);
         clownsX = new Integer[clownsArray.size()];
         addClownsAndEverything(clownsArray,sticksArray,movableObjects,controlableObjects,clownsX);
     }
@@ -57,7 +55,7 @@ public class FirstLevel extends newWorld {
             score = z[0];
         }
         if(time == 0)
-            constantObjects.add(pf.makePlate(3));
+            constantObjects.add(pf.makePlate(2));
         it = removed.iterator();
         while(it.hasNext()){
             constantObjects.remove(it.next());
