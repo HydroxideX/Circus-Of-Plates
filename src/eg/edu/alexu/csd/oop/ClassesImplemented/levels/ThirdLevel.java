@@ -43,7 +43,7 @@ public class ThirdLevel extends newWorld {
             time = 0;
         }
         swapTime++;
-        if(swapTime == 300) {
+        if(swapTime == 150) {
             swapTime = 0;
         }
         while (it.hasNext()){
