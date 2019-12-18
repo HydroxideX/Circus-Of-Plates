@@ -23,7 +23,7 @@ import java.io.FileNotFoundException;
 import java.util.Collections;
 
 public class Levels extends Application {
-    public static String clownPath="Resources/Clown/clown3.png";
+    public static String clownPath="Resources/Clown/clown1.png";
 
     public static void main(String[] args) {
         launch(args);
@@ -48,7 +48,7 @@ public class Levels extends Application {
         vBox.setAlignment(Pos.CENTER);
         ImageView clown= null;
         try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/EasyB.png")));
+            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/EasyB.png")));
             clown.setFitWidth(150);
             clown.setFitHeight(30);
         } catch (FileNotFoundException e) {
@@ -80,7 +80,7 @@ public class Levels extends Application {
             primaryStage.close();
         });
         try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/MediumB.png")));
+            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/MediumB.png")));
             clown.setFitWidth(150);
             clown.setFitHeight(30);
         } catch (FileNotFoundException e) {
@@ -113,7 +113,7 @@ public class Levels extends Application {
             primaryStage.close();
         });
         try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/HardB.png")));
+            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/HardB.png")));
             clown.setFitWidth(150);
             clown.setFitHeight(30);
         } catch (FileNotFoundException e) {
@@ -146,7 +146,7 @@ public class Levels extends Application {
             primaryStage.close();
         });
         try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/BackB.png")));
+            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/BackB.png")));
             clown.setFitWidth(150);
             clown.setFitHeight(30);
         } catch (FileNotFoundException e) {

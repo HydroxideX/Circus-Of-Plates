@@ -13,15 +13,15 @@ public class Clown extends ImageObject {
     public Clown(int posX, int posY, String clownPath, int type) {
         super(posX, posY, clownPath, type);
         loader = Loader.getInstance();
-        if(clownPath.contains("1") || clownPath.contains("2") ) {
-            spriteImages[0] = loader.getImage(clownPath, 0.08);
-            stick1 = new Stick(this.getX()-15,this.getY()+ 20,"Resources/Sticks/leftstick_2.png");
-            stick2 = new Stick(this.getX()+70,this.getY()+20,"Resources/Sticks/rightstick_2.png");
+        if(clownPath.contains("1") || clownPath.contains("2")) {
+            spriteImages[0] = loader.getImage(clownPath, 0.1);
+            stick1 = new Stick(this.getX()-30,this.getY()+ 12,"Resources/Sticks/leftstick_2.png");
+            stick2 = new Stick(this.getX()+85,this.getY()+ 12,"Resources/Sticks/rightstick_2.png");
         }
         else {
-            spriteImages[0] = loader.getImage(clownPath, 0.08);
-            stick1 = new Stick(this.getX()-15,this.getY()+35,"Resources/Sticks/leftstick_2.png");
-            stick2 = new Stick(this.getX()+48,this.getY() + 35,"Resources/Sticks/rightstick_2.png");
+            spriteImages[0] = loader.getImage(clownPath, 0.15);
+            stick1 = new Stick(this.getX()-37,this.getY()+66,"Resources/Sticks/leftstick_2.png");
+            stick2 = new Stick(this.getX()+90,this.getY() + 66,"Resources/Sticks/rightstick_2.png");
         }
     }
 
