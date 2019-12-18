@@ -9,6 +9,6 @@ public class PlateWithDeepBase extends Plate implements GameObject {
         return "PlateWithDeepBase";
     }
     public int getYError(){
-        return 54;
+        return 20;
     }
 }

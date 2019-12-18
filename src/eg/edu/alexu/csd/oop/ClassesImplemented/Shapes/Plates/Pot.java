@@ -9,6 +9,6 @@ public class Pot extends Plate implements GameObject {
         return "Pot";
     }
     public int getYError(){
-        return 72;
+        return 31;
     }
 }

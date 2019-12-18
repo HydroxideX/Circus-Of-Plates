@@ -9,6 +9,6 @@ public class PlateWithBase extends Plate implements GameObject{
         return "PlateWithBase";
     }
     public int getYError(){
-        return 14;
+        return -9;
     }
 }
