@@ -170,8 +170,11 @@ public class Gui extends Application {
             for (int i = 0; i < mediaPlayers.size(); i++) {
                 final MediaPlayer player     = mediaPlayers.get(i);
                 final MediaPlayer nextPlayer = mediaPlayers.get((i + 1) % mediaPlayers.size());
+
                 player.setOnEndOfMedia(new Runnable() {
                     @Override public void run() {
+                        if(muteAduio)
+                            nextPlayer.setMute(true);
                         mediaPlayer=nextPlayer;
                         mediaPlayer.play();
                     }
