@@ -8,6 +8,11 @@ import java.util.List;
 
 public class ReplayWorld extends newWorld {
     int index = 0;
+    public ReplayWorld(int width,int height,String clownPath)
+    {
+        this.width=width;
+        this.height=height;
+    }
     @Override
     public List<GameObject> getConstantObjects() {
         return allData.get(index);

@@ -148,8 +148,15 @@ public class Levels extends Application {
         back.setOnAction(e->{
             primaryStage.close();
         });
-
-        vBox.getChildren().addAll(level1,level2,level3,back);
+        Button replay=new Button("Replay");
+        replay.setTranslateY(-20);
+        replay.setOnAction(e->{
+            Facade facade =new Facade("ay 7aga",clownPath);
+            facade.Start();
+            playMusic();
+            primaryStage.close();
+        });
+        vBox.getChildren().addAll(level1,level2,level3,replay,back);
         primaryStage.setScene(new Scene(vBox,300,400));
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.showAndWait();
