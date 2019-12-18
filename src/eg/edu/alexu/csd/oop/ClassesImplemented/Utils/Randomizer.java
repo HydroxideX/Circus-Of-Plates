@@ -6,17 +6,11 @@ import java.util.ArrayList;
 
 public class Randomizer {
     private static Randomizer rand =null;
-    private ArrayList<GameObject> movableObjects , constObjects;
-    private Randomizer() {
-    }
+    private static ArrayList<GameObject> movableObjects , constObjects;
+ public Randomizer(ArrayList<GameObject> movableObjects ,ArrayList<GameObject> constantObjects) {
 
-    public static synchronized Randomizer getInstance(ArrayList<GameObject> movableObjects ,ArrayList<GameObject> constantObjects) {
-        if (rand == null) {
-            rand = new Randomizer();
-        }
         this.movableObjects = movableObjects ;
         this.constObjects = constantObjects;
-        return rand;
     }
 
 }

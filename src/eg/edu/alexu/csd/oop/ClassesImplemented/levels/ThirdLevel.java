@@ -7,11 +7,9 @@ import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool.PlatePool;
-import eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.Shelf;
 import eg.edu.alexu.csd.oop.ClassesImplemented.States.StackedState;
 import eg.edu.alexu.csd.oop.game.GameObject;
 
-import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -27,34 +25,6 @@ public class ThirdLevel extends newWorld {
         pp = (PlatePool)PlatePool.getInstance();
         GameObject background = new Background(0,0,1000,700,"Resources/images.jpg");
         constantObjects.add(background);
-        stick1 = new Stick(465,490,"Resources/Sticks/leftstick_2.png");
-        movableObjects.add(stick1);
-        stick2 = new Stick(700,490,"Resources/Sticks/rightstick_2.png");
-        movableObjects.add(stick2);
-        firstClown.registerObserver(stick1);
-        firstClown.registerObserver(stick2);
-        intersectionHeight = stick1.getY();
-        intersectionHeight2 = stick2.getY();
-
-
-        constantObjects.add(new Shelf(0 , 50));
-        constantObjects.add(new Shelf(0 , 100));
-
-    }
-
-    @Override
-    public List<GameObject> getConstantObjects() {
-        return constantObjects;
-    }
-
-    @Override
-    public List<GameObject> getMovableObjects() {
-        return movableObjects;
-    }
-
-    @Override
-    public List<GameObject> getControlableObjects() {
-        return controlableObjects;
         Clown firstClown = new Clown(200, 480, clownPath, 1);
         clownsArray.add(firstClown);
         Clown secondClown = new Clown(500, 480, clownPath, 1);
@@ -67,16 +37,15 @@ public class ThirdLevel extends newWorld {
     public boolean refresh() {
         Iterator it = constantObjects.iterator();
         ArrayList removed = new ArrayList();
-        for(int i=0 ;i<3 && it.hasNext() ; i++)
-        it.next();
+        if(it.hasNext())
+            it.next();
         time++;
         if(time == 300){
             time = 0;
         }
         while (it.hasNext()){
             Plate m = (Plate) it.next();
-            m.update(1);
-            //m.setY((m.getY() + 1));
+            m.setY((m.getY() + 1));
             if(m.getY() == getHeight()){
                 it.remove();
             }
