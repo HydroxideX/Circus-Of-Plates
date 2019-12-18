@@ -200,7 +200,7 @@ public class ChooseChar extends Application {
         vBox.setAlignment(Pos.CENTER);
 
         try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/BackB.png")));
+            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/BackB.png")));
             clown.setFitWidth(170);
             clown.setFitHeight(30);
         } catch (FileNotFoundException e) {

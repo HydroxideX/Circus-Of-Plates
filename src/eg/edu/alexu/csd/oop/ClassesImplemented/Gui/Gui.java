@@ -35,7 +35,7 @@ public class Gui extends Application {
     static boolean muteAduio=false;
     @Override
     public void start(Stage primaryStage) {
-        String musicFile = "Resources/Audio/LightOfTheSeven.mp3";     // For example
+        String musicFile = "Resources/Audio/ComeAndGetYourLove.mp3";     // For example
         Media sound = new Media(new File(musicFile).toURI().toString());
          mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.setOnEndOfMedia(new Runnable() {
@@ -62,7 +62,7 @@ public class Gui extends Application {
         vBox.setAlignment(Pos.CENTER);
         ImageView clown= null;
         try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/PlayB.png")));
+            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/PlayB.png")));
             clown.setFitWidth(150);
             clown.setFitHeight(30);
         } catch (FileNotFoundException e) {
@@ -87,7 +87,7 @@ public class Gui extends Application {
         play.setTranslateY(-20);
         play.setStyle("-fx-background-color: transparent;");
         try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/QuitB.png")));
+            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/QuitB.png")));
             clown.setFitWidth(150);
             clown.setFitHeight(30);
         } catch (FileNotFoundException e) {
@@ -111,7 +111,7 @@ public class Gui extends Application {
         exit.setTranslateY(-20);
         exit.setStyle("-fx-background-color: transparent;");
         try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/OptionsB.png")));
+            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/OptionsB.png")));
             clown.setFitWidth(150);
             clown.setFitHeight(30);
         } catch (FileNotFoundException e) {

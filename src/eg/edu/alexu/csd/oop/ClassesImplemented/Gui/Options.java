@@ -47,7 +47,7 @@ public class Options extends Application {
         vBox.setAlignment(Pos.CENTER);
         ImageView clown= null;
         try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/ChooseClown.png")));
+            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/ChooseClown.png")));
             clown.setFitWidth(150);
             clown.setFitHeight(30);
         } catch (FileNotFoundException e) {
@@ -80,7 +80,7 @@ public class Options extends Application {
 
 
         try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/MusicB.png")));
+            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/MusicB.png")));
             clown.setFitWidth(150);
             clown.setFitHeight(30);
         } catch (FileNotFoundException e) {
@@ -123,7 +123,7 @@ public class Options extends Application {
             }
         });
         try {
-            clown = new ImageView(new Image(new FileInputStream("Resources/BackB.png")));
+            clown = new ImageView(new Image(new FileInputStream("Resources/Buttons/BackB.png")));
             clown.setFitWidth(150);
             clown.setFitHeight(30);
         } catch (FileNotFoundException e) {
