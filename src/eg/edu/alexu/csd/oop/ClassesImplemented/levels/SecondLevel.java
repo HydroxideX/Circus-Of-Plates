@@ -57,7 +57,7 @@ public class SecondLevel extends newWorld {
             score = z[0];
         }
         if(time == 0)
-            constantObjects.add(pf.makePlate(3));
+            constantObjects.add(pf.makePlate(5));
         it = removed.iterator();
         while(it.hasNext()){
             constantObjects.remove(it.next());

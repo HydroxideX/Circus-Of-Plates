@@ -27,6 +27,10 @@ public class ThirdLevel extends newWorld {
         constantObjects.add(background);
         Clown firstClown = new Clown(200, 480, clownPath, 1);
         clownsArray.add(firstClown);
+        Clown secondClown = new Clown(500, 480, clownPath, 1);
+        clownsArray.add(secondClown);
+        Clown thirdClown = new Clown(800, 480, clownPath, 1);
+        clownsArray.add(thirdClown);
         clownsX = new Integer[clownsArray.size()];
         addClownsAndEverything(clownsArray,sticksArray,movableObjects,controlableObjects,clownsX);
     }
@@ -55,7 +59,7 @@ public class ThirdLevel extends newWorld {
             score = z[0];
         }
         if(time == 0)
-            constantObjects.add(pf.makePlate(3));
+            constantObjects.add(pf.makePlate(11));
         it = removed.iterator();
         while(it.hasNext()){
             constantObjects.remove(it.next());
