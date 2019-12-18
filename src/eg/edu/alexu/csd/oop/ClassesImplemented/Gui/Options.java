@@ -109,17 +109,8 @@ public class Options extends Application {
         audio.setOnAction(e->{
             Gui.mediaPlayer.setMute(true);
             Gui.muteAduio= !Gui.muteAduio;
-            Gui.mediaPlayer.setMute(true);
             if(!Gui.muteAduio) {
-                String musicFile = "Resources/Audio/TheNightKing.mp3";     // For example
-                Media sound = new Media(new File(musicFile).toURI().toString());
-                Gui.mediaPlayer = new MediaPlayer(sound);
-                Gui.mediaPlayer.setOnEndOfMedia(new Runnable() {
-                    public void run() {
-                        Gui.mediaPlayer.seek(Duration.ZERO);
-                    }
-                });
-                Gui.mediaPlayer.play();
+                Gui.mediaPlayer.setMute(false);
             }
         });
         try {

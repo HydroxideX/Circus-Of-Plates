@@ -23,6 +23,7 @@ import javafx.util.Duration;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Collections;
 
 
@@ -35,16 +36,7 @@ public class Gui extends Application {
     static boolean muteAduio=false;
     @Override
     public void start(Stage primaryStage) {
-        String musicFile = "Resources/Audio/ComeAndGetYourLove.mp3";     // For example
-        Media sound = new Media(new File(musicFile).toURI().toString());
-         mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.setOnEndOfMedia(new Runnable() {
-            public void run() {
-                mediaPlayer.seek(Duration.ZERO);
-            }
-        });
-        mediaPlayer.play();
-
+        playMusic();
         VBox vBox =new VBox();
         vBox.setSpacing(15);
         try {
@@ -151,5 +143,39 @@ public class Gui extends Application {
         primaryStage.setTitle("Circus of Plates");
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
+    }
+    public void playMusic()
+    {
+        /*String musicFile = "Resources/Audio/ComeAndGetYourLove.mp3";     // For example
+        Media sound = new Media(new File(musicFile).toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.setOnEndOfMedia(new Runnable() {
+            public void run() {
+                mediaPlayer.seek(Duration.ZERO);
+            }
+        });
+        mediaPlayer.play();*/
+        File dir = new File("Resources/Audio");
+        File[] directoryListing = dir.listFiles();
+        ArrayList<MediaPlayer> mediaPlayers=new ArrayList<>();
+        if (directoryListing != null) {
+            for (File child : directoryListing) {
+                 Media sound = new Media(new File(child.getPath()).toURI().toString());
+                mediaPlayer = new MediaPlayer(sound);
+                mediaPlayers.add(mediaPlayer);
+            }
+            mediaPlayer=mediaPlayers.get(0);
+            mediaPlayer.play();
+            for (int i = 0; i < mediaPlayers.size(); i++) {
+                final MediaPlayer player     = mediaPlayers.get(i);
+                final MediaPlayer nextPlayer = mediaPlayers.get((i + 1) % mediaPlayers.size());
+                player.setOnEndOfMedia(new Runnable() {
+                    @Override public void run() {
+                        mediaPlayer=nextPlayer;
+                        mediaPlayer.play();
+                    }
+                });
+            }
+        }
     }
 }
