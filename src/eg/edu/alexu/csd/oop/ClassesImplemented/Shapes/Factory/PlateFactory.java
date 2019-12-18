@@ -1,9 +1,10 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory;
 
-import eg.edu.alexu.csd.oop.ClassesImplemented.Loader;
+import eg.edu.alexu.csd.oop.ClassesImplemented.States.FallingState;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.Loader;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool.PlatePool;
-import eg.edu.alexu.csd.oop.ClassesImplemented.States.FallingState;
+import eg.edu.alexu.csd.oop.ClassesImplemented.States.OnShelfState;
 import eg.edu.alexu.csd.oop.game.GameObject;
 
 import java.awt.image.BufferedImage;
@@ -28,7 +29,7 @@ public class PlateFactory implements IPlateFactory {
         Types = loader.getSupportedPlateTypes(classesNames);
     }
 
-    public static IPlateFactory getInstance() {
+    public static synchronized IPlateFactory getInstance() {
         if (pf == null) {
             pf = new PlateFactory();
         }
@@ -36,7 +37,6 @@ public class PlateFactory implements IPlateFactory {
     }
 
     public GameObject makePlate(int mode) {
-        System.out.println(mode);
         if(mode >avaColors.length || mode<0)return null;
         int randNum = rand.nextInt(mode);
         String color = avaColors[randNum];

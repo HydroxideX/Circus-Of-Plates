@@ -1,7 +1,7 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Clowns;
 
 import eg.edu.alexu.csd.oop.ClassesImplemented.ArrayListIterator;
-import eg.edu.alexu.csd.oop.ClassesImplemented.Loader;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.Loader;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Observer;
 import eg.edu.alexu.csd.oop.game.GameObject;
 

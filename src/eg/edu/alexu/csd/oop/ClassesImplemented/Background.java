@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented;
 
+import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.Loader;
 import eg.edu.alexu.csd.oop.game.GameObject;
 
 import java.awt.image.BufferedImage;
