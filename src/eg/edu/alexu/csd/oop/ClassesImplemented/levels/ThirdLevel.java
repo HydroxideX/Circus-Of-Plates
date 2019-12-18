@@ -33,8 +33,8 @@ public class ThirdLevel extends newWorld {
         clownsX = new Integer[clownsArray.size()];
         addClownsAndEverything(clownsArray,sticksArray,movableObjects,controlableObjects,clownsX);
         constantObjects.add(new Shelf(0,50));
-        constantObjects.add(new Shelf(0,100));
-        constantObjects.add(new Shelf(0,150));
+        //constantObjects.add(new Shelf(0,100));
+      //  constantObjects.add(new Shelf(0,150));
         rm = new Randomizer(movableObjects,constantObjects);
 
 
