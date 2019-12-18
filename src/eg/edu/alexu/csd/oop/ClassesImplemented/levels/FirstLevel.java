@@ -32,7 +32,7 @@ public class FirstLevel extends newWorld {
         clownsX = new Integer[clownsArray.size()];
         addClownsAndEverything(clownsArray,sticksArray,movableObjects,controlableObjects,clownsX);
         constantObjects.add(new Shelf(0,50));
-        constantObjects.add(new Shelf(0,100));
+        //constantObjects.add(new Shelf(0,100));
         rm = new Randomizer(movableObjects,constantObjects);
 
     }
