@@ -68,13 +68,12 @@ public class Music extends Application {
         back.setStyle("-fx-background-color: transparent;");
 
         back.setOnAction(e -> {
-            primaryStage.close();
+            Options options=new Options();
+            options.start(primaryStage);
         });
-        clown = new ImageView(new Image("Resources/Buttons/Sound.png"));
-        clown.setFitWidth(60);
-        clown.setFitHeight(30);
-        mute = new Button(null, clown);
 
+        mute = new Button(null, clown);
+        changeSoundIcon();
         finalShadow2 = new DropShadow();
         finalShadow1 = finalShadow2;
         DropShadow finalShadow3 = finalShadow1;
@@ -134,8 +133,8 @@ public class Music extends Application {
         vBox.getChildren().addAll(mute, hbox, back);
         primaryStage.setScene(new Scene(vBox, 300, 400));
         primaryStage.setTitle("Circus of Plates");
-        primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.show();
+        //primaryStage.initStyle(StageStyle.UNDECORATED);
+       // primaryStage.show();
     }
 
     private void changeSoundIcon() {

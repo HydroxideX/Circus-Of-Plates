@@ -61,7 +61,7 @@ public class Options extends Application {
         chooseChar.setStyle("-fx-background-color: transparent;");
         chooseChar.setOnAction(e->{
             ChooseChar chooseChar1=new ChooseChar();
-            chooseChar1.start(new Stage());
+            chooseChar1.start(primaryStage);
         });
 
 
@@ -90,7 +90,7 @@ public class Options extends Application {
         audio.setStyle("-fx-background-color: transparent;");
         audio.setOnAction(e->{
             Music music=new Music();
-            music.start(new Stage());
+            music.start(primaryStage);
         });
         clown = new ImageView(new Image("Resources/Buttons/BackB.png"));
         clown.setFitWidth(150);
@@ -116,13 +116,14 @@ public class Options extends Application {
         back.setStyle("-fx-background-color: transparent;");
 
         back.setOnAction(e->{
-            primaryStage.close();
+            Gui gui=new Gui();
+            gui.start(primaryStage);
 
         });
 
         vBox.getChildren().addAll(chooseChar,audio,back);
         primaryStage.setScene(new Scene(vBox,300,400));
-        primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.showAndWait();
+        //primaryStage.initStyle(StageStyle.UNDECORATED);
+        //primaryStage.showAndWait();
     }
 }

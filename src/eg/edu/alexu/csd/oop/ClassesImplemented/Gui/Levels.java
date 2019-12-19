@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -63,7 +64,9 @@ public class Levels extends Application {
             Facade facade =new Facade("level1",clownPath);
             facade.Start();
            // playMusic();
-            primaryStage.close();
+            Gui gui=new Gui();
+            gui.start(primaryStage);
+            primaryStage.toBack();
         });
         clown = new ImageView(new Image("Resources/Buttons/MediumB.png"));
         clown.setFitWidth(150);
@@ -92,7 +95,10 @@ public class Levels extends Application {
             Facade facade =new Facade("level2",clownPath);
             facade.Start();
             //playMusic();
-            primaryStage.close();
+            Gui gui=new Gui();
+            gui.start(primaryStage);
+            primaryStage.toBack();
+
         });
         clown = new ImageView(new Image("Resources/Buttons/HardB.png"));
         clown.setFitWidth(150);
@@ -121,7 +127,9 @@ public class Levels extends Application {
             Facade facade =new Facade("level3",clownPath);
             facade.Start();
             playMusic();
-            primaryStage.close();
+            Gui gui=new Gui();
+            gui.start(primaryStage);
+            primaryStage.toBack();
         });
         clown = new ImageView(new Image("Resources/Buttons/BackB.png"));
         clown.setFitWidth(150);
@@ -129,10 +137,11 @@ public class Levels extends Application {
         Button back= new Button(null, clown);
          finalShadow1 = finalShadow;
         DropShadow finalShadow2 = finalShadow1;
+        DropShadow finalShadow6 = finalShadow2;
         back.addEventHandler(MouseEvent.MOUSE_ENTERED,
                 new EventHandler<MouseEvent>() {
                     @Override public void handle(MouseEvent e) {
-                        back.setEffect(finalShadow2);
+                        back.setEffect(finalShadow6);
                     }
                 });
 //Removing the shadow when the mouse cursor is off
@@ -142,24 +151,60 @@ public class Levels extends Application {
                         back.setEffect(null);
                     }
                 });
-        back.setTranslateY(-20);
+        back.setTranslateY(-30);
         back.setStyle("-fx-background-color: transparent;");
 
         back.setOnAction(e->{
-            primaryStage.close();
+            //primaryStage.close();
+           /* Gui.levels=Gui.current;
+            Gui.current=Gui.gui;
+            Gui.current.show();*/
+            Gui gui=new Gui();
+            gui.start(primaryStage);
         });
-        Button replay=new Button("Replay");
+        clown = new ImageView(new Image("Resources/Buttons/replayB.png"));
+        clown.setFitWidth(60);
+        clown.setFitHeight(30);
+        finalShadow1 = finalShadow;
+        finalShadow2 = finalShadow1;
+        DropShadow finalShadow5 = finalShadow2;
+        Button replay=new Button(null,clown);
+        replay.addEventHandler(MouseEvent.MOUSE_ENTERED,
+                new EventHandler<MouseEvent>() {
+                    @Override public void handle(MouseEvent e) {
+                        replay.setEffect(finalShadow5);
+                    }
+                });
+//Removing the shadow when the mouse cursor is off
+        replay.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override public void handle(MouseEvent e) {
+                        replay.setEffect(null);
+                    }
+                });
         replay.setTranslateY(-20);
+        replay.setStyle("-fx-background-color: transparent;");
         replay.setOnAction(e->{
-            Facade facade =new Facade("ay 7aga",clownPath);
-            facade.Start();
-            playMusic();
-            primaryStage.close();
+            try
+           {
+               Facade facade =new Facade("ay 7aga",clownPath);
+               facade.Start();
+               //playMusic();
+               Gui gui=new Gui();
+               gui.start(primaryStage);
+               primaryStage.toBack();
+           }catch (Exception ex)
+           {
+               Alert a = new Alert(Alert.AlertType.NONE);
+               a.setAlertType(Alert.AlertType.ERROR);
+               a.setHeaderText("Play a game to watch the Replay!");
+               // show the dialog
+               a.show(); }
         });
         vBox.getChildren().addAll(level1,level2,level3,replay,back);
         primaryStage.setScene(new Scene(vBox,300,400));
-        primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.showAndWait();
+        //primaryStage.initStyle(StageStyle.UNDECORATED);
+       // primaryStage.showAndWait();
     }
     private void playMusic()
     {
