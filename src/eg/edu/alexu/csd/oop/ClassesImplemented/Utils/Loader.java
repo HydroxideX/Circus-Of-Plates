@@ -13,13 +13,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.file.*;
-import java.security.CodeSource;
 import java.util.*;
 import java.util.stream.Stream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 
 public class Loader {
     private static Loader img = null;
@@ -40,21 +36,56 @@ public class Loader {
     }
 
     public void loadAllImages() {
-        File[] f = new File(getClass().getClassLoader().getResource("resources/plates").getFile()).listFiles();
-        for (File child : f) {
-            String s = child.getPath().split("\\w+(\\\\?)(resources\\\\)")[1];
-           // System.out.println(child.getName() + " " + s);
-            imgs.put(child.getName(), getImage(s));
+        URI uri = null;
+        uri =  (new File("Resources/Plates")).toURI();
+        Path myPath;
+        if (uri.getScheme().equals("jar")) {
+            FileSystem fileSystem = null;
+            try {
+                fileSystem = FileSystems.newFileSystem(uri, Collections.<String, Object>emptyMap());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            myPath = fileSystem.getPath("/resources/");
+        } else {
+            myPath = Paths.get(uri);
         }
+        Stream<Path> walk = null;
+        try {
+            walk = Files.walk(myPath, 10);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Iterator<Path> it = walk.iterator();
+        while (it.hasNext()) {
+            //System.out.println(it.next());
+            String child = it.next().toString().toLowerCase();
+            if (child.endsWith(".jpg") || child.endsWith(".png")) {
+                child = child.split("\\w+\\\\(?=resources)")[1];
+                String s = child.split("(resources\\\\)")[1];
+                // System.out.println(child + " " + s);
+                System.out.println(child);
+                imgs.put(s, getImage(child));
+            }
+        }
+
+      /*  File dir2 = new File("Resources/Plates");
+        File[] f = dir2.listFiles();
+        for (File child : f) {
+            System.out.println(child.getAbsolutePath());
+            String s = child.getAbsolutePath().split("\\w+\\\\?Resources\\\\")[1];
+            System.out.println(child.getName() + " " + s);
+            imgs.put(s.toLowerCase(), getImage(s));
+        }*/
     }
 
     public BufferedImage getImage(String path) {
         BufferedImage image = null;
-        System.out.println(path);
+        //System.out.println(path);
         path = path.toLowerCase();
         //System.out.println(path);
         if (imgs.containsKey(path)) {
-            //System.out.println(path);
+             System.out.println(path);
             return imgs.get(path);
         } else {
             try {
