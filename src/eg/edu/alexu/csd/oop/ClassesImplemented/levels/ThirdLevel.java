@@ -18,7 +18,7 @@ public class ThirdLevel extends newWorld {
         constantObjects = new ArrayList<>();
         movableObjects = new ArrayList<>();
         controlableObjects = new ArrayList<>();
-        allData = new ArrayList<>();
+        ReplayWorld.allData.clear();
         BackGroundFactory backGroundFactory = BackGroundFactory.getInstance();
         ClownFactory clownFactory = ClownFactory.getInstance();
         StickFactory stickFactory = StickFactory.getInstance();

@@ -40,7 +40,7 @@ public class newWorld implements World {
     ArrayList<Pair<Stick, Integer>> sticksArray = new ArrayList<>();
     ArrayList<Clown> clownsArray = new ArrayList<>();
     intersectPlates intersection = new intersectPlates();
-    static ArrayList <ArrayList <GameObject> > allData;
+    //static ArrayList <ArrayList <GameObject> > allData;
     Integer[] clownsX;
     ShelfHandler shelfhandler;
 
@@ -87,7 +87,7 @@ public class newWorld implements World {
 
     @Override
     public boolean refresh() {
-        if(score == 1) endGame();
+        if(endGame())return false;
         Iterator it = constantObjects.iterator();
         ArrayList removed = new ArrayList();
         for (int i = 0; i < levelMode+1 && (it.hasNext()); i++)
@@ -142,62 +142,14 @@ public class newWorld implements World {
             clown = (Clown) iterator1.next();
             clownsX[counter++] = clown.getX();
         }
-        addMomentToArray();
+        SnapShot snapShot=new SnapShot();
+        snapShot.addMomentToArray(constantObjects,movableObjects,controlableObjects);
         return true;
     }
 
-    private void addMomentToArray(){
-        ArrayList <GameObject> allArray = new ArrayList<>();
-        iterateAndAddArray(constantObjects,allArray);
-        iterateAndAddArray(movableObjects,allArray);
-        iterateAndAddArray(controlableObjects,allArray);
-        allData.add(allArray);
-    }
-
-    private void iterateAndAddArray(List<GameObject> temp , ArrayList<GameObject> array){
-        Iterator it= temp.iterator();
-        while (it.hasNext()){
-            GameObject current = cloneGameObject((GameObject) it.next());
-            array.add(current);
-        }
-    }
-
-    private GameObject cloneGameObject(GameObject x){
-        if(x.getClass().getName().toLowerCase().contains("clown") || x.getClass().getName().toLowerCase().contains("stick")){
-            try {
-                ImageObject v = (ImageObject) ((ImageObject) x).clone();
-                return v;
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-            }
-        } else if(x.getClass().getName().toLowerCase().contains("shelf")){
-            try {
-                ShelfObject v = (ShelfObject) ((ShelfObject) x).clone();
-                return v;
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-            }
-        }else if(x.getClass().getName().toLowerCase().contains("background")){
-            try {
-                Background v = (Background) ((Background) x).clone();
-                return v;
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-            }
-        }else {
-            try {
-                Plate v = (Plate) ((Plate) x).clone();
-                return v;
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-            }
-        }
-        return null;
-    }
-
-    void endGame(){
-        SaveAndLoad saveAndLoad = new SaveAndLoad();
-        //saveAndLoad.save(allData);
+    boolean endGame(){
+       if (score==3)return true;
+        return false;
     }
 
     @Override
