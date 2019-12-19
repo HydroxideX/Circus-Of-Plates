@@ -1,12 +1,20 @@
 package Controllers.Difficulty;
 
-public class Medium implements Speed {
+import Models.Plates.SpecialPlate;
+
+public class Medium extends Speed {
+    public Medium(){
+        controlspeed = 25;
+    }
+
+    @Override
     public int getSpeed() {
         return 10;
     }
 
+    @Override
     public int getControlSpeed() {
 
-        return 25;
+        return controlspeed;
     }
 }
