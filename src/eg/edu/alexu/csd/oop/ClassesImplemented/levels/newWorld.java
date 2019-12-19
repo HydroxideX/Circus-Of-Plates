@@ -2,6 +2,7 @@ package eg.edu.alexu.csd.oop.ClassesImplemented.levels;
 
 import eg.edu.alexu.csd.oop.ClassesImplemented.BackGround.Background;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.ImageObject;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Gui.EndGame;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Gui.Gui;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.ShelfObject;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.ArrayIterator;
@@ -87,7 +88,7 @@ public class newWorld implements World {
     @Override
     public boolean refresh() {
         long currentTime = System.currentTimeMillis();
-        if(score == 5){
+        if(score == 1){
             endGameWin();
             return false;
         }
@@ -155,11 +156,15 @@ public class newWorld implements World {
     }
 
     void endGameWin(){
-        
+        new Thread();
+        EndGame endGame=new EndGame(true);
+        endGame.main(new String[1]);
     }
 
     void endGameLose(){
-
+        new Thread();
+        EndGame endGame=new EndGame(false);
+        endGame.main(new String[1]);
     }
 
     @Override
