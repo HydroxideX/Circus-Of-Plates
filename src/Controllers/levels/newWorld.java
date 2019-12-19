@@ -85,10 +85,10 @@ public class newWorld implements World {
     @Override
     public boolean refresh() {
         long currentTime = System.currentTimeMillis();
-        if(score == 1){
+        if(score == 5){
             endGameWin();
-        }if(score==1)
-        return false;
+            return false;
+        }
         if((currentTime-startTime)/1000 >= 120){
             endGameLose();
             return false;

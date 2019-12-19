@@ -49,12 +49,14 @@ public class EndGame extends Application {
             label.setText("You Are A Loser");
             label2.setText("Congratulations You Lost");
         }
+        //label.setTranslateY(-20);
+        //label2.setTranslateY(-20);
         label2.setFont(Font.font("Cambria", 25));
-        label.setFont(Font.font("Cambria", 25));
+        label.setFont(Font.font("Cambria", 20));
         ImageView clown= null;
         clown = new ImageView(new Image("Resources/yahia.jpg"));
-        clown.setFitWidth(150);
-        clown.setFitHeight(30);
+        clown.setFitWidth(250);
+        clown.setFitHeight(250);
         Button button=new Button(null,clown);
         DropShadow shadow = new DropShadow();
 //Adding the shadow when the mouse cursor is on
@@ -72,7 +74,7 @@ public class EndGame extends Application {
                         button.setEffect(null);
                     }
                 });
-        button.setTranslateY(-20);
+        //button.setTranslateY(-20);
         button.setStyle("-fx-background-color: transparent;");
         button.setOnAction(e->primaryStage.close());
         vBox.getChildren().addAll(label,label2,button);
