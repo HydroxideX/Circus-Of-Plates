@@ -43,7 +43,7 @@ public class Loader {
             //String s = child.getAbsolutePath().split("\\w+\\\\?Resources\\\\")[1];
             //System.out.println(child.getName() + " " + s);
             String s="Plates/"+child.getName();
-            System.out.println(s);
+            //System.out.println(s);
             imgs.put(s, getImage(s));
         }
     }
@@ -52,9 +52,9 @@ public class Loader {
         BufferedImage image = null;
         //System.out.println(path);
         //path = path.toLowerCase();
-        System.out.println(path);
+        //System.out.println(path);
         if (imgs.containsKey(path)) {
-             System.out.println(path);
+             //System.out.println(path);
             return imgs.get(path);
         } else {
             try {
