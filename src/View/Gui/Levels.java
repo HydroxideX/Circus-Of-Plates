@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -22,7 +23,12 @@ public class Levels extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
+    private  int keyBoardCounter=0;
+    Button level1;
+    Button level2;
+    Button level3;
+    Button replay;
+    Button back;
     @Override
     public void start(Stage primaryStage) {
         VBox vBox=new VBox();
@@ -40,7 +46,7 @@ public class Levels extends Application {
         clown = new ImageView(new Image("Resources/Buttons/EasyB.png"));
         clown.setFitWidth(150);
         clown.setFitHeight(30);
-        Button level1 = new Button(null, clown);
+         level1 = new Button(null, clown);
         DropShadow shadow = new DropShadow();
 //Adding the shadow when the mouse cursor is on
         DropShadow finalShadow3 = shadow;
@@ -57,6 +63,7 @@ public class Levels extends Application {
                         level1.setEffect(null);
                     }
                 });
+        level1.setEffect(shadow);
         level1.setTranslateY(-20);
         level1.setStyle("-fx-background-color: transparent;");
         level1.setOnAction(e->{
@@ -70,7 +77,7 @@ public class Levels extends Application {
         clown = new ImageView(new Image("Resources/Buttons/MediumB.png"));
         clown.setFitWidth(150);
         clown.setFitHeight(30);
-        Button level2 = new Button(null, clown);
+         level2 = new Button(null, clown);
          shadow = new DropShadow();
 //Adding the shadow when the mouse cursor is on
         DropShadow finalShadow = shadow;
@@ -102,7 +109,7 @@ public class Levels extends Application {
         clown = new ImageView(new Image("Resources/Buttons/HardB.png"));
         clown.setFitWidth(150);
         clown.setFitHeight(30);
-        Button level3 = new Button(null, clown);
+         level3 = new Button(null, clown);
         shadow = new DropShadow();
 //Adding the shadow when the mouse cursor is on
         DropShadow finalShadow1 = finalShadow;
@@ -133,7 +140,7 @@ public class Levels extends Application {
         clown = new ImageView(new Image("Resources/Buttons/BackB.png"));
         clown.setFitWidth(150);
         clown.setFitHeight(30);
-        Button back= new Button(null, clown);
+         back= new Button(null, clown);
          finalShadow1 = finalShadow;
         DropShadow finalShadow2 = finalShadow1;
         DropShadow finalShadow6 = finalShadow2;
@@ -167,7 +174,7 @@ public class Levels extends Application {
         finalShadow1 = finalShadow;
         finalShadow2 = finalShadow1;
         DropShadow finalShadow5 = finalShadow2;
-        Button replay=new Button(null,clown);
+         replay=new Button(null,clown);
         replay.addEventHandler(MouseEvent.MOUSE_ENTERED,
                 new EventHandler<MouseEvent>() {
                     @Override public void handle(MouseEvent e) {
@@ -211,19 +218,65 @@ public class Levels extends Application {
                // show the dialog
                a.show(); }
         });
+        vBox.setOnKeyPressed(ke -> {
+            KeyCode kc = ke.getCode();
+            if(level1.getEffect()!=null) keyBoardCounter=0;
+            if(level2.getEffect()!=null) keyBoardCounter=1;
+            if(level3.getEffect()!=null) keyBoardCounter=2;
+            if(replay.getEffect()!=null) keyBoardCounter=3;
+            if(back.getEffect()!=null) keyBoardCounter=4;
+            if(kc.equals(KeyCode.UP))
+            {
+                keyBoardCounter--;
+                if(keyBoardCounter==-1)keyBoardCounter=4;
+                addShadows();
+            }
+            if(kc.equals((KeyCode.DOWN)))
+            {
+                keyBoardCounter++;
+                keyBoardCounter=keyBoardCounter%5;
+                addShadows();
+            }
+            if(kc.equals(KeyCode.ENTER))
+            {
+                if(keyBoardCounter==0)level1.fire();
+                else if(keyBoardCounter==1)level2.fire();
+                else if(keyBoardCounter==2)level3.fire();
+                else back.fire();
+            }
+            if(kc.equals(KeyCode.ESCAPE))
+                back.fire();
+        });
+
         vBox.getChildren().addAll(level1,level2,level3,replay,back);
         primaryStage.setScene(new Scene(vBox,300,400));
         //primaryStage.initStyle(StageStyle.UNDECORATED);
        // primaryStage.showAndWait();
     }
-    private void playMusic()
-    {
-        Gui.mediaPlayer.setMute(true);
-        if(!Gui.muteAudio)
+    private void addShadows() {
+        level1.setEffect(null);
+        level2.setEffect(null);
+        level3.setEffect(null);
+        back.setEffect(null);
+        replay.setEffect(null);
+        if(keyBoardCounter==0)
         {
-            Gui.mediaPlayer.pause();
-            Gui.mediaPlayer = Gui.mediaPlayers.get(0);
-           Gui.mediaPlayer.play();
+            level1.setEffect(new DropShadow());
+        }
+        else if(keyBoardCounter==1)
+        {
+            level2.setEffect(new DropShadow());
+        }
+        else if(keyBoardCounter==2)
+        {
+            level3.setEffect(new DropShadow());
+        }else if(keyBoardCounter==3)
+        {
+            replay.setEffect(new DropShadow());
+        }
+        else {
+            back.setEffect(new DropShadow());
         }
     }
+
 }

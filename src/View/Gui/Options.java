@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -20,6 +21,10 @@ public class Options extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    private int keyBoardCounter=0;
+    Button chooseChar;
+    Button back;
+    Button audio;
 
     @Override
     public void start(Stage primaryStage) {
@@ -38,7 +43,7 @@ public class Options extends Application {
         clown = new ImageView(new Image("Resources/Buttons/ChooseClown.png"));
         clown.setFitWidth(150);
         clown.setFitHeight(30);
-        Button chooseChar= new Button(null, clown);
+         chooseChar= new Button(null, clown);
 
         DropShadow finalShadow2 =new DropShadow();
         DropShadow finalShadow1 = finalShadow2;
@@ -67,7 +72,7 @@ public class Options extends Application {
         clown = new ImageView(new Image("Resources/Buttons/MusicB.png"));
         clown.setFitWidth(150);
         clown.setFitHeight(30);
-        Button audio= new Button(null, clown);
+         audio= new Button(null, clown);
 
          finalShadow2 =new DropShadow();
          finalShadow1 = finalShadow2;
@@ -94,7 +99,7 @@ public class Options extends Application {
         clown = new ImageView(new Image("Resources/Buttons/BackB.png"));
         clown.setFitWidth(150);
         clown.setFitHeight(30);
-        Button back= new Button(null, clown);
+         back= new Button(null, clown);
 
         finalShadow2 = new DropShadow();
         DropShadow finalShadow = finalShadow2;
@@ -119,10 +124,52 @@ public class Options extends Application {
             gui.start(primaryStage);
 
         });
-
+        vBox.setOnKeyPressed(ke -> {
+            KeyCode kc = ke.getCode();
+            if(chooseChar.getEffect()!=null) keyBoardCounter=0;
+            if(audio.getEffect()!=null) keyBoardCounter=1;
+            if(back.getEffect()!=null) keyBoardCounter=2;
+            if(kc.equals(KeyCode.UP))
+            {
+                keyBoardCounter--;
+                if(keyBoardCounter==-1)keyBoardCounter=3;
+                addShadows();
+            }
+            if(kc.equals((KeyCode.DOWN)))
+            {
+                keyBoardCounter++;
+                keyBoardCounter=keyBoardCounter%3;
+                addShadows();
+            }
+            if(kc.equals(KeyCode.ENTER))
+            {
+                if(keyBoardCounter==0)chooseChar.fire();
+                else if(keyBoardCounter==1)audio.fire();
+                else back.fire();
+            }
+            if(kc.equals(KeyCode.ESCAPE))
+                back.fire();
+        });
         vBox.getChildren().addAll(chooseChar,audio,back);
         primaryStage.setScene(new Scene(vBox,300,400));
         //primaryStage.initStyle(StageStyle.UNDECORATED);
         //primaryStage.showAndWait();
     }
+    private void addShadows() {
+        chooseChar.setEffect(null);
+        back.setEffect(null);
+        audio.setEffect(null);
+        if(keyBoardCounter==0)
+        {
+            chooseChar.setEffect(new DropShadow());
+        }
+        else if(keyBoardCounter==1)
+        {
+            audio.setEffect(new DropShadow());
+        }
+        else {
+            back.setEffect(new DropShadow());
+        }
+    }
+
 }

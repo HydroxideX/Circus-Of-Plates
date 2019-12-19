@@ -152,6 +152,8 @@ public class Gui extends Application {
                else if(keyBoardCounter==1)options.fire();
                 else exit.fire();
             }
+            if(kc.equals(KeyCode.ESCAPE))
+                exit.fire();
         });
         vBox.getChildren().addAll(play,options,exit);
         primaryStage.setScene(new Scene(vBox,300,400));

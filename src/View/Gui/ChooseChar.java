@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -20,14 +21,21 @@ public class ChooseChar extends Application {
         launch(args);
     }
     Button back;
+    Button clown1;
+    Button clown2;
+    Button clown4;
+    Button clown5;
+    Button clown3;
+    private int keyBoardCounter=0;
     @Override
     public void start(Stage primaryStage) {
         ImageView clown= null;
         clown = new ImageView(new Image("Resources/Clown/clown1.png"));
         clown.setFitWidth(70);
         clown.setFitHeight(85);
-        Button clown1 = new Button(null, clown);
+         clown1 = new Button(null, clown);
         DropShadow shadow = new DropShadow();
+        clown1.setEffect(shadow);
 //Adding the shadow when the mouse cursor is on
         DropShadow finalShadow3 = shadow;
         DropShadow finalShadow7 = finalShadow3;
@@ -53,7 +61,7 @@ public class ChooseChar extends Application {
         clown = new ImageView(new Image("Resources/Clown/clown2.png"));
         clown.setFitWidth(70);
         clown.setFitHeight(85);
-        Button clown2=new Button(null,clown);
+         clown2=new Button(null,clown);
         shadow = new DropShadow();
 //Adding the shadow when the mouse cursor is on
         finalShadow3 = shadow;
@@ -83,7 +91,7 @@ public class ChooseChar extends Application {
         clown = new ImageView(new Image("Resources/Clown/clown3.png"));
         clown.setFitWidth(70);
         clown.setFitHeight(85);
-        Button clown3=new Button(null,clown);
+         clown3=new Button(null,clown);
         shadow = new DropShadow();
 //Adding the shadow when the mouse cursor is on
         finalShadow3 = shadow;
@@ -113,7 +121,7 @@ public class ChooseChar extends Application {
         clown = new ImageView(new Image("Resources/Clown/clown4.png"));
         clown.setFitWidth(70);
         clown.setFitHeight(85);
-        Button clown4=new Button(null,clown);
+         clown4=new Button(null,clown);
         shadow = new DropShadow();
 //Adding the shadow when the mouse cursor is on
         finalShadow3 = shadow;
@@ -143,7 +151,7 @@ public class ChooseChar extends Application {
         clown = new ImageView(new Image("Resources/Clown/clown5.png"));
         clown.setFitWidth(70);
         clown.setFitHeight(85);
-        Button clown5=new Button(null,clown);
+         clown5=new Button(null,clown);
         shadow = new DropShadow();
 //Adding the shadow when the mouse cursor is on
         finalShadow3 = shadow;
@@ -208,6 +216,41 @@ public class ChooseChar extends Application {
             Options options=new Options();
             options.start(primaryStage);
         });
+
+        vBox.setOnKeyPressed(ke -> {
+            KeyCode kc = ke.getCode();
+            if(clown1.getEffect()!=null) keyBoardCounter=0;
+            if(clown2.getEffect()!=null) keyBoardCounter=1;
+            if(clown3.getEffect()!=null) keyBoardCounter=2;
+            if(clown4.getEffect()!=null) keyBoardCounter=3;
+            if(clown5.getEffect()!=null) keyBoardCounter=4;
+            if(back.getEffect()!=null) keyBoardCounter=5;
+            if(kc.equals(KeyCode.UP))
+            {
+                keyBoardCounter--;
+                if(keyBoardCounter==-1)keyBoardCounter=5;
+                addShadows();
+            }
+            if(kc.equals((KeyCode.DOWN)))
+            {
+                keyBoardCounter++;
+                keyBoardCounter=keyBoardCounter%6;
+                addShadows();
+            }
+            if(kc.equals(KeyCode.ENTER))
+            {
+                if(keyBoardCounter==0)clown1.fire();
+                else if(keyBoardCounter==1)clown2.fire();
+                else if(keyBoardCounter==2)clown3.fire();
+                else if(keyBoardCounter==3)clown4.fire();
+                else if(keyBoardCounter==4)clown5.fire();
+                else if(keyBoardCounter==5)back.fire();
+                else back.fire();
+            }
+            if(kc.equals(KeyCode.ESCAPE))
+                back.fire();
+        });
+
         HBox hBox1 =new HBox();
         hBox.setAlignment(Pos.CENTER);
         hBox1.setAlignment(Pos.CENTER);
@@ -221,4 +264,33 @@ public class ChooseChar extends Application {
        // primaryStage.initStyle(StageStyle.UNDECORATED);
         //primaryStage.showAndWait();
     }
+    private void addShadows() {
+        clown1.setEffect(null);
+        clown2.setEffect(null);
+        clown3.setEffect(null);
+        clown4.setEffect(null);
+        clown4.setEffect(null);
+        back.setEffect(null);
+        if(keyBoardCounter==0)
+        {
+            clown1.setEffect(new DropShadow());
+        }
+        else if(keyBoardCounter==1)
+        {
+            clown2.setEffect(new DropShadow());
+        }else if(keyBoardCounter==2)
+        {
+            clown3.setEffect(new DropShadow());
+        }else if(keyBoardCounter==3)
+        {
+            clown4.setEffect(new DropShadow());
+        }else if(keyBoardCounter==4)
+        {
+            clown5.setEffect(new DropShadow());
+        }
+        else {
+            back.setEffect(new DropShadow());
+        }
+    }
+
 }
