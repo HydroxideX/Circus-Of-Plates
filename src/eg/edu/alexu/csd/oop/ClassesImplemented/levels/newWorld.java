@@ -24,7 +24,7 @@ import java.util.List;
 
 public class newWorld implements World {
     PlateFactory pf;
-    int time = 0;
+    int time = 0,time_2=0;
     PlatePool pp;
     Stick stick1;
     Stick stick2;
@@ -92,6 +92,7 @@ public class newWorld implements World {
             it.next();
 
         time++;
+        time_2++;
         if (time == 100) {
             time = 0;
         }
@@ -111,9 +112,7 @@ public class newWorld implements World {
         }
         if (time == 0)
             shelfhandler.throwPlates();
-        //test only
-        //shelfhandler.makeSpecialPlates();
-        //constantObjects.add(rm.makePlate(5));
+        if(time_2==900){shelfhandler.makeSpecialPlates();time_2=0;}
         it = removed.iterator();
         while (it.hasNext()) {
             constantObjects.remove(it.next());
