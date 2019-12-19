@@ -159,10 +159,17 @@ public class newWorld implements World {
         return true;
     }
 
+    boolean hagarb7aga=false;
 
     void endGameWin () {
         //Application.launch(EndGame.class);
-        JOptionPane.showMessageDialog(new JPanel(),"Congratulations You Won");
+        if(!hagarb7aga){
+            Platform.runLater(()->{
+                EndGame endGame =new EndGame(true);
+                endGame.start(Gui.habala);
+            });
+            hagarb7aga=true;
+        }
     }
 
     void endGameLose(){

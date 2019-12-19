@@ -22,6 +22,7 @@ import java.util.Objects;
 
 
 public class Gui extends Application {
+    public static Stage habala=new Stage();
     static boolean creation=false;
     public static void main(String[] args) {
         launch(args);
