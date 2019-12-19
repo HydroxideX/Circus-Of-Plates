@@ -36,47 +36,14 @@ public class Loader {
     }
 
     public void loadAllImages() {
-        URI uri = null;
-        uri =  (new File("Resources/Plates")).toURI();
-        Path myPath;
-        if (uri.getScheme().equals("jar")) {
-            FileSystem fileSystem = null;
-            try {
-                fileSystem = FileSystems.newFileSystem(uri, Collections.<String, Object>emptyMap());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            myPath = fileSystem.getPath("/resources/");
-        } else {
-            myPath = Paths.get(uri);
-        }
-        Stream<Path> walk = null;
-        try {
-            walk = Files.walk(myPath, 10);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Iterator<Path> it = walk.iterator();
-        while (it.hasNext()) {
-            //System.out.println(it.next());
-            String child = it.next().toString().toLowerCase();
-            if (child.endsWith(".jpg") || child.endsWith(".png")) {
-                child = child.split("\\w+\\\\(?=resources)")[1];
-                String s = child.split("(resources\\\\)")[1];
-                // System.out.println(child + " " + s);
-                System.out.println(child);
-                imgs.put(s, getImage(child));
-            }
-        }
-
-      /*  File dir2 = new File("Resources/Plates");
+      File dir2 = new File("Resources/Plates");
         File[] f = dir2.listFiles();
         for (File child : f) {
             System.out.println(child.getAbsolutePath());
             String s = child.getAbsolutePath().split("\\w+\\\\?Resources\\\\")[1];
-            System.out.println(child.getName() + " " + s);
+            //System.out.println(child.getName() + " " + s);
             imgs.put(s.toLowerCase(), getImage(s));
-        }*/
+        }
     }
 
     public BufferedImage getImage(String path) {
