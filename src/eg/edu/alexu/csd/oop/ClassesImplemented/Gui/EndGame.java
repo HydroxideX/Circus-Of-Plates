@@ -15,7 +15,7 @@ import java.util.Collections;
 
 public class EndGame extends Application {
     public static void main(String[] args) {
-        launch(args);
+        //launch(args);
     }
     private boolean won=false;
     @Override

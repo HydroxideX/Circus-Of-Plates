@@ -17,10 +17,12 @@ import eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.Utils.ShelfHandler;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.intersectPlates;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
+import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
+import javax.swing.*;
 import javax.swing.text.html.ImageView;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -92,8 +94,8 @@ public class newWorld implements World {
         long currentTime = System.currentTimeMillis();
         if(score == 1){
             endGameWin();
-            return false;
-        }
+        }if(score==1)
+        return false;
         if((currentTime-startTime)/1000 >= 120){
             endGameLose();
             return false;
@@ -159,13 +161,16 @@ public class newWorld implements World {
 
 
     void endGameWin () {
-        EndGame.launch(EndGame.class);
+        //Application.launch(EndGame.class);
+        JOptionPane.showMessageDialog(new JPanel(),"Congratulations You Won");
     }
 
     void endGameLose(){
         /*new Thread();
         EndGame endGame=new EndGame(false);
         endGame.main(new String[1]);*/
+        JOptionPane.showMessageDialog(new JPanel(),"Congratulations You Lost");
+
     }
 
     @Override
