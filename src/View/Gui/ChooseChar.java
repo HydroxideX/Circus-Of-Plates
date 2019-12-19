@@ -269,7 +269,7 @@ public class ChooseChar extends Application {
         clown2.setEffect(null);
         clown3.setEffect(null);
         clown4.setEffect(null);
-        clown4.setEffect(null);
+        clown5.setEffect(null);
         back.setEffect(null);
         if(keyBoardCounter==0)
         {

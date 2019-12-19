@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
@@ -125,7 +126,12 @@ public class Music extends Application {
                 index++;
             }
         });
-        HBox hbox = new HBox(5);
+        vBox.setOnKeyPressed(ke -> {
+            KeyCode kc = ke.getCode();
+                    if(kc.equals(KeyCode.ESCAPE))
+                        back.fire();
+                });
+            HBox hbox = new HBox(5);
         hbox.setAlignment(Pos.CENTER);
         hbox.getChildren().addAll(label, dropBox);
         hbox.setTranslateY(-20);
