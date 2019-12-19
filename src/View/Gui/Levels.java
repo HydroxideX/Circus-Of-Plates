@@ -242,6 +242,7 @@ public class Levels extends Application {
                 if(keyBoardCounter==0)level1.fire();
                 else if(keyBoardCounter==1)level2.fire();
                 else if(keyBoardCounter==2)level3.fire();
+                else if(keyBoardCounter==3)replay.fire();
                 else back.fire();
             }
             if(kc.equals(KeyCode.ESCAPE))
