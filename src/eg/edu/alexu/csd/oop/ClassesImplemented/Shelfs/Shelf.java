@@ -5,7 +5,7 @@ import eg.edu.alexu.csd.oop.game.GameObject;
 
 import java.awt.image.BufferedImage;
 
-public class Shelf implements GameObject {
+public class Shelf implements GameObject, Cloneable {
     private int x ,y , width , height ;
     private BufferedImage[] img =new BufferedImage[1];
     private Loader loader ;
@@ -58,5 +58,11 @@ public class Shelf implements GameObject {
     @Override
     public BufferedImage[] getSpriteImages() {
         return img;
+    }
+
+    public Object clone() throws
+            CloneNotSupportedException
+    {
+        return super.clone();
     }
 }

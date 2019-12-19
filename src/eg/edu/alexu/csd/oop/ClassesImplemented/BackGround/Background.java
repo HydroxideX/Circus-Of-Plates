@@ -6,7 +6,7 @@ import eg.edu.alexu.csd.oop.game.GameObject;
 import java.awt.image.BufferedImage;
 import java.io.Serializable;
 
-public class Background implements GameObject, Serializable {
+public class Background implements GameObject,Cloneable {
     public int x = 0,y = 0,width = 0,height = 0;
     public BufferedImage[] spriteImages = new BufferedImage[1];
 
@@ -48,5 +48,12 @@ public class Background implements GameObject, Serializable {
     @Override
     public BufferedImage[] getSpriteImages() {
         return spriteImages;
+    }
+
+
+    public Object clone() throws
+            CloneNotSupportedException
+    {
+        return super.clone();
     }
 }

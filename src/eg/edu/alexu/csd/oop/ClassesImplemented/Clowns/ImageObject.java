@@ -8,7 +8,7 @@ import eg.edu.alexu.csd.oop.game.GameObject;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-public class ImageObject implements GameObject {
+public class ImageObject implements GameObject,Cloneable {
     public BufferedImage[] spriteImages = new BufferedImage[1];
     public ArrayList observers = new ArrayList();
     Loader loader;
@@ -88,5 +88,10 @@ public class ImageObject implements GameObject {
             observer.update(diff);
         }
         return true;
+    }
+    public Object clone() throws
+            CloneNotSupportedException
+    {
+        return super.clone();
     }
 }
