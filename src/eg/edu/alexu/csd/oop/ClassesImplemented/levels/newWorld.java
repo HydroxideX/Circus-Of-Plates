@@ -173,10 +173,13 @@ public class newWorld implements World {
     }
 
     void endGameLose(){
-        /*new Thread();
-        EndGame endGame=new EndGame(false);
-        endGame.main(new String[1]);*/
-        JOptionPane.showMessageDialog(new JPanel(),"Congratulations You Lost");
+        if(!hagarb7aga){
+            Platform.runLater(()->{
+                EndGame endGame =new EndGame(false);
+                endGame.start(Gui.habala);
+            });
+            hagarb7aga=true;
+        }
 
     }
 
