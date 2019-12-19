@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReplayWorld extends newWorld {
+    public static ArrayList <ArrayList <GameObject> > allData=new ArrayList<>();
+
     int index = 0;
     public ReplayWorld(int width,int height,String clownPath)
     {
@@ -17,6 +19,8 @@ public class ReplayWorld extends newWorld {
     public List<GameObject> getConstantObjects() {
         if(index < allData.size())
         return allData.get(index);
+        if(allData.size()==0)
+            return new ArrayList<>();
         return allData.get(allData.size()-1);
     }
 
@@ -33,7 +37,7 @@ public class ReplayWorld extends newWorld {
 
     @Override
     public boolean refresh() {
-        if(index == allData.size()) endGame();
+        if(index == allData.size()) return false;
         index++;
         return true;
     }

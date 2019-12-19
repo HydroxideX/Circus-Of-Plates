@@ -16,12 +16,15 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 
 
 public class Gui extends Application {
-
+    public static Stage habala=new Stage();
+    static boolean creation=false;
     public static void main(String[] args) {
         launch(args);
     }
@@ -31,7 +34,7 @@ public class Gui extends Application {
     static File[] directoryListing;
     @Override
     public void start(Stage primaryStage) {
-        playMusic();
+
         VBox vBox =new VBox();
         vBox.setSpacing(15);
         vBox.setBackground(
@@ -107,21 +110,29 @@ public class Gui extends Application {
         options.setTranslateY(-20);
         options.setStyle("-fx-background-color: transparent;");
         play.setOnAction(e->{
-            Levels levels=new Levels();
-            levels.start(new Stage());
+
+                Levels level=new Levels();
+                level.start(primaryStage);
         });
         exit.setOnAction(e->{
             System.exit(0);
         });
         options.setOnAction(e->{
             Options options1 = new Options();
-            options1.start(new Stage());
+            options1.start(primaryStage);
         });
         vBox.getChildren().addAll(play,options,exit);
         primaryStage.setScene(new Scene(vBox,300,400));
         primaryStage.setTitle("Circus of Plates");
-        primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.show();
+
+        if(!creation)
+        {
+            primaryStage.initStyle(StageStyle.UNDECORATED);
+            creation=true;
+            playMusic();
+            primaryStage.show();
+            primaryStage.getIcons().add(new Image("Resources/Buttons/title.jpg"));
+        }
     }
     public void playMusic()
     {
@@ -135,7 +146,10 @@ public class Gui extends Application {
         });
         mediaPlayer.play();*/
        // String path=getClass().getClassLoader().getResource("database.properties").getFile().toString();
-        File dir = new File(getClass().getClassLoader().getResource("Resources/Audio").getFile());
+        File dir2 = new File("Resources/Plates");
+        File[] f = dir2.listFiles();
+
+        File dir = new File("Resources/Audio");
         boolean x=dir.exists();
         directoryListing = dir.listFiles();
         mediaPlayers=new ArrayList<>();

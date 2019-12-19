@@ -2,6 +2,7 @@ package eg.edu.alexu.csd.oop.ClassesImplemented.levels;
 
 import eg.edu.alexu.csd.oop.ClassesImplemented.BackGround.Background;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.ImageObject;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Gui.EndGame;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Gui.Gui;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.ShelfObject;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.ArrayIterator;
@@ -14,11 +15,14 @@ import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool.PlatePool;
 import eg.edu.alexu.csd.oop.ClassesImplemented.States.StackedState;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.Utils.ShelfHandler;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.intersectPlates;
-import eg.edu.alexu.csd.oop.ClassesImplemented.replay.SaveAndLoad;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.stage.Stage;
 import javafx.util.Pair;
 
+import javax.swing.*;
 import javax.swing.text.html.ImageView;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -40,7 +44,7 @@ public class newWorld implements World {
     ArrayList<Pair<Stick, Integer>> sticksArray = new ArrayList<>();
     ArrayList<Clown> clownsArray = new ArrayList<>();
     intersectPlates intersection = new intersectPlates();
-    static ArrayList <ArrayList <GameObject> > allData;
+    //static ArrayList <ArrayList <GameObject> > allData;
     Integer[] clownsX;
     ShelfHandler shelfhandler;
 
@@ -87,7 +91,15 @@ public class newWorld implements World {
 
     @Override
     public boolean refresh() {
-        if(score == 1) endGame();
+        long currentTime = System.currentTimeMillis();
+        if(score == 1){
+            endGameWin();
+        }if(score==1)
+        return false;
+        if((currentTime-startTime)/1000 >= 120){
+            endGameLose();
+            return false;
+        }
         Iterator it = constantObjects.iterator();
         ArrayList removed = new ArrayList();
         for (int i = 0; i < levelMode+1 && (it.hasNext()); i++)
@@ -142,62 +154,33 @@ public class newWorld implements World {
             clown = (Clown) iterator1.next();
             clownsX[counter++] = clown.getX();
         }
-        addMomentToArray();
+        SnapShot snapShot=new SnapShot();
+        snapShot.addMomentToArray(constantObjects,movableObjects,controlableObjects);
         return true;
     }
 
-    private void addMomentToArray(){
-        ArrayList <GameObject> allArray = new ArrayList<>();
-        iterateAndAddArray(constantObjects,allArray);
-        iterateAndAddArray(movableObjects,allArray);
-        iterateAndAddArray(controlableObjects,allArray);
-        allData.add(allArray);
-    }
+    boolean hagarb7aga=false;
 
-    private void iterateAndAddArray(List<GameObject> temp , ArrayList<GameObject> array){
-        Iterator it= temp.iterator();
-        while (it.hasNext()){
-            GameObject current = cloneGameObject((GameObject) it.next());
-            array.add(current);
+    void endGameWin () {
+        //Application.launch(EndGame.class);
+        if(!hagarb7aga){
+            Platform.runLater(()->{
+                EndGame endGame =new EndGame(true);
+                endGame.start(Gui.habala);
+            });
+            hagarb7aga=true;
         }
     }
 
-    private GameObject cloneGameObject(GameObject x){
-        if(x.getClass().getName().toLowerCase().contains("clown") || x.getClass().getName().toLowerCase().contains("stick")){
-            try {
-                ImageObject v = (ImageObject) ((ImageObject) x).clone();
-                return v;
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-            }
-        } else if(x.getClass().getName().toLowerCase().contains("shelf")){
-            try {
-                ShelfObject v = (ShelfObject) ((ShelfObject) x).clone();
-                return v;
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-            }
-        }else if(x.getClass().getName().toLowerCase().contains("background")){
-            try {
-                Background v = (Background) ((Background) x).clone();
-                return v;
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-            }
-        }else {
-            try {
-                Plate v = (Plate) ((Plate) x).clone();
-                return v;
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-            }
+    void endGameLose(){
+        if(!hagarb7aga){
+            Platform.runLater(()->{
+                EndGame endGame =new EndGame(false);
+                endGame.start(Gui.habala);
+            });
+            hagarb7aga=true;
         }
-        return null;
-    }
 
-    void endGame(){
-        SaveAndLoad saveAndLoad = new SaveAndLoad();
-        //saveAndLoad.save(allData);
     }
 
     @Override
@@ -213,5 +196,10 @@ public class newWorld implements World {
     @Override
     public int getControlSpeed() {
         return 0;
+    }
+
+    public static void main(String [] args) {
+        newWorld x = new newWorld();
+        x.endGameWin();
     }
 }

@@ -20,7 +20,7 @@ public class ChooseChar extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
+    Button back;
     @Override
     public void start(Stage primaryStage) {
         ImageView clown= null;
@@ -49,7 +49,7 @@ public class ChooseChar extends Application {
         clown1.setStyle("-fx-background-color: transparent;");
         clown1.setOnAction(e->{
             Levels.clownPath="Resources/Clown/clown1.png";
-            primaryStage.close();
+            back.fire();
         });
         clown = new ImageView(new Image("Resources/Clown/clown2.png"));
         clown.setFitWidth(70);
@@ -78,7 +78,7 @@ public class ChooseChar extends Application {
         clown2.setStyle("-fx-background-color: transparent;");
         clown2.setOnAction(e->{
             Levels.clownPath="Clown/clown2.png";
-            primaryStage.close();
+            back.fire();
 
         });
         clown = new ImageView(new Image("Resources/Clown/clown3.png"));
@@ -108,7 +108,7 @@ public class ChooseChar extends Application {
         clown3.setStyle("-fx-background-color: transparent;");
         clown3.setOnAction(e->{
             Levels.clownPath="Clown/clown3.png";
-            primaryStage.close();
+            back.fire();
 
         });
         clown = new ImageView(new Image("Resources/Clown/clown4.png"));
@@ -138,7 +138,7 @@ public class ChooseChar extends Application {
 
         clown4.setOnAction(e->{
             Levels.clownPath="Clown/clown4.png";
-            primaryStage.close();
+            back.fire();
 
         });
         clown = new ImageView(new Image("Resources/Clown/clown5.png"));
@@ -168,8 +168,7 @@ public class ChooseChar extends Application {
 
         clown5.setOnAction(e->{
             Levels.clownPath="Clown/clown5.png";
-            primaryStage.close();
-
+            back.fire();
         });
         HBox hBox=new HBox();
         VBox vBox=new VBox();
@@ -187,7 +186,7 @@ public class ChooseChar extends Application {
         clown = new ImageView(new Image("Resources/Buttons/BackB.png"));
         clown.setFitWidth(170);
         clown.setFitHeight(30);
-        Button back= new Button(null, clown);
+         back= new Button(null, clown);
         DropShadow finalShadow1 = new DropShadow();
         DropShadow finalShadow2 = finalShadow1;
         back.addEventHandler(MouseEvent.MOUSE_ENTERED,
@@ -207,9 +206,9 @@ public class ChooseChar extends Application {
         back.setStyle("-fx-background-color: transparent;");
 
         back.setOnAction(e->{
-            primaryStage.close();
+            Options options=new Options();
+            options.start(primaryStage);
         });
-        back.setOnAction(event -> primaryStage.close());
         HBox hBox1 =new HBox();
         hBox.setAlignment(Pos.CENTER);
         hBox1.setAlignment(Pos.CENTER);
@@ -220,7 +219,7 @@ public class ChooseChar extends Application {
         hBox.getChildren().addAll(clown1,clown2);
         vBox.getChildren().addAll(hBox,hBox1,back);
         primaryStage.setScene(new Scene(vBox,300,400));
-        primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.showAndWait();
+       // primaryStage.initStyle(StageStyle.UNDECORATED);
+        //primaryStage.showAndWait();
     }
 }
