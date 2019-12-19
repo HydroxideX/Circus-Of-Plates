@@ -59,4 +59,10 @@ public class ShelfObject implements GameObject {
     public BufferedImage[] getSpriteImages() {
         return img;
     }
+
+    public Object clone() throws
+            CloneNotSupportedException
+    {
+        return super.clone();
+    }
 }

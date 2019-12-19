@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Plate implements GameObject, Observer {
+public class Plate implements GameObject, Observer, Cloneable {
 
     private BufferedImage[] spriteImages = new BufferedImage[1];
     private int x, y, width = 100, height = 100;
@@ -85,5 +85,11 @@ public class Plate implements GameObject, Observer {
     }
     public int getYError(){
         return 0;
+    }
+
+    public Object clone() throws
+            CloneNotSupportedException
+    {
+        return super.clone();
     }
 }

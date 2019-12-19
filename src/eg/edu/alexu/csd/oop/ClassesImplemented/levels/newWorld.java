@@ -1,5 +1,8 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.levels;
 
+import eg.edu.alexu.csd.oop.ClassesImplemented.BackGround.Background;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.ImageObject;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Gui.Gui;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.ArrayIterator;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.ArrayListIterator;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
@@ -15,6 +18,7 @@ import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 import javafx.util.Pair;
 
+import javax.swing.text.html.ImageView;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -143,11 +147,53 @@ public class newWorld implements World {
 
     private void addMomentToArray(){
         ArrayList <GameObject> allArray = new ArrayList<>();
-        allArray.addAll(constantObjects);
-        allArray.addAll(movableObjects);
-        allArray.addAll(controlableObjects);
+        iterateAndAddArray(constantObjects,allArray);
+        iterateAndAddArray(movableObjects,allArray);
+        iterateAndAddArray(controlableObjects,allArray);
         allData.add(allArray);
     }
+
+    private void iterateAndAddArray(List<GameObject> temp , ArrayList<GameObject> array){
+        Iterator it= temp.iterator();
+        while (it.hasNext()){
+            GameObject current = cloneGameObject((GameObject) it.next());
+            array.add(current);
+        }
+    }
+
+    private GameObject cloneGameObject(GameObject x){
+        if(x.getClass().getName().toLowerCase().contains("clown") || x.getClass().getName().toLowerCase().contains("stick")){
+            try {
+                ImageObject v = (ImageObject) ((ImageObject) x).clone();
+                return v;
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
+        } else if(x.getClass().getName().toLowerCase().contains("shelf")){
+            try {
+                Shelf v = (Shelf) ((Shelf) x).clone();
+                return v;
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
+        }else if(x.getClass().getName().toLowerCase().contains("background")){
+            try {
+                Background v = (Background) ((Background) x).clone();
+                return v;
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
+        }else {
+            try {
+                Plate v = (Plate) ((Plate) x).clone();
+                return v;
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
     void endGame(){
         SaveAndLoad saveAndLoad = new SaveAndLoad();
         //saveAndLoad.save(allData);

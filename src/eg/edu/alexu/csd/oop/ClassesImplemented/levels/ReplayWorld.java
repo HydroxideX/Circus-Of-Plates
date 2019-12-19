@@ -15,7 +15,9 @@ public class ReplayWorld extends newWorld {
     }
     @Override
     public List<GameObject> getConstantObjects() {
+        if(index < allData.size())
         return allData.get(index);
+        return allData.get(allData.size()-1);
     }
 
     @Override
