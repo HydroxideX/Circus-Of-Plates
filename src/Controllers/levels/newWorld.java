@@ -91,7 +91,7 @@ public class newWorld implements World {
             endGameWin();
             return false;
         }
-        if((currentTime-startTime)/1000 >= 120){
+        if((currentTime-startTime)/1000 >= 125){
             endGameLose();
             return false;
         }
@@ -180,7 +180,7 @@ public class newWorld implements World {
 
     @Override
     public String getStatus() {
-        return status + score;
+        return status + score + "                     Current Time: "+ ((System.currentTimeMillis() - startTime)/1000-5);
     }
 
     @Override
@@ -193,8 +193,4 @@ public class newWorld implements World {
         return speed.getControlSpeed();
     }
 
-    public static void main(String [] args) {
-        newWorld x = new newWorld();
-        x.endGameWin();
-    }
 }
