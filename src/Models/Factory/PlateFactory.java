@@ -17,7 +17,7 @@ public class PlateFactory implements IPlateFactory {
     private BufferedImage spriteImages;
     private Random rand;
     private String[] avaColors = new String[]{"blue", "black", "red", "yellow" , "orange", "gold" , "green", "purple", "pink"};
-    private String dest = "Plates\\", fileType = ".png";
+    private String dest = "Plates/", fileType = ".png";
     private String[] Types ;
     private String []classesNames ;
 

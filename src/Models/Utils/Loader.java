@@ -39,17 +39,19 @@ public class Loader {
       File dir2 = new File("Resources/Plates");
         File[] f = dir2.listFiles();
         for (File child : f) {
-            System.out.println(child.getAbsolutePath());
-            String s = child.getAbsolutePath().split("\\w+\\\\?Resources\\\\")[1];
+            //System.out.println(child.getAbsolutePath());
+            //String s = child.getAbsolutePath().split("\\w+\\\\?Resources\\\\")[1];
             //System.out.println(child.getName() + " " + s);
-            imgs.put(s.toLowerCase(), getImage(s));
+            String s="Plates/"+child.getName();
+            //System.out.println(s);
+            imgs.put(s, getImage(s));
         }
     }
 
     public BufferedImage getImage(String path) {
         BufferedImage image = null;
         //System.out.println(path);
-        path = path.toLowerCase();
+        //path = path.toLowerCase();
         //System.out.println(path);
         if (imgs.containsKey(path)) {
              System.out.println(path);
