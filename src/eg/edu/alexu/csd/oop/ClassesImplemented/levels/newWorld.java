@@ -17,6 +17,7 @@ import eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.Utils.ShelfHandler;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.intersectPlates;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
+import javafx.application.Platform;
 import javafx.util.Pair;
 
 import javax.swing.text.html.ImageView;
@@ -156,8 +157,13 @@ public class newWorld implements World {
     }
 
     void endGameWin(){
-        EndGame endGame=new EndGame(true);
-        endGame.start(Gui.habala);
+       // Platform.setImplicitExit(false);
+        Platform.runLater(new Runnable(){
+            @Override
+            public void run() {
+                EndGame endGame=new EndGame(true);
+                endGame.start(Gui.habala);
+            }});
     }
 
     void endGameLose(){

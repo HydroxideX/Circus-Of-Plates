@@ -46,13 +46,13 @@ public class EndGame extends Application {
             label2.setText("Congratulations You Lost");
         }
         Button button=new Button("OK");
-        button.setOnAction(e->primaryStage.close());
+        button.setOnAction(e->primaryStage.hide());
         vBox.getChildren().addAll(label,label2,button);
         vBox.setAlignment(Pos.CENTER);
         primaryStage.setScene(new Scene(vBox,300,400));
-        primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.show();
+        //primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.getIcons().add(new Image("Resources/Buttons/title.jpg"));
+        primaryStage.show();
        /* primaryStage.setScene(new Scene(new VBox()));
         primaryStage.show();
         Alert a = new Alert(Alert.AlertType.NONE);

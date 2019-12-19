@@ -127,7 +127,7 @@ public class Levels extends Application {
         level3.setOnAction(e->{
             Facade facade =new Facade("level3",clownPath);
             facade.Start();
-            playMusic();
+           // playMusic();
             Gui gui=new Gui();
             gui.start(primaryStage);
             primaryStage.toBack();
