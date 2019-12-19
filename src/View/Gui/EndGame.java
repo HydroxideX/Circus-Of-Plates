@@ -50,7 +50,7 @@ public class EndGame extends Application {
             label2.setText("Congratulations You Lost");
         }
         label2.setFont(Font.font("Cambria", 25));
-        label.setFont(Font.font("Cambria", 25));
+        label.setFont(Font.font("Cambria", 15));
         ImageView clown= null;
         clown = new ImageView(new Image("Resources/yahia.jpg"));
         clown.setFitWidth(70);
