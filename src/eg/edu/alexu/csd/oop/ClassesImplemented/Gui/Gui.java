@@ -128,6 +128,7 @@ static boolean creation=false;
             creation=true;
             playMusic();
             primaryStage.show();
+            primaryStage.getIcons().add(new Image("Resources/Buttons/title.jpg"));
         }
     }
     public void playMusic()
