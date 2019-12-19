@@ -53,8 +53,8 @@ public class EndGame extends Application {
         label.setFont(Font.font("Cambria", 25));
         ImageView clown= null;
         clown = new ImageView(new Image("Resources/yahia.jpg"));
-        clown.setFitWidth(150);
-        clown.setFitHeight(30);
+        clown.setFitWidth(70);
+        clown.setFitHeight(90);
         Button button=new Button(null,clown);
         DropShadow shadow = new DropShadow();
 //Adding the shadow when the mouse cursor is on
