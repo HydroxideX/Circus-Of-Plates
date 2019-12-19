@@ -5,9 +5,11 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.FocusModel;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
@@ -16,6 +18,8 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.awt.*;
+import java.awt.event.FocusEvent;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -31,6 +35,10 @@ public class Gui extends Application {
     static boolean muteAudio=false;
     static ArrayList<MediaPlayer> mediaPlayers;
     static File[] directoryListing;
+    private int keyBoardCounter=0;
+    Button play;
+    Button options;
+    Button exit;
     @Override
     public void start(Stage primaryStage) {
 
@@ -49,9 +57,10 @@ public class Gui extends Application {
         clown = new ImageView(new Image("Resources/Buttons/PlayB.png"));
         clown.setFitWidth(150);
         clown.setFitHeight(30);
-        Button play = new Button(null, clown);
+         play = new Button(null, clown);
         DropShadow shadow = new DropShadow();
         DropShadow finalShadow3 = shadow;
+        play.setEffect(shadow);
         play.addEventHandler(MouseEvent.MOUSE_ENTERED,
                 new EventHandler<MouseEvent>() {
                     @Override public void handle(MouseEvent e) {
@@ -70,7 +79,7 @@ public class Gui extends Application {
         clown = new ImageView(new Image("Resources/Buttons/QuitB.png"));
         clown.setFitWidth(150);
         clown.setFitHeight(30);
-        Button exit = new Button(null, clown);
+         exit = new Button(null, clown);
         DropShadow finalShadow4 = shadow;
         exit.addEventHandler(MouseEvent.MOUSE_ENTERED,
                 new EventHandler<MouseEvent>() {
@@ -90,7 +99,7 @@ public class Gui extends Application {
         clown = new ImageView(new Image("Resources/Buttons/OptionsB.png"));
         clown.setFitWidth(150);
         clown.setFitHeight(30);
-        Button options = new Button(null, clown);
+         options = new Button(null, clown);
         DropShadow finalShadow5 = shadow;
         options.addEventHandler(MouseEvent.MOUSE_ENTERED,
                 new EventHandler<MouseEvent>() {
@@ -120,6 +129,30 @@ public class Gui extends Application {
             Options options1 = new Options();
             options1.start(primaryStage);
         });
+        vBox.setOnKeyPressed(ke -> {
+            KeyCode kc = ke.getCode();
+            if(play.getEffect()!=null) keyBoardCounter=0;
+            if(options.getEffect()!=null) keyBoardCounter=1;
+            if(exit.getEffect()!=null) keyBoardCounter=2;
+            if(kc.equals(KeyCode.UP))
+            {
+                keyBoardCounter--;
+                if(keyBoardCounter==-1)keyBoardCounter=3;
+                addShadows();
+            }
+            if(kc.equals((KeyCode.DOWN)))
+            {
+                keyBoardCounter++;
+                keyBoardCounter=keyBoardCounter%3;
+                addShadows();
+            }
+            if(kc.equals(KeyCode.ENTER))
+            {
+                if(keyBoardCounter==0)play.fire();
+               else if(keyBoardCounter==1)options.fire();
+                else exit.fire();
+            }
+        });
         vBox.getChildren().addAll(play,options,exit);
         primaryStage.setScene(new Scene(vBox,300,400));
         primaryStage.setTitle("Circus of Plates");
@@ -133,6 +166,24 @@ public class Gui extends Application {
             primaryStage.getIcons().add(new Image("Resources/Buttons/title.jpg"));
         }
     }
+
+    private void addShadows() {
+        options.setEffect(null);
+        exit.setEffect(null);
+        play.setEffect(null);
+        if(keyBoardCounter==0)
+        {
+            play.setEffect(new DropShadow());
+        }
+        else if(keyBoardCounter==1)
+        {
+            options.setEffect(new DropShadow());
+        }
+        else {
+            exit.setEffect(new DropShadow());
+        }
+    }
+
     public void playMusic()
     {
         /*String musicFile = "Resources/Audio/ComeAndGetYourLove.mp3";     // For example
