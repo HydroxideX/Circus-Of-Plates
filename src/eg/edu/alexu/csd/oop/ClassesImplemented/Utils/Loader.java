@@ -11,10 +11,15 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.*;
+import java.security.CodeSource;
+import java.util.*;
+import java.util.stream.Stream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 public class Loader {
     private static Loader img = null;
@@ -45,6 +50,7 @@ public class Loader {
 
     public BufferedImage getImage(String path) {
         BufferedImage image = null;
+        System.out.println(path);
         path = path.toLowerCase();
         //System.out.println(path);
         if (imgs.containsKey(path)) {
