@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -19,8 +20,11 @@ public class Loader {
     private static Loader img = null;
     private Reflections ref = new Reflections();
     private ClassLoader classLoader;
+    private HashMap<String, BufferedImage> imgs;
 
-    public Loader() {
+    private Loader() {
+        imgs = new HashMap<String, BufferedImage>();
+        loadAllImages();
     }
 
     public static synchronized Loader getInstance() {
@@ -30,18 +34,42 @@ public class Loader {
         return img;
     }
 
+    public void loadAllImages() {
+        File[] f = new File(getClass().getClassLoader().getResource("resources/plates").getFile()).listFiles();
+        for (File child : f) {
+            String s = child.getPath().split("\\w+(\\\\?)(resources\\\\)")[1];
+           // System.out.println(child.getName() + " " + s);
+            imgs.put(child.getName(), getImage(s));
+        }
+    }
+
+    public BufferedImage getImage(String path) {
+        BufferedImage image = null;
+        path = path.toLowerCase();
+        //System.out.println(path);
+        if (imgs.containsKey(path)) {
+            //System.out.println(path);
+            return imgs.get(path);
+        } else {
+            try {
+                image = ImageIO.read(getClass().getClassLoader().getResource(path));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return image;
+    }
+
     public BufferedImage getImage(String path, double scale) {
-        classLoader = Thread.currentThread().getContextClassLoader();
-        InputStream input = classLoader.getResourceAsStream(path.toLowerCase());
+        /*classLoader = Thread.currentThread().getContextClassLoader();
+        InputStream input = classLoader.getResourceAsStream(path.toLowerCase());*/
         BufferedImage bufferedImage;
         bufferedImage = getImage(path);
         int width = (int) (bufferedImage.getWidth() * scale), height = (int) (bufferedImage.getHeight() * scale);
         bufferedImage = Scalr.resize(bufferedImage, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.FIT_TO_WIDTH, width, height, Scalr.OP_ANTIALIAS);
         return bufferedImage;
     }
-    public void loadAllImages (){
 
-    }
     public BufferedImage getImageWithLengthAndWidth(String path, int length, int width) {
         classLoader = Thread.currentThread().getContextClassLoader();
         InputStream input = classLoader.getResourceAsStream(path.toLowerCase());
@@ -51,16 +79,6 @@ public class Loader {
         return bufferedImage;
     }
 
-    public BufferedImage getImage(String path) {
-        BufferedImage image = null;
-        //System.out.println(path);
-        try {
-            image = ImageIO.read(getClass().getClassLoader().getResource(path));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return image;
-    }
 
     public String[] getSupportedClasses(Class<?> classToFind) {
         Set<Class<? extends GameObject>> c = ref.getSubTypesOf(GameObject.class);

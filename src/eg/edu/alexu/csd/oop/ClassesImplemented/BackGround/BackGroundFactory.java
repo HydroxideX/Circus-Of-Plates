@@ -18,7 +18,7 @@ public class BackGroundFactory {
         background.setY(y);
         background.width = width;
         background.height = height;
-        Loader loader = new Loader();
+        Loader loader = Loader.getInstance();
         background.spriteImages[0] = loader.getImageWithLengthAndWidth(path, height, width);
         return background;
     }

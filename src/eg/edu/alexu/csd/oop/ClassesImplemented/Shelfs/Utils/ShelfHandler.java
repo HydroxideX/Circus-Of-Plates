@@ -1,6 +1,6 @@
-package eg.edu.alexu.csd.oop.ClassesImplemented.Utils;
+package eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.Utils;
 
-import eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.Shelf;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.ShelfObject;
 import eg.edu.alexu.csd.oop.game.GameObject;
 
 import java.util.ArrayList;
@@ -9,22 +9,22 @@ import java.util.Random;
 
 public class ShelfHandler {
     private List<GameObject> constatntObjects, movingObjects;
-    private List<Randomizer> shelfObjects;
-    private List<Shelf> shelfs;
+    private List<Shelf> shelfObjects;
+    private List<ShelfObject> shelfs;
     private int minX = 0, maxX = 1200, minY, direction = 1, mode;
 
     public ShelfHandler( List<GameObject> movingObjects,List<GameObject> constatntObjects, int mode) {
         this.constatntObjects = constatntObjects;
         this.movingObjects = movingObjects;
-        shelfObjects = new ArrayList<Randomizer>();
-        shelfs = new ArrayList<Shelf>();
+        shelfObjects = new ArrayList<Shelf>();
+        shelfs = new ArrayList<ShelfObject>();
         this.mode = mode;
     }
 
-    public void addShelf(Shelf sh) {
+    public void addShelf(ShelfObject sh) {
         shelfs.add(sh);
         minY = sh.getY();
-        shelfObjects.add(new Randomizer(movingObjects, constatntObjects, minX, maxX, minY, direction));
+        shelfObjects.add(new Shelf(movingObjects, constatntObjects, minX, maxX, minY, direction));
         minX = (minX == 1200) ? 0 : 1200;
         maxX = (minX == 1200) ? 0 : 1200;
         direction = -direction;

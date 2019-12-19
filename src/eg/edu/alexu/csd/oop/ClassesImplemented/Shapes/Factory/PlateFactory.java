@@ -18,7 +18,7 @@ public class PlateFactory implements IPlateFactory {
     private BufferedImage spriteImages;
     private Random rand;
     private String[] avaColors = new String[]{"blue", "black", "red", "yellow" , "orange", "gold" , "green", "purple", "pink"};
-    private String dest = "Plates/", fileType = ".png";
+    private String dest = "Plates\\", fileType = ".png";
     private String[] Types ;
     private String []classesNames ;
 
@@ -49,21 +49,18 @@ public class PlateFactory implements IPlateFactory {
             plate = platePool.get(color + plateType);
         }
         else {
-            spriteImages = loader.getImage(dest + color + plateType.toLowerCase() + fileType , 0.7);
+            spriteImages = loader.getImage(/*dest +*/ color + plateType.toLowerCase() + fileType , 0.7);
             plate =(Plate) loader.getNewInstance(plateClassName);
             plate.setSpriteImages(spriteImages);
             plate.setColor(color);
         }
-        //plate.setX(rand.nextInt(950));
-       // plate.setY(0);
         plate.isVisible = true;
         plate.setState(new OnShelfState(plate));
         return (GameObject) plate;
     }
     public GameObject makeSpecialPlate(){
         Plate plate ;
-        //System.out.println("came here");
-        spriteImages = loader.getImage(dest + "special" + fileType , 0.7);
+        spriteImages = loader.getImage(/*dest +*/ "special" + fileType , 0.7);
         plate =(Plate) new SpecialPlate();
         plate.setSpriteImages(spriteImages);
         plate.isVisible = true;

@@ -1,14 +1,13 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.levels;
 
 import eg.edu.alexu.csd.oop.ClassesImplemented.BackGround.BackGroundFactory;
-import eg.edu.alexu.csd.oop.ClassesImplemented.BackGround.Background;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.ClownFactory;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool.PlatePool;
-import eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.Shelf;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.ShelfObject;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Stick.StickFactory;
-import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.ShelfHandler;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.Utils.ShelfHandler;
 import eg.edu.alexu.csd.oop.game.GameObject;
 
 import java.util.ArrayList;
@@ -35,9 +34,9 @@ public class SecondLevel extends newWorld {
         clownsX = new Integer[clownsArray.size()];
         addClownsAndEverything(clownsArray,sticksArray,movableObjects,controlableObjects,clownsX);
         shelfhandler = new ShelfHandler(movableObjects,constantObjects,levelMode *3);
-        Shelf sh;
+        ShelfObject sh;
         for(int i=1 ;i<=levelMode ; i++) {
-            sh = new Shelf(0, 30*i+35*(i-1));
+            sh = new ShelfObject(0, 30*i+35*(i-1));
             shelfhandler.addShelf(sh);
             constantObjects.add(sh);
         }

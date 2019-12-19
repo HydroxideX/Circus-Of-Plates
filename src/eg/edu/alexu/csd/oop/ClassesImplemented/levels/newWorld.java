@@ -1,6 +1,5 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.levels;
 
-import eg.edu.alexu.csd.oop.ClassesImplemented.Gui.Gui;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.ArrayIterator;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.ArrayListIterator;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
@@ -9,13 +8,11 @@ import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Plates.Plate;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool.PlatePool;
 import eg.edu.alexu.csd.oop.ClassesImplemented.States.StackedState;
-import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.ShelfHandler;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.Utils.ShelfHandler;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.intersectPlates;
 import eg.edu.alexu.csd.oop.ClassesImplemented.replay.SaveAndLoad;
-import eg.edu.alexu.csd.oop.ClassesImplemented.replay.SaveAndLoadIO;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
-import javafx.stage.Stage;
 import javafx.util.Pair;
 
 import java.util.ArrayList;

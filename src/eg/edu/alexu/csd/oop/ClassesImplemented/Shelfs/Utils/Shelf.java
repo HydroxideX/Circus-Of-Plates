@@ -1,4 +1,4 @@
-package eg.edu.alexu.csd.oop.ClassesImplemented.Utils;
+package eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.Utils;
 
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.IPlateFactory;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Factory.PlateFactory;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Randomizer {
+public class Shelf {
     private static IPlateFactory pf;
     Random randNum;
     //private  Randomizer rand =null;
@@ -18,7 +18,7 @@ public class Randomizer {
     private List<GameObject> platesOnShelf;
     int minX, minY ,maxX, diff;
 
-    public Randomizer(List<GameObject> movableObjects, List<GameObject> constantObjects,int minX ,int maxX, int minY , int diff) {
+    public Shelf(List<GameObject> movableObjects, List<GameObject> constantObjects,int minX ,int maxX, int minY , int diff) {
         randNum = new Random();
         pf = PlateFactory.getInstance();
         this.movableObjects = movableObjects;

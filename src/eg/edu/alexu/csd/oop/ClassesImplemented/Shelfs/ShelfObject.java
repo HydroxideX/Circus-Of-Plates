@@ -5,12 +5,12 @@ import eg.edu.alexu.csd.oop.game.GameObject;
 
 import java.awt.image.BufferedImage;
 
-public class Shelf implements GameObject {
+public class ShelfObject implements GameObject {
     private int x ,y , width , height ;
     private BufferedImage[] img =new BufferedImage[1];
     private Loader loader ;
     private Boolean isvisible ;
-    public Shelf (int x,int y){
+    public ShelfObject (int x,int y){
         loader = Loader.getInstance();
         img[0] = loader.getImage("Shelfs/shelf.png",1);
         this.width = img[0].getWidth();

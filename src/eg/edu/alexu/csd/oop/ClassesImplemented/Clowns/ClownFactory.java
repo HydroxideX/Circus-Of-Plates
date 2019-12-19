@@ -18,10 +18,9 @@ public class ClownFactory {
         Clown clown= new Clown();
         clown.setX(x);
         clown.y = y;
-        Loader loader = new Loader();
+        Loader loader = Loader.getInstance();
         clown.type = type;
         clown.visible = true;
-        loader = Loader.getInstance();
         if(clownPath.contains("1") || clownPath.contains("2")) {
             clown.spriteImages[0] = loader.getImage(clownPath, 0.1);
             clown.stick1 = stickFactory.getstick(clown.getX()-30,clown.getY()+ 12,"Sticks/leftstick_2.png");
