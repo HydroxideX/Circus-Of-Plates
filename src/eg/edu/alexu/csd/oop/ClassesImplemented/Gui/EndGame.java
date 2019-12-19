@@ -49,6 +49,7 @@ public class EndGame extends Application {
         button.setOnAction(e->primaryStage.close());
         vBox.getChildren().addAll(label,label2,button);
         vBox.setAlignment(Pos.CENTER);
+        primaryStage.setScene(new Scene(vBox,300,400));
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
         primaryStage.getIcons().add(new Image("Resources/Buttons/title.jpg"));

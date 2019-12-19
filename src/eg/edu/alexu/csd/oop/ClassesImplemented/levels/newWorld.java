@@ -156,15 +156,14 @@ public class newWorld implements World {
     }
 
     void endGameWin(){
-        new Thread();
         EndGame endGame=new EndGame(true);
-        endGame.main(new String[1]);
+        endGame.start(Gui.habala);
     }
 
     void endGameLose(){
-        new Thread();
+        /*new Thread();
         EndGame endGame=new EndGame(false);
-        endGame.main(new String[1]);
+        endGame.main(new String[1]);*/
     }
 
     @Override
