@@ -1,6 +1,7 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented;
 
 import eg.edu.alexu.csd.oop.ClassesImplemented.levels.FirstLevel;
+import eg.edu.alexu.csd.oop.ClassesImplemented.levels.ReplayWorld;
 import eg.edu.alexu.csd.oop.ClassesImplemented.levels.SecondLevel;
 import eg.edu.alexu.csd.oop.ClassesImplemented.levels.ThirdLevel;
 import eg.edu.alexu.csd.oop.game.GameEngine;
@@ -85,6 +86,29 @@ public class Facade {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     gameController.changeWorld(new FirstLevel(1200, 600, clownPath));
+                }
+            });
+
+            pauseMenuItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    gameController.pause();
+                }
+            });
+            resumeMenuItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    gameController.resume();
+                }
+            });
+        }
+        else {
+            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new ReplayWorld(1200, 600,clownPath), menuBar, JFrame.DISPOSE_ON_CLOSE, Color.WHITE);
+
+            newMenuItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    gameController.changeWorld(new ReplayWorld(1200, 600, clownPath));
                 }
             });
 
