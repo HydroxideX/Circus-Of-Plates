@@ -18,10 +18,6 @@ public class EndGame extends Application {
         launch(args);
     }
     private boolean won=false;
-    public EndGame(boolean won)
-    {
-        this.won=won;
-    }
     @Override
     public void start(Stage primaryStage) {
         VBox vBox =new VBox();

@@ -18,6 +18,7 @@ import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.intersectPlates;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 import javafx.application.Platform;
+import javafx.stage.Stage;
 import javafx.util.Pair;
 
 import javax.swing.text.html.ImageView;
@@ -156,14 +157,9 @@ public class newWorld implements World {
         return true;
     }
 
-    void endGameWin(){
-       // Platform.setImplicitExit(false);
-        Platform.runLater(new Runnable(){
-            @Override
-            public void run() {
-                EndGame endGame=new EndGame(true);
-                endGame.start(Gui.habala);
-            }});
+
+    void endGameWin () {
+        EndGame.launch(EndGame.class);
     }
 
     void endGameLose(){
@@ -185,5 +181,10 @@ public class newWorld implements World {
     @Override
     public int getControlSpeed() {
         return 0;
+    }
+
+    public static void main(String [] args) {
+        newWorld x = new newWorld();
+        x.endGameWin();
     }
 }
