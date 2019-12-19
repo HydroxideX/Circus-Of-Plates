@@ -5,20 +5,22 @@ import eg.edu.alexu.csd.oop.game.GameObject;
 
 import java.awt.image.BufferedImage;
 
-public class ShelfObject implements GameObject {
-    private int x ,y , width , height ;
-    private BufferedImage[] img =new BufferedImage[1];
-    private Loader loader ;
-    private Boolean isvisible ;
-    public ShelfObject (int x,int y){
+public class ShelfObject implements GameObject, Cloneable {
+    private int x, y, width, height;
+    private BufferedImage[] img = new BufferedImage[1];
+    private Loader loader;
+    private Boolean isvisible;
+
+    public ShelfObject(int x, int y) {
         loader = Loader.getInstance();
-        img[0] = loader.getImage("Shelfs/shelf.png",1);
+        img[0] = loader.getImage("Shelfs/shelf.png", 1);
         this.width = img[0].getWidth();
-        this.height = img[0] .getHeight();
-        this.x= x ;
-        this.y = y ;
-        this.isvisible  = true;
+        this.height = img[0].getHeight();
+        this.x = x;
+        this.y = y;
+        this.isvisible = true;
     }
+
     @Override
     public int getX() {
         return x;
@@ -61,8 +63,7 @@ public class ShelfObject implements GameObject {
     }
 
     public Object clone() throws
-            CloneNotSupportedException
-    {
+            CloneNotSupportedException {
         return super.clone();
     }
 }

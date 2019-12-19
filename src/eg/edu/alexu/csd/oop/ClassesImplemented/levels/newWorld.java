@@ -3,6 +3,7 @@ package eg.edu.alexu.csd.oop.ClassesImplemented.levels;
 import eg.edu.alexu.csd.oop.ClassesImplemented.BackGround.Background;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.ImageObject;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Gui.Gui;
+import eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.ShelfObject;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.ArrayIterator;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.ArrayListIterator;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Clowns.Clown;
@@ -171,7 +172,7 @@ public class newWorld implements World {
             }
         } else if(x.getClass().getName().toLowerCase().contains("shelf")){
             try {
-                Shelf v = (Shelf) ((Shelf) x).clone();
+                ShelfObject v = (ShelfObject) ((ShelfObject) x).clone();
                 return v;
             } catch (CloneNotSupportedException e) {
                 e.printStackTrace();
