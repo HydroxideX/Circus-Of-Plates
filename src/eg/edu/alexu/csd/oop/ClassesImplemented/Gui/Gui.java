@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
@@ -145,7 +146,10 @@ public class Gui extends Application {
         });
         mediaPlayer.play();*/
        // String path=getClass().getClassLoader().getResource("database.properties").getFile().toString();
-        File dir = new File(Objects.requireNonNull(getClass().getClassLoader().getResource("Resources/Audio")).getFile());
+        File dir2 = new File("Resources/Plates");
+        File[] f = dir2.listFiles();
+
+        File dir = new File("Resources/Audio");
         boolean x=dir.exists();
         directoryListing = dir.listFiles();
         mediaPlayers=new ArrayList<>();
