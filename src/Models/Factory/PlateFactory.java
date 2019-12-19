@@ -48,7 +48,7 @@ public class PlateFactory implements IPlateFactory {
             plate = platePool.get(color + plateType);
         }
         else {
-            spriteImages = loader.getImage((dest +color + plateType + fileType).toLowerCase() , 0.7);
+            spriteImages = loader.getImage((dest +color + plateType.toLowerCase() + fileType), 0.7);
             plate =(Plate) loader.getNewInstance(plateClassName);
             plate.setSpriteImages(spriteImages);
             plate.setColor(color);
@@ -59,7 +59,7 @@ public class PlateFactory implements IPlateFactory {
     }
     public GameObject makeSpecialPlate(){
         Plate plate ;
-        spriteImages = loader.getImage((dest + "special" + fileType).toLowerCase() , 0.7);
+        spriteImages = loader.getImage(dest + "special" + fileType , 0.7);
         plate =(Plate) new SpecialPlate();
         plate.setSpriteImages(spriteImages);
         plate.isVisible = true;
