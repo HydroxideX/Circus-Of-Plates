@@ -87,7 +87,15 @@ public class newWorld implements World {
 
     @Override
     public boolean refresh() {
-        if(endGame())return false;
+        long currentTime = System.currentTimeMillis();
+        if(score == 5){
+            endGameWin();
+            return false;
+        }
+        if((currentTime-startTime)/1000 >= 120){
+            endGameLose();
+            return false;
+        }
         Iterator it = constantObjects.iterator();
         ArrayList removed = new ArrayList();
         for (int i = 0; i < levelMode+1 && (it.hasNext()); i++)
@@ -147,9 +155,12 @@ public class newWorld implements World {
         return true;
     }
 
-    boolean endGame(){
-       if (score==3)return true;
-        return false;
+    void endGameWin(){
+        
+    }
+
+    void endGameLose(){
+
     }
 
     @Override
