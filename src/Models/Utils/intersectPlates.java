@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class intersectPlates {
+    public boolean isSpecial=false;
     public boolean intersect(Plate m, ArrayList <Pair<Stick,Integer> > sticksArray, int[] score, List<GameObject> movableObjects){
         ArrayListIterator iterator = new ArrayListIterator(sticksArray);
         while (iterator.hasNext()) {
@@ -19,19 +20,25 @@ public class intersectPlates {
             int intersectionHeight = current.getValue();
             Stick stick = current.getKey();
             if(m.getY()+m.getHeight() == intersectionHeight && center-30 < stick.getX()+ stick.getWidth() && center+30 > stick.getX()) {
-                intersectionHeight -= m.getHeight();
-                m.setY(intersectionHeight);
-                m.setX(( 2*stick.getX()+ stick.getWidth())/2 - 32);
-                stick.registerObserver(m);
-                movableObjects.add(m);
-                if(checkColor(stick)){
-                    intersectionHeight = removeLastThree(stick, intersectionHeight,movableObjects);
-                    score[0]++;
+                if (m.getType().equals("SpecialPlate")) {
+                    // constantObjects.remove(m);
+                    isSpecial=true;
+                    return true;
+                } else {
+                    intersectionHeight -= m.getHeight();
+                    m.setY(intersectionHeight);
+                    m.setX((2 * stick.getX() + stick.getWidth()) / 2 - 32);
+                    stick.registerObserver(m);
+                    movableObjects.add(m);
+                    if (checkColor(stick)) {
+                        intersectionHeight = removeLastThree(stick, intersectionHeight, movableObjects);
+                        score[0]++;
+                    }
+                    sticksArray.remove(current);
+                    current = new Pair<>(stick, intersectionHeight);
+                    sticksArray.add(current);
+                    return true;
                 }
-                sticksArray.remove(current);
-                current = new Pair<>(stick,intersectionHeight);
-                sticksArray.add(current);
-                return true;
             }
         }
         return false;

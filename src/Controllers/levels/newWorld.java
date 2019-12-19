@@ -42,6 +42,9 @@ public class newWorld implements World {
     //static ArrayList <ArrayList <GameObject> > allData;
     Integer[] clownsX;
     ShelfHandler shelfhandler;
+    long startSpecial;
+    boolean specialMode=false;
+    private BackGroundFactory backGroundFactory;
 
     public void addClownsAndEverything(ArrayList<Clown> clownsArray, ArrayList<Pair<Stick, Integer>> sticksArray, List<GameObject> movableObjects, List<GameObject> controlableObjects, Integer[] clownsX) {
         ArrayListIterator iterator = new ArrayListIterator(clownsArray);
@@ -109,6 +112,13 @@ public class newWorld implements World {
         while (it.hasNext()) {
             Plate m = (Plate) it.next();
             m.update(1);
+            if (m.getType().equals("SpecialPlate")&&intersection.isSpecial){
+                it.remove();
+                startSpecial=System.currentTimeMillis();
+                specialMode=true;
+                GameObject background = backGroundFactory.getBackGround(0,0,1200,600,"boom.jpg");
+                constantObjects.set(0,background);
+            }
             if (m.getY() == getHeight()) {
                 it.remove();
             }
@@ -118,6 +128,10 @@ public class newWorld implements World {
                 removed.add(m);
             }
             score = z[0];
+        }
+        if ((currentTime-startSpecial)/1000>15 && specialMode){
+            specialMode=false;
+
         }
         if (time == 0)
             shelfhandler.throwPlates();
