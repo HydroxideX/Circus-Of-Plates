@@ -1,5 +1,6 @@
 package Controllers.levels;
 
+import Controllers.Difficulty.Medium;
 import Models.BackGround.BackGroundFactory;
 import Models.Clowns.Clown;
 import Models.Clowns.ClownFactory;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 public class SecondLevel extends newWorld {
 
     public SecondLevel (int width,int height,String clownPath) {
+        speed = new Medium();
         constantObjects = new ArrayList<>();
         movableObjects = new ArrayList<>();
         controlableObjects = new ArrayList<>();
@@ -40,16 +42,5 @@ public class SecondLevel extends newWorld {
             shelfhandler.addShelf(sh);
             constantObjects.add(sh);
         }
-    }
-
-
-    @Override
-    public int getSpeed() {
-        return 5;
-    }
-
-    @Override
-    public int getControlSpeed() {
-        return 20;
     }
 }

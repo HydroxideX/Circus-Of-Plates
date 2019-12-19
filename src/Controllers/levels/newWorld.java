@@ -1,5 +1,6 @@
 package Controllers.levels;
 
+import Controllers.Difficulty.Speed;
 import View.Gui.EndGame;
 import View.Gui.Gui;
 import Models.Utils.ArrayIterator;
@@ -22,6 +23,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class newWorld implements World {
+    Speed speed;
     PlateFactory pf;
     int time = 0,time_2=0;
     PlatePool pp;
@@ -183,12 +185,12 @@ public class newWorld implements World {
 
     @Override
     public int getSpeed() {
-        return 0;
+        return speed.getSpeed();
     }
 
     @Override
     public int getControlSpeed() {
-        return 0;
+        return speed.getControlSpeed();
     }
 
     public static void main(String [] args) {

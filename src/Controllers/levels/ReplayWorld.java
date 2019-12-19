@@ -9,7 +9,7 @@ public class ReplayWorld extends newWorld {
     public static ArrayList <ArrayList <GameObject> > allData=new ArrayList<>();
 
     int index = 0;
-    public ReplayWorld(int width,int height,String clownPath)
+    public ReplayWorld (int width,int height,String clownPath)
     {
         this.width=width;
         this.height=height;

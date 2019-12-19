@@ -1,5 +1,6 @@
 package Controllers.levels;
 
+import Controllers.Difficulty.Easy;
 import Models.BackGround.BackGroundFactory;
 import Models.Clowns.Clown;
 import Models.Clowns.ClownFactory;
@@ -16,6 +17,7 @@ public class FirstLevel extends newWorld {
 
     public FirstLevel (int width,int height,String clownPath) {
         constantObjects = new ArrayList<>();
+        speed = new Easy();
         movableObjects = new ArrayList<>();
         controlableObjects = new ArrayList<>();
         ReplayWorld.allData.clear();
@@ -42,13 +44,4 @@ public class FirstLevel extends newWorld {
         }
     }
 
-    @Override
-    public int getSpeed() {
-        return 10;
-    }
-
-    @Override
-    public int getControlSpeed() {
-        return 20;
-    }
 }

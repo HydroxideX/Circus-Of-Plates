@@ -1,5 +1,6 @@
 package Controllers.levels;
 
+import Controllers.Difficulty.Hard;
 import Models.BackGround.BackGroundFactory;
 import Models.Clowns.Clown;
 import Models.Clowns.ClownFactory;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 public class ThirdLevel extends newWorld {
     int swapTime = 0;
     public ThirdLevel (int width,int height,String clownPath) {
+        speed = new Hard();
         constantObjects = new ArrayList<>();
         movableObjects = new ArrayList<>();
         controlableObjects = new ArrayList<>();
@@ -44,7 +46,6 @@ public class ThirdLevel extends newWorld {
 
     }
 
-    @Override
    /* public boolean refresh() {
         Iterator it = constantObjects.iterator();
         ArrayList removed = new ArrayList();
@@ -102,15 +103,5 @@ public class ThirdLevel extends newWorld {
             clownsX[counter++] = clown.getX();
         }
         return true;
-    }
-
-    @Override*/
-    public int getSpeed() {
-        return 10;
-    }
-
-    @Override
-    public int getControlSpeed() {
-        return 20;
-    }
+    }*/
 }
