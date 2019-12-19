@@ -14,7 +14,6 @@ import eg.edu.alexu.csd.oop.ClassesImplemented.Shapes.Pool.PlatePool;
 import eg.edu.alexu.csd.oop.ClassesImplemented.States.StackedState;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Shelfs.Utils.ShelfHandler;
 import eg.edu.alexu.csd.oop.ClassesImplemented.Utils.intersectPlates;
-import eg.edu.alexu.csd.oop.ClassesImplemented.replay.SaveAndLoad;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 import javafx.util.Pair;

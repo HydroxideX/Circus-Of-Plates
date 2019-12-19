@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReplayWorld extends newWorld {
-    static ArrayList <ArrayList <GameObject> > allData=new ArrayList<>();
+    public static ArrayList <ArrayList <GameObject> > allData=new ArrayList<>();
 
     int index = 0;
     public ReplayWorld(int width,int height,String clownPath)

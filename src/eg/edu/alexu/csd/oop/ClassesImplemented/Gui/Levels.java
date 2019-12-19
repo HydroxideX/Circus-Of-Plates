@@ -1,6 +1,7 @@
 package eg.edu.alexu.csd.oop.ClassesImplemented.Gui;
 
 import eg.edu.alexu.csd.oop.ClassesImplemented.Facade;
+import eg.edu.alexu.csd.oop.ClassesImplemented.levels.ReplayWorld;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -187,17 +188,28 @@ public class Levels extends Application {
         replay.setOnAction(e->{
             try
            {
-               Facade facade =new Facade("ay 7aga",clownPath);
-               facade.Start();
-               //playMusic();
-               Gui gui=new Gui();
-               gui.start(primaryStage);
-               primaryStage.toBack();
+               if(ReplayWorld.allData.isEmpty()){
+                   Alert a = new Alert(Alert.AlertType.NONE);
+                   a.setAlertType(Alert.AlertType.ERROR);
+                   a.setHeaderText(null);
+                   a.setContentText("Play a game to watch the Replay!");
+                   // show the dialog
+                   a.show();
+               }else{
+
+                   Facade facade =new Facade("ay 7aga",clownPath);
+                   facade.Start();
+                   //playMusic();
+                   Gui gui=new Gui();
+                   gui.start(primaryStage);
+                   primaryStage.toBack();
+               }
            }catch (Exception ex)
            {
                Alert a = new Alert(Alert.AlertType.NONE);
                a.setAlertType(Alert.AlertType.ERROR);
-               a.setHeaderText("Play a game to watch the Replay!");
+               a.setHeaderText(null);
+               a.setContentText("Play a game to watch the Replay!");
                // show the dialog
                a.show(); }
         });
