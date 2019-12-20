@@ -179,11 +179,6 @@ public class newWorld implements World {
                 score = z[0];
             }
         }
-        if ((currentTime-startSpecial)/1000>2 && (currentTime-startSpecial)/1000<15 && specialModeSeconds) {
-            GameObject background1 = backGroundFactory.getBackGround(0,0,1200,600,"hi.png");
-            constantObjects.set(0,background1);
-            specialModeSeconds = false;
-        }
         if ((currentTime-startSpecial)/1000>15 && specialMode) {
             specialMode=false;
             constantObjects.set(0,storeBackground);
@@ -198,7 +193,7 @@ public class newWorld implements World {
         }
         if (time == 0)
             shelfhandler.throwPlates();
-        if(time_2==1500){shelfhandler.makeSpecialPlates();time_2=0;}
+        if(time_2==2000){shelfhandler.makeSpecialPlates();time_2=0;}
         it = removed.iterator();
         while (it.hasNext()) {
             constantObjects.remove(it.next());
