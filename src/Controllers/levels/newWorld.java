@@ -54,6 +54,7 @@ public class newWorld implements World {
     GameObject storeBackground;
     int storeSpeed;
     ArrayList<Clown> storeClownsArray = new ArrayList<>();
+    boolean gameEnded = false;
 
     public void addClownsAndEverything(ArrayList<Clown> clownsArray, ArrayList<Pair<Stick, Integer>> sticksArray, List<GameObject> movableObjects, List<GameObject> controlableObjects, Integer[] clownsX) {
         ArrayListIterator iterator = new ArrayListIterator(clownsArray);
@@ -97,17 +98,19 @@ public class newWorld implements World {
     }
 
     boolean hagarb7aga=false;
-
     @Override
     public boolean refresh() {
+        if(gameEnded) return false;
         long currentTime = System.currentTimeMillis();
         if (score >= 10) {
             endGameWin();
+            gameEnded = true;
             return false;
         }
         if(Gui.checkClosed())return false;
         if((currentTime-startTime)/1000 >= 120){
             endGameLose();
+            gameEnded = true;
             return false;
         }
         hagarb7aga=false;
