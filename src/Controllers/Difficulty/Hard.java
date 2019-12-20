@@ -2,7 +2,9 @@ package Controllers.Difficulty;
 
 import Models.Plates.SpecialPlate;
 
-public class Hard extends Speed {
+public class Hard implements Speed {
+    public int controlspeed ;
+    public int speed ;
     public Hard(){
         controlspeed = 20;
         speed  = 5;

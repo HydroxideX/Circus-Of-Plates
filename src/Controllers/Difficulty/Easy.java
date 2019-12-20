@@ -1,7 +1,8 @@
 package Controllers.Difficulty;
 
-public class Easy extends Speed{
-
+public class Easy implements Speed{
+    public int controlspeed ;
+    public int speed ;
     public Easy(){
         controlspeed = 30;
         speed = 10;
