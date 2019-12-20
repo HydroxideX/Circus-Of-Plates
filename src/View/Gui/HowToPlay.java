@@ -52,7 +52,7 @@ public class HowToPlay extends Application {
                         back.setEffect(null);
                     }
                 });
-        back.setTranslateY(-20);
+        back.setTranslateY(-40);
         back.setStyle("-fx-background-color: transparent;");
 
         back.setOnAction(e->{
@@ -71,10 +71,11 @@ public class HowToPlay extends Application {
                         back.fire();
                     }
                 });
+        label.setTranslateY(-20);
         Text text=new Text();
-        text.setText("Play With The Clown To Collect The Falling Plates.\n A Stack is a Group Of Three Plates With The Same Color,\n If A Stick Has A Stack Of Plates The Stack Disappears And The Score Increases By One If The Score Reaches Five The player Wins If 120 Seconds Pass Before Reaching A Score Of Five The Player Loses, Now Go, Play Well And Claim Your Victory!");
+        text.setText("Play With The Clown To Collect The Falling Plates. A Stack is a Group Of Three Plates With The Same Color, If A Stick Has A Stack Of Plates The Stack Disappears And The Score Increases By One If The Score Reaches Five The player Wins If 120 Seconds Pass Before Reaching A Score Of Five The Player Loses, Now Go, Play Well And Claim Your Victory!");
         text.setWrappingWidth(240);
-        text.setTranslateY(-20);
+        text.setTranslateY(-40);
         vBox.getChildren().addAll(label,text,back);
         primaryStage.setScene(new Scene(vBox,300,400));
     }
