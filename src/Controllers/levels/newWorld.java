@@ -98,7 +98,7 @@ public class newWorld implements World {
     @Override
     public boolean refresh() {
         long currentTime = System.currentTimeMillis();
-        if(score == 1){
+        if(score == 10){
             endGameWin();
             return false;
         }
@@ -198,7 +198,7 @@ public class newWorld implements World {
         }
         if (time == 0)
             shelfhandler.throwPlates();
-        if(time_2==100){shelfhandler.makeSpecialPlates();time_2=0;}
+        if(time_2==1500){shelfhandler.makeSpecialPlates();time_2=0;}
         it = removed.iterator();
         while (it.hasNext()) {
             constantObjects.remove(it.next());
