@@ -2,7 +2,6 @@ package View.Gui;
 
 import Controllers.levels.ReplayWorld;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -42,7 +41,7 @@ public class Levels extends Application {
                                 BackgroundPosition.DEFAULT,
                                 BackgroundSize.DEFAULT))));
         vBox.setAlignment(Pos.CENTER);
-        ImageView clown= null;
+        ImageView clown;
         clown = new ImageView(new Image("Resources/Buttons/EasyB.png"));
         clown.setFitWidth(150);
         clown.setFitHeight(30);
@@ -51,18 +50,10 @@ public class Levels extends Application {
 //Adding the shadow when the mouse cursor is on
         DropShadow finalShadow3 = shadow;
         level1.addEventHandler(MouseEvent.MOUSE_ENTERED,
-                new EventHandler<MouseEvent>() {
-                    @Override public void handle(MouseEvent e) {
-                        level1.setEffect(finalShadow3);
-                    }
-                });
+                e -> level1.setEffect(finalShadow3));
 //Removing the shadow when the mouse cursor is off
         level1.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override public void handle(MouseEvent e) {
-                        level1.setEffect(null);
-                    }
-                });
+                e -> level1.setEffect(null));
         level1.setEffect(shadow);
         level1.setTranslateY(-20);
         level1.setStyle("-fx-background-color: transparent;");
@@ -82,18 +73,10 @@ public class Levels extends Application {
 //Adding the shadow when the mouse cursor is on
         DropShadow finalShadow = shadow;
         level2.addEventHandler(MouseEvent.MOUSE_ENTERED,
-                new EventHandler<MouseEvent>() {
-                    @Override public void handle(MouseEvent e) {
-                        level2.setEffect(finalShadow);
-                    }
-                });
+                e -> level2.setEffect(finalShadow));
 //Removing the shadow when the mouse cursor is off
         level2.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override public void handle(MouseEvent e) {
-                        level2.setEffect(null);
-                    }
-                });
+                e -> level2.setEffect(null));
 
         level2.setTranslateY(-20);
         level2.setStyle("-fx-background-color: transparent;");
@@ -110,23 +93,14 @@ public class Levels extends Application {
         clown.setFitWidth(150);
         clown.setFitHeight(30);
          level3 = new Button(null, clown);
-        shadow = new DropShadow();
-//Adding the shadow when the mouse cursor is on
+        //Adding the shadow when the mouse cursor is on
         DropShadow finalShadow1 = finalShadow;
         DropShadow finalShadow4 = finalShadow1;
         level3.addEventHandler(MouseEvent.MOUSE_ENTERED,
-                new EventHandler<MouseEvent>() {
-                    @Override public void handle(MouseEvent e) {
-                        level3.setEffect(finalShadow4);
-                    }
-                });
+                e -> level3.setEffect(finalShadow4));
 //Removing the shadow when the mouse cursor is off
         level3.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override public void handle(MouseEvent e) {
-                        level3.setEffect(null);
-                    }
-                });
+                e -> level3.setEffect(null));
         level3.setTranslateY(-20);
         level3.setStyle("-fx-background-color: transparent;");
         level3.setOnAction(e->{
@@ -145,18 +119,10 @@ public class Levels extends Application {
         DropShadow finalShadow2 = finalShadow1;
         DropShadow finalShadow6 = finalShadow2;
         back.addEventHandler(MouseEvent.MOUSE_ENTERED,
-                new EventHandler<MouseEvent>() {
-                    @Override public void handle(MouseEvent e) {
-                        back.setEffect(finalShadow6);
-                    }
-                });
+                e -> back.setEffect(finalShadow6));
 //Removing the shadow when the mouse cursor is off
         back.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override public void handle(MouseEvent e) {
-                        back.setEffect(null);
-                    }
-                });
+                e -> back.setEffect(null));
         back.setTranslateY(-30);
         back.setStyle("-fx-background-color: transparent;");
 
@@ -176,18 +142,10 @@ public class Levels extends Application {
         DropShadow finalShadow5 = finalShadow2;
          replay=new Button(null,clown);
         replay.addEventHandler(MouseEvent.MOUSE_ENTERED,
-                new EventHandler<MouseEvent>() {
-                    @Override public void handle(MouseEvent e) {
-                        replay.setEffect(finalShadow5);
-                    }
-                });
+                e -> replay.setEffect(finalShadow5));
 //Removing the shadow when the mouse cursor is off
         replay.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override public void handle(MouseEvent e) {
-                        replay.setEffect(null);
-                    }
-                });
+                e -> replay.setEffect(null));
         replay.setTranslateY(-20);
         replay.setStyle("-fx-background-color: transparent;");
         replay.setOnAction(e->{
