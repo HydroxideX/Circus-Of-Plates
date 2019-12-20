@@ -63,7 +63,7 @@ public class Options extends Application {
                         chooseChar.setEffect(null);
                     }
                 });
-        chooseChar.setTranslateY(-20);
+        chooseChar.setTranslateY(-40);
         chooseChar.setStyle("-fx-background-color: transparent;");
         chooseChar.setOnAction(e->{
             ChooseChar chooseChar1=new ChooseChar();
@@ -92,7 +92,7 @@ public class Options extends Application {
                         audio.setEffect(null);
                     }
                 });
-        audio.setTranslateY(-20);
+        audio.setTranslateY(-40);
         audio.setStyle("-fx-background-color: transparent;");
         audio.setOnAction(e->{
             Music music=new Music();
@@ -118,7 +118,7 @@ public class Options extends Application {
                         back.setEffect(null);
                     }
                 });
-        back.setTranslateY(-20);
+        back.setTranslateY(-40);
         back.setStyle("-fx-background-color: transparent;");
 
         back.setOnAction(e->{

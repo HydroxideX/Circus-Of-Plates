@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -52,7 +53,7 @@ public class HowToPlay extends Application {
                         back.setEffect(null);
                     }
                 });
-        back.setTranslateY(-40);
+        back.setTranslateY(-58);
         back.setStyle("-fx-background-color: transparent;");
 
         back.setOnAction(e->{
@@ -76,6 +77,8 @@ public class HowToPlay extends Application {
         text.setText("Play With The Clown To Collect The Falling Plates. A Stack is a Group Of Three Plates With The Same Color, If A Stick Has A Stack Of Plates The Stack Disappears And The Score Increases By One If The Score Reaches Five The player Wins If 120 Seconds Pass Before Reaching A Score Of Five The Player Loses, Now Go, Play Well And Claim Your Victory!");
         text.setWrappingWidth(240);
         text.setTranslateY(-40);
+        text.setTranslateX(+5);
+        text.setFont(Font.font(text.getFont().getSize()+2));
         vBox.getChildren().addAll(label,text,back);
         primaryStage.setScene(new Scene(vBox,300,400));
     }

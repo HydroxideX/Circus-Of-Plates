@@ -80,7 +80,7 @@ public class Gui extends Application {
                         play.setEffect(null);
                     }
                 });
-        play.setTranslateY(-20);
+        play.setTranslateY(-40);
         play.setStyle("-fx-background-color: transparent;");
         clown = new ImageView(new Image("Resources/Buttons/QuitB.png"));
         clown.setFitWidth(150);
@@ -100,7 +100,7 @@ public class Gui extends Application {
                         exit.setEffect(null);
                     }
                 });
-        exit.setTranslateY(-20);
+        exit.setTranslateY(-40);
         exit.setStyle("-fx-background-color: transparent;");
         clown = new ImageView(new Image("Resources/Buttons/OptionsB.png"));
         clown.setFitWidth(150);
@@ -121,7 +121,7 @@ public class Gui extends Application {
                     }
                 });
 
-        options.setTranslateY(-20);
+        options.setTranslateY(-40);
         options.setStyle("-fx-background-color: transparent;");
         play.setOnAction(e->{
 
