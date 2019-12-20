@@ -28,7 +28,6 @@ public class ShelfHandler {
         minX = (minX == 1200) ? 0 : 1200;
         maxX = (minX == 1200) ? 0 : 1200;
         direction = -direction;
-
     }
 
     public void throwPlates() {
