@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.util.Collections;
@@ -70,7 +71,10 @@ public class HowToPlay extends Application {
                         back.fire();
                     }
                 });
-            vBox.getChildren().addAll(label,back);
+        Text text=new Text();
+        text.setText("Play");
+
+        vBox.getChildren().addAll(label,text,back);
         primaryStage.setScene(new Scene(vBox,300,400));
     }
 }
