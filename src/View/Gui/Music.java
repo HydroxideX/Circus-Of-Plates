@@ -128,7 +128,7 @@ public class Music extends Application {
         });
         vBox.setOnKeyPressed(ke -> {
             KeyCode kc = ke.getCode();
-                    if(kc.equals(KeyCode.ESCAPE))
+                    if(kc.equals(KeyCode.ESCAPE)||kc.equals(KeyCode.BACK_SPACE))
                         back.fire();
                 });
             HBox hbox = new HBox(5);

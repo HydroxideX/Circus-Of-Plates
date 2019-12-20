@@ -1,7 +1,6 @@
 package View.Gui;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -51,27 +50,18 @@ public class EndGame extends Application {
         }
         label2.setFont(Font.font("Cambria", 15));
         label.setFont(Font.font("Cambria", 25));
-        ImageView clown= null;
+        ImageView clown;
         clown = new ImageView(new Image("Resources/yahia.jpg"));
         clown.setFitWidth(70);
         clown.setFitHeight(90);
         Button button=new Button(null,clown);
         DropShadow shadow = new DropShadow();
 //Adding the shadow when the mouse cursor is on
-        DropShadow finalShadow3 = shadow;
         button.addEventHandler(MouseEvent.MOUSE_ENTERED,
-                new EventHandler<MouseEvent>() {
-                    @Override public void handle(MouseEvent e) {
-                        button.setEffect(finalShadow3);
-                    }
-                });
+                e -> button.setEffect(shadow));
 //Removing the shadow when the mouse cursor is off
         button.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override public void handle(MouseEvent e) {
-                        button.setEffect(null);
-                    }
-                });
+                e -> button.setEffect(null));
         button.setTranslateY(-20);
         button.setStyle("-fx-background-color: transparent;");
         button.setOnAction(e->primaryStage.close());
@@ -81,19 +71,5 @@ public class EndGame extends Application {
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.getIcons().add(new Image("Resources/Buttons/title.jpg"));
         primaryStage.show();
-       /* primaryStage.setScene(new Scene(new VBox()));
-        primaryStage.show();
-        Alert a = new Alert(Alert.AlertType.NONE);
-        a.setAlertType(Alert.AlertType.ERROR);
-        if(won){
-            a.setHeaderText("You Are A SuperHero");
-            a.setContentText("Congratulations You Won");
-        }
-        else
-        {
-            a.setHeaderText("You Are A Loser");
-            a.setContentText("Congratulations You Lost");
-        }
-        a.showAndWait();*/
     }
 }

@@ -247,7 +247,7 @@ public class ChooseChar extends Application {
                 else if(keyBoardCounter==5)back.fire();
                 else back.fire();
             }
-            if(kc.equals(KeyCode.ESCAPE))
+            if(kc.equals(KeyCode.ESCAPE)||kc.equals(KeyCode.BACK_SPACE))
                 back.fire();
         });
 

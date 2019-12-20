@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.FocusModel;
+import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -39,9 +41,11 @@ public class Gui extends Application {
     Button play;
     Button options;
     Button exit;
+    static Stage primaryStage;
     @Override
-    public void start(Stage primaryStage) {
 
+    public void start(Stage primaryStage1) {
+        primaryStage=primaryStage1;
         VBox vBox =new VBox();
         vBox.setSpacing(15);
         vBox.setBackground(
@@ -129,6 +133,14 @@ public class Gui extends Application {
             Options options1 = new Options();
             options1.start(primaryStage);
         });
+        Label mute=new Label("M : Mute");
+        Label how=new Label("F1 : How TO Play");
+        how.setFont( Font.font("Cambria", 10));
+        mute.setFont( Font.font("Cambria", 10));
+        how.setTranslateY(-65);
+        how.setTranslateX(+82);
+        mute.setTranslateY(-50);
+        mute.setTranslateX(+65);
         vBox.setOnKeyPressed(ke -> {
             KeyCode kc = ke.getCode();
             if(play.getEffect()!=null) keyBoardCounter=0;
@@ -149,13 +161,29 @@ public class Gui extends Application {
             if(kc.equals(KeyCode.ENTER))
             {
                 if(keyBoardCounter==0)play.fire();
-               else if(keyBoardCounter==1)options.fire();
+                else if(keyBoardCounter==1)options.fire();
                 else exit.fire();
             }
-            if(kc.equals(KeyCode.ESCAPE))
+            if(kc.equals(KeyCode.F1))
+            {
+                HowToPlay howToPlay=new HowToPlay();
+                howToPlay.start(primaryStage);
+            }
+            if(kc.equals(KeyCode.M))
+            {
+                mute.setText("M : mute");
+                Gui.mediaPlayer.setMute(true);
+                Gui.muteAudio = !Gui.muteAudio;
+                if (!Gui.muteAudio) {
+                    Gui.mediaPlayer.setMute(false);
+                }
+                else mute.setText("M : Unmute");
+            }
+            if(kc.equals(KeyCode.ESCAPE)||kc.equals(KeyCode.BACK_SPACE)) {
                 exit.fire();
+            }
         });
-        vBox.getChildren().addAll(play,options,exit);
+        vBox.getChildren().addAll(mute,how,play,options,exit);
         primaryStage.setScene(new Scene(vBox,300,400));
         primaryStage.setTitle("Circus of Plates");
 
@@ -168,7 +196,10 @@ public class Gui extends Application {
             primaryStage.getIcons().add(new Image("Resources/Buttons/title.jpg"));
         }
     }
-
+    public static boolean  checkClosed()
+    {
+        return primaryStage.isFocused();
+    }
     private void addShadows() {
         options.setEffect(null);
         exit.setEffect(null);

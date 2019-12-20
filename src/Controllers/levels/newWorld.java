@@ -12,7 +12,7 @@ import Models.Factory.PlateFactory;
 import Models.Plates.Plate;
 import Models.Pool.PlatePool;
 import Models.States.StackedState;
-import Models.Utils.ShelfHandler;
+import Controllers.ShelfHandler;
 import Models.Utils.intersectPlates;
 import View.game.GameObject;
 import View.game.World;
@@ -95,6 +95,7 @@ public class newWorld implements World {
             endGameWin();
             return false;
         }
+        if(Gui.checkClosed())return false;
         if((currentTime-startTime)/1000 >= 125){
             endGameLose();
             return false;

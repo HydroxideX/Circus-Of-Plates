@@ -5,12 +5,14 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.util.Collections;
@@ -29,7 +31,7 @@ public class Options extends Application {
     @Override
     public void start(Stage primaryStage) {
         VBox vBox=new VBox();
-        vBox.setSpacing(10);
+        vBox.setSpacing(15);
         vBox.setBackground(
                 new Background(null,
                         Collections.singletonList(new BackgroundImage(
@@ -124,6 +126,14 @@ public class Options extends Application {
             gui.start(primaryStage);
 
         });
+        Label mute=new Label("M : Mute");
+        Label how=new Label("F1 : How TO Play");
+        how.setFont( Font.font("Cambria", 10));
+        mute.setFont( Font.font("Cambria", 10));
+        how.setTranslateY(-65);
+        how.setTranslateX(+82);
+        mute.setTranslateY(-50);
+        mute.setTranslateX(+65);
         vBox.setOnKeyPressed(ke -> {
             KeyCode kc = ke.getCode();
             if(chooseChar.getEffect()!=null) keyBoardCounter=0;
@@ -147,10 +157,25 @@ public class Options extends Application {
                 else if(keyBoardCounter==1)audio.fire();
                 else back.fire();
             }
-            if(kc.equals(KeyCode.ESCAPE))
+            if(kc.equals(KeyCode.F1))
+            {
+                HowToPlay howToPlay=new HowToPlay();
+                howToPlay.start(primaryStage);
+            }
+            if(kc.equals(KeyCode.M))
+            {
+                mute.setText("M : mute");
+                Gui.mediaPlayer.setMute(true);
+                Gui.muteAudio = !Gui.muteAudio;
+                if (!Gui.muteAudio) {
+                    Gui.mediaPlayer.setMute(false);
+                }
+                else mute.setText("M : Unmute");
+            }
+            if(kc.equals(KeyCode.ESCAPE)||kc.equals(KeyCode.BACK_SPACE))
                 back.fire();
         });
-        vBox.getChildren().addAll(chooseChar,audio,back);
+        vBox.getChildren().addAll(mute,how,chooseChar,audio,back);
         primaryStage.setScene(new Scene(vBox,300,400));
         //primaryStage.initStyle(StageStyle.UNDECORATED);
         //primaryStage.showAndWait();

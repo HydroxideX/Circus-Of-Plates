@@ -1,6 +1,7 @@
-package Models.Utils;
+package Controllers;
 
 import Models.Shelfs.ShelfObject;
+import Models.Shelfs.Shelf;
 import View.game.GameObject;
 
 import java.util.ArrayList;

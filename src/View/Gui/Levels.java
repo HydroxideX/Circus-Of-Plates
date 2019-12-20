@@ -6,12 +6,14 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.util.Collections;
@@ -55,7 +57,7 @@ public class Levels extends Application {
         level1.addEventHandler(MouseEvent.MOUSE_EXITED,
                 e -> level1.setEffect(null));
         level1.setEffect(shadow);
-        level1.setTranslateY(-20);
+        level1.setTranslateY(-30);
         level1.setStyle("-fx-background-color: transparent;");
         level1.setOnAction(e->{
             Gui gui=new Gui();
@@ -78,7 +80,7 @@ public class Levels extends Application {
         level2.addEventHandler(MouseEvent.MOUSE_EXITED,
                 e -> level2.setEffect(null));
 
-        level2.setTranslateY(-20);
+        level2.setTranslateY(-30);
         level2.setStyle("-fx-background-color: transparent;");
         level2.setOnAction(e->{
             Gui gui=new Gui();
@@ -101,7 +103,7 @@ public class Levels extends Application {
 //Removing the shadow when the mouse cursor is off
         level3.addEventHandler(MouseEvent.MOUSE_EXITED,
                 e -> level3.setEffect(null));
-        level3.setTranslateY(-20);
+        level3.setTranslateY(-30);
         level3.setStyle("-fx-background-color: transparent;");
         level3.setOnAction(e->{
             Gui gui=new Gui();
@@ -146,7 +148,7 @@ public class Levels extends Application {
 //Removing the shadow when the mouse cursor is off
         replay.addEventHandler(MouseEvent.MOUSE_EXITED,
                 e -> replay.setEffect(null));
-        replay.setTranslateY(-20);
+        replay.setTranslateY(-30);
         replay.setStyle("-fx-background-color: transparent;");
         replay.setOnAction(e->{
             try
@@ -176,6 +178,15 @@ public class Levels extends Application {
                // show the dialog
                a.show(); }
         });
+        Label mute=new Label("M : Mute");
+        Label how=new Label("F1 : How TO Play");
+        how.setFont( Font.font("Cambria", 10));
+        mute.setFont( Font.font("Cambria", 10));
+        how.setTranslateY(-25);
+        how.setTranslateX(+82);
+        mute.setTranslateY(-15);
+        mute.setTranslateX(+65);
+        //vBox.setTranslateY(-10);
         vBox.setOnKeyPressed(ke -> {
             KeyCode kc = ke.getCode();
             if(level1.getEffect()!=null) keyBoardCounter=0;
@@ -203,11 +214,26 @@ public class Levels extends Application {
                 else if(keyBoardCounter==3)replay.fire();
                 else back.fire();
             }
-            if(kc.equals(KeyCode.ESCAPE))
+            if(kc.equals(KeyCode.F1))
+            {
+                HowToPlay howToPlay=new HowToPlay();
+                howToPlay.start(primaryStage);
+            }
+            if(kc.equals(KeyCode.M))
+            {
+                mute.setText("M : mute");
+                Gui.mediaPlayer.setMute(true);
+                Gui.muteAudio = !Gui.muteAudio;
+                if (!Gui.muteAudio) {
+                    Gui.mediaPlayer.setMute(false);
+                }
+                else mute.setText("M : Unmute");
+            }
+
+            if(kc.equals(KeyCode.ESCAPE)||kc.equals(KeyCode.BACK_SPACE))
                 back.fire();
         });
-
-        vBox.getChildren().addAll(level1,level2,level3,replay,back);
+        vBox.getChildren().addAll(mute,how,level1,level2,level3,replay,back);
         primaryStage.setScene(new Scene(vBox,300,400));
         //primaryStage.initStyle(StageStyle.UNDECORATED);
        // primaryStage.showAndWait();

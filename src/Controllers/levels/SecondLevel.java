@@ -8,7 +8,7 @@ import Models.Factory.PlateFactory;
 import Models.Pool.PlatePool;
 import Models.Shelfs.ShelfObject;
 import Models.Stick.StickFactory;
-import Models.Utils.ShelfHandler;
+import Controllers.ShelfHandler;
 import View.game.GameObject;
 
 import java.util.ArrayList;
