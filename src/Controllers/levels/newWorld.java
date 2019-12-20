@@ -98,7 +98,7 @@ public class newWorld implements World {
     @Override
     public boolean refresh() {
         long currentTime = System.currentTimeMillis();
-        if(score == 10){
+        if(score == 1){
             endGameWin();
             return false;
         }
