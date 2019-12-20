@@ -104,22 +104,17 @@ public class newWorld implements World {
     boolean hagarb7aga=false;
     @Override
     public boolean refresh() {
-
-        System.out.println("I'm still here :P");
         if(gameEnded) Thread.currentThread().destroy();
-        System.out.println("I'm still here 2:P");
         long currentTime = System.currentTimeMillis();
         if (score >= 10) {
             endGameWin();
             gameEnded = true;
             return false;
         }
-        System.out.println("I'm still here 3:P");
         if(Gui.checkClosed()){
             gameEnded=true;
             return false;
         }
-        System.out.println("I'm still here 4:P");
         if((currentTime-startTime)/1000 >= 120){
             endGameLose();
             gameEnded = true;
