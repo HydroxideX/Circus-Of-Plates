@@ -19,6 +19,7 @@ import View.game.GameObject;
 import View.game.World;
 import View.Gui.Facade;
 import javafx.application.Platform;
+import javafx.stage.Stage;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
@@ -95,10 +96,12 @@ public class newWorld implements World {
         return height;
     }
 
+    boolean hagarb7aga=false;
+
     @Override
     public boolean refresh() {
         long currentTime = System.currentTimeMillis();
-        if(score >= 10){
+        if (score >= 10) {
             endGameWin();
             return false;
         }
@@ -107,6 +110,7 @@ public class newWorld implements World {
             endGameLose();
             return false;
         }
+        hagarb7aga=false;
         Iterator it = constantObjects.iterator();
         ArrayList removed = new ArrayList();
         for (int i = 0; i < levelMode+1 && (it.hasNext()); i++)
@@ -179,11 +183,7 @@ public class newWorld implements World {
                 score = z[0];
             }
         }
-        if ((currentTime-startSpecial)/1000>2 && (currentTime-startSpecial)/1000<15 && specialModeSeconds) {
-            GameObject background1 = backGroundFactory.getBackGround(0,0,1200,600,"hi.png");
-            constantObjects.set(0,background1);
-            specialModeSeconds = false;
-        }
+
         if ((currentTime-startSpecial)/1000>15 && specialMode) {
             specialMode=false;
             constantObjects.set(0,storeBackground);
@@ -231,14 +231,12 @@ public class newWorld implements World {
         return true;
     }
 
-    boolean hagarb7aga=false;
-
     void endGameWin () {
         //Application.launch(EndGame.class);
         if(!hagarb7aga){
             Platform.runLater(()->{
                 EndGame endGame =new EndGame(true);
-                endGame.start(Gui.habala);
+                endGame.start(new Stage());
             });
             hagarb7aga=true;
         }
@@ -248,7 +246,7 @@ public class newWorld implements World {
         if(!hagarb7aga){
             Platform.runLater(()->{
                 EndGame endGame =new EndGame(false);
-                endGame.start(Gui.habala);
+                endGame.start(new Stage());
             });
             hagarb7aga=true;
         }
