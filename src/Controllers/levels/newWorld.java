@@ -16,6 +16,7 @@ import Controllers.ShelfHandler;
 import Models.Utils.intersectPlates;
 import View.game.GameObject;
 import View.game.World;
+import View.Gui.Facade;
 import javafx.application.Platform;
 import javafx.util.Pair;
 
@@ -46,6 +47,9 @@ public class newWorld implements World {
     long startSpecial;
     boolean specialMode=false;
     private BackGroundFactory backGroundFactory = BackGroundFactory.getInstance();
+    GameObject storeBackground;
+    int storeSpeed;
+    ArrayList<Clown> storeClownsArray = new ArrayList<>();
 
     public void addClownsAndEverything(ArrayList<Clown> clownsArray, ArrayList<Pair<Stick, Integer>> sticksArray, List<GameObject> movableObjects, List<GameObject> controlableObjects, Integer[] clownsX) {
         ArrayListIterator iterator = new ArrayListIterator(clownsArray);
@@ -125,14 +129,41 @@ public class newWorld implements World {
             if (m.getType().equals("SpecialPlate")&&intersection.isSpecial){
                 startSpecial=System.currentTimeMillis();
                 specialMode=true;
-                GameObject background1 = backGroundFactory.getBackGround(0,0,1200,600,"yahia.jpg");
+                GameObject background1 = backGroundFactory.getBackGround(0,0,1200,600,"boom2.jpg");
                 intersection.isSpecial = false;
+                storeBackground=constantObjects.get(0);
                 constantObjects.set(0,background1);
+                storeSpeed=speed.getControlSpeed();
+                speed.setControlSpeed(storeSpeed*2);
+               /* Iterator iterator = clownsArray.iterator();
+                while(iterator.hasNext()){
+                    storeClownsArray.add((Clown) iterator.next());
+                }*/
+                /*for (int i=0; i<clownsArray.size(); i++){
+                    Clown newOne;
+                    int x=clownsArray.get(i).getX();
+                    int y=clownsArray.get(i).getY();
+                   if(Facade.clownPath.contains("1")||Facade.clownPath.contains("2")) {
+                       newOne= ClownFactory.getInstance().getclown(x,y,"Clown/goku.png",1);
+                       clownsArray.set(i,newOne);
+                   }
+                }*/
+                int x=clownsArray.get(0).getX();
+                int y=clownsArray.get(0).getY();
+                Clown newOne=ClownFactory.getInstance().getclown(x,y,"Clown/clown4.png",1);
+                clownsArray.set(0,newOne);
             }
             score = z[0];
         }
+        /*  if ((currentTime-startSpecial)/1000>2 && (currentTime-startSpecial)/1000<15 && specialMode){
+            GameObject background1 = backGroundFactory.getBackGround(0,0,1200,600,"boom2.jpg");
+            constantObjects.set(0,background1);
+
+        }*/
         if ((currentTime-startSpecial)/1000>15 && specialMode){
             specialMode=false;
+            constantObjects.set(0,storeBackground);
+            speed.setControlSpeed(storeSpeed);
         }
         if (time == 0)
             shelfhandler.throwPlates();

@@ -17,6 +17,7 @@ import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -30,6 +31,7 @@ import java.util.Collections;
 public class Gui extends Application {
     public static Stage habala=new Stage();
     static boolean creation=false;
+    Label mute;
     public static void main(String[] args) {
         launch(args);
     }
@@ -78,7 +80,7 @@ public class Gui extends Application {
                         play.setEffect(null);
                     }
                 });
-        play.setTranslateY(-20);
+        play.setTranslateY(-40);
         play.setStyle("-fx-background-color: transparent;");
         clown = new ImageView(new Image("Resources/Buttons/QuitB.png"));
         clown.setFitWidth(150);
@@ -98,7 +100,7 @@ public class Gui extends Application {
                         exit.setEffect(null);
                     }
                 });
-        exit.setTranslateY(-20);
+        exit.setTranslateY(-40);
         exit.setStyle("-fx-background-color: transparent;");
         clown = new ImageView(new Image("Resources/Buttons/OptionsB.png"));
         clown.setFitWidth(150);
@@ -119,7 +121,7 @@ public class Gui extends Application {
                     }
                 });
 
-        options.setTranslateY(-20);
+        options.setTranslateY(-40);
         options.setStyle("-fx-background-color: transparent;");
         play.setOnAction(e->{
 
@@ -133,7 +135,7 @@ public class Gui extends Application {
             Options options1 = new Options();
             options1.start(primaryStage);
         });
-        Label mute=new Label("M : Mute");
+         mute=new Label("M : Mute");
         Label how=new Label("F1 : How TO Play");
         how.setFont( Font.font("Cambria", 10));
         mute.setFont( Font.font("Cambria", 10));
@@ -171,13 +173,7 @@ public class Gui extends Application {
             }
             if(kc.equals(KeyCode.M))
             {
-                mute.setText("M : mute");
-                Gui.mediaPlayer.setMute(true);
-                Gui.muteAudio = !Gui.muteAudio;
-                if (!Gui.muteAudio) {
-                    Gui.mediaPlayer.setMute(false);
-                }
-                else mute.setText("M : Unmute");
+                setMute();
             }
             if(kc.equals(KeyCode.ESCAPE)||kc.equals(KeyCode.BACK_SPACE)) {
                 exit.fire();
@@ -199,6 +195,17 @@ public class Gui extends Application {
     public static boolean  checkClosed()
     {
         return primaryStage.isFocused();
+    }
+    public void setMute()
+    {
+        mute.setText("M : mute");
+        Gui.mediaPlayer.setMute(true);
+        Gui.muteAudio = !Gui.muteAudio;
+        if (!Gui.muteAudio) {
+            Gui.mediaPlayer.setMute(false);
+        }
+        else mute.setText("M : Unmute");
+
     }
     private void addShadows() {
         options.setEffect(null);
