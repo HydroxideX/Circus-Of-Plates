@@ -1,0 +1,496 @@
+[ INFO ] 12\20\2019 , 20:26 :  Music Added
+[ INFO ] 12\20\2019 , 20:26 :  Options Opened
+[ INFO ] 12\20\2019 , 20:26 :  Music Created
+[ INFO ] 12\20\2019 , 20:26 :  Options Opened
+[ INFO ] 12\20\2019 , 20:26 :  Options Opened
+[ INFO ] 12\20\2019 , 20:26 :  Options Opened
+[ INFO ] 12\20\2019 , 20:26 :  Options Opened
+[ INFO ] 12\20\2019 , 20:26 :  Music Created
+[ INFO ] 12\20\2019 , 20:27 :  Options Opened
+[ INFO ] 12\20\2019 , 20:27 :  Music Added
+[ INFO ] 12\20\2019 , 20:27 :  Options Opened
+[ INFO ] 12\20\2019 , 20:27 :  Mute triggered
+[ INFO ] 12\20\2019 , 20:27 :  Mute triggered
+[ INFO ] 12\20\2019 , 20:28 :  Music Added
+[ INFO ] 12\20\2019 , 20:28 :  Options Opened
+[ INFO ] 12\20\2019 , 20:28 :  Music Created
+[ INFO ] 12\20\2019 , 20:28 :  Options Opened
+[ FINEST ] 12\20\2019 , 20:28 :  Supported Classes Found
+[ FINER ] 12\20\2019 , 20:28 :  Supported Plate Types Found
+[ INFO ] 12\20\2019 , 20:28 :  BackGround Created
+[ CONFIG ] 12\20\2019 , 20:28 :  Stick Created
+[ CONFIG ] 12\20\2019 , 20:28 :  Stick Created
+[ CONFIG ] 12\20\2019 , 20:28 :  Clown Created
+[ INFO ] 12\20\2019 , 20:28 :  Added Starting Clowns
+[ INFO ] 12\20\2019 , 20:28 :  Shelf Handler Created
+[ INFO ] 12\20\2019 , 20:28 :  Shelf Created
+[ INFO ] 12\20\2019 , 20:28 :  World Created
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ INFO ] 12\20\2019 , 20:28 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:28 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ FINE ] 12\20\2019 , 20:28 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:28 :  Plate Created
+[ INFO ] 12\20\2019 , 20:29 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:29 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ INFO ] 12\20\2019 , 20:29 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:29 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ CONFIG ] 12\20\2019 , 20:29 :  Special Plate Created
+[ INFO ] 12\20\2019 , 20:29 :  Special Plate Created
+[ INFO ] 12\20\2019 , 20:29 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:29 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ INFO ] 12\20\2019 , 20:29 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:29 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ INFO ] 12\20\2019 , 20:29 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:29 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ INFO ] 12\20\2019 , 20:29 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:29 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ INFO ] 12\20\2019 , 20:29 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:29 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ INFO ] 12\20\2019 , 20:29 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:29 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ INFO ] 12\20\2019 , 20:29 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:29 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ INFO ] 12\20\2019 , 20:29 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:29 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ CONFIG ] 12\20\2019 , 20:29 :  Special Plate Created
+[ INFO ] 12\20\2019 , 20:29 :  Special Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:29 :  Plate transitioned To Stacked State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ INFO ] 12\20\2019 , 20:29 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:29 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ INFO ] 12\20\2019 , 20:29 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:29 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ INFO ] 12\20\2019 , 20:29 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:29 :  Plate transitioned To Stacked State
+[ INFO ] 12\20\2019 , 20:29 :  BackGround Created
+[ CONFIG ] 12\20\2019 , 20:29 :  Stick Created
+[ CONFIG ] 12\20\2019 , 20:29 :  Stick Created
+[ CONFIG ] 12\20\2019 , 20:29 :  Clown Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ CONFIG ] 12\20\2019 , 20:29 :  Special Plate Created
+[ INFO ] 12\20\2019 , 20:29 :  Special Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ INFO ] 12\20\2019 , 20:29 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:29 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ INFO ] 12\20\2019 , 20:29 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:29 :  Plate transitioned To Stacked State
+[ INFO ] 12\20\2019 , 20:29 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:29 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ FINE ] 12\20\2019 , 20:29 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:29 :  Plate Created
+[ INFO ] 12\20\2019 , 20:30 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:30 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ INFO ] 12\20\2019 , 20:30 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:30 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ INFO ] 12\20\2019 , 20:30 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:30 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ INFO ] 12\20\2019 , 20:30 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:30 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ CONFIG ] 12\20\2019 , 20:30 :  Special Plate Created
+[ INFO ] 12\20\2019 , 20:30 :  Special Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ INFO ] 12\20\2019 , 20:30 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:30 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ INFO ] 12\20\2019 , 20:30 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:30 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ INFO ] 12\20\2019 , 20:30 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:30 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ INFO ] 12\20\2019 , 20:30 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:30 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ CONFIG ] 12\20\2019 , 20:30 :  Special Plate Created
+[ INFO ] 12\20\2019 , 20:30 :  Special Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ INFO ] 12\20\2019 , 20:30 :  Plate intersected with The Stick
+[ FINE ] 12\20\2019 , 20:30 :  Plate transitioned To Stacked State
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to Falling State
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ FINE ] 12\20\2019 , 20:30 :  Plate Transitioned to OnShelfState
+[ INFO ] 12\20\2019 , 20:30 :  Plate Created
+[ INFO ] 12\20\2019 , 20:30 :  Game Ended
