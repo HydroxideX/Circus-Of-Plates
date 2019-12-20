@@ -1,6 +1,7 @@
 package Controllers.levels;
 
 import Controllers.Difficulty.Speed;
+import Models.BackGround.BackGroundFactory;
 import View.Gui.EndGame;
 import View.Gui.Gui;
 import Models.Utils.ArrayIterator;
@@ -44,7 +45,7 @@ public class newWorld implements World {
     ShelfHandler shelfhandler;
     long startSpecial;
     boolean specialMode=false;
-    private BackGroundFactory backGroundFactory;
+    private BackGroundFactory backGroundFactory = BackGroundFactory.getInstance();
 
     public void addClownsAndEverything(ArrayList<Clown> clownsArray, ArrayList<Pair<Stick, Integer>> sticksArray, List<GameObject> movableObjects, List<GameObject> controlableObjects, Integer[] clownsX) {
         ArrayListIterator iterator = new ArrayListIterator(clownsArray);
@@ -112,13 +113,6 @@ public class newWorld implements World {
         while (it.hasNext()) {
             Plate m = (Plate) it.next();
             m.update(1);
-            if (m.getType().equals("SpecialPlate")&&intersection.isSpecial){
-                it.remove();
-                startSpecial=System.currentTimeMillis();
-                specialMode=true;
-                GameObject background = backGroundFactory.getBackGround(0,0,1200,600,"boom.jpg");
-                constantObjects.set(0,background);
-            }
             if (m.getY() == getHeight()) {
                 it.remove();
             }
@@ -127,11 +121,17 @@ public class newWorld implements World {
                 m.setState(new StackedState(m));
                 removed.add(m);
             }
+            if (m.getType().equals("SpecialPlate")&&intersection.isSpecial){
+                startSpecial=System.currentTimeMillis();
+                specialMode=true;
+                GameObject background1 = backGroundFactory.getBackGround(0,0,1200,600,"yahia.jpg");
+                intersection.isSpecial = false;
+                constantObjects.set(0,background1);
+            }
             score = z[0];
         }
         if ((currentTime-startSpecial)/1000>15 && specialMode){
             specialMode=false;
-
         }
         if (time == 0)
             shelfhandler.throwPlates();
