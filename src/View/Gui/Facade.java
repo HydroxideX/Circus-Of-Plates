@@ -1,9 +1,6 @@
 package View.Gui;
 
-import Controllers.levels.FirstLevel;
-import Controllers.levels.ReplayWorld;
-import Controllers.levels.SecondLevel;
-import Controllers.levels.ThirdLevel;
+import Controllers.levels.*;
 import View.game.GameEngine;
 
 import javax.swing.*;
@@ -20,6 +17,7 @@ public class Facade {
         Facade.clownPath =clownPath;
     }
     public void Start () {
+        newWorld World;
         JMenuBar  menuBar = new JMenuBar();;
         JMenu menu = new JMenu("File");
         JMenuItem newMenuItem = new JMenuItem("New");
@@ -31,13 +29,13 @@ public class Facade {
         menu.add(resumeMenuItem);
         menuBar.add(menu);
         if(levelName.equals("level3")) {
-
-            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new ThirdLevel(1200, 600,clownPath), menuBar,JFrame.DISPOSE_ON_CLOSE, Color.WHITE);
+            World=new ThirdLevel(1200, 600,clownPath);
+            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown",World, menuBar,JFrame.DISPOSE_ON_CLOSE, Color.WHITE);
 
             newMenuItem.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    gameController.changeWorld(new ThirdLevel(1200, 600, clownPath));
+                    gameController.changeWorld(World);
                 }
             });
 
@@ -56,12 +54,13 @@ public class Facade {
         }
         else if(levelName.equals("level2")) {
 
-            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new SecondLevel(1200, 600,clownPath), menuBar, JFrame.DISPOSE_ON_CLOSE, Color.WHITE);
+            World=new SecondLevel(1200, 600,clownPath);
+            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown",World, menuBar, JFrame.DISPOSE_ON_CLOSE, Color.WHITE);
 
             newMenuItem.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    gameController.changeWorld(new SecondLevel(1200, 600, clownPath));
+                    gameController.changeWorld(World);
                 }
             });
 
@@ -80,12 +79,13 @@ public class Facade {
         }
         else if(levelName.equals("level1")) {
 
-            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new FirstLevel(1200, 600,clownPath), menuBar, JFrame.DISPOSE_ON_CLOSE, Color.WHITE);
+            World=new FirstLevel(1200, 600,clownPath);
+            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", World, menuBar, JFrame.DISPOSE_ON_CLOSE, Color.WHITE);
 
             newMenuItem.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    gameController.changeWorld(new FirstLevel(1200, 600, clownPath));
+                    gameController.changeWorld(World);
                 }
             });
 
@@ -103,12 +103,13 @@ public class Facade {
             });
         }
         else {
-            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", new ReplayWorld(1200, 600,clownPath), menuBar, JFrame.DISPOSE_ON_CLOSE, Color.WHITE);
+            World=new ReplayWorld(1200, 600,clownPath);
+            final GameEngine.GameController gameController = GameEngine.start("Murder Of The Clown", World, menuBar, JFrame.DISPOSE_ON_CLOSE, Color.WHITE);
 
             newMenuItem.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    gameController.changeWorld(new ReplayWorld(1200, 600, clownPath));
+                    gameController.changeWorld(World);
                 }
             });
 
