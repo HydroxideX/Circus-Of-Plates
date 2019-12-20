@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 import java.util.Collections;
 
 public class Levels extends Application {
-    public static String clownPath="Clown/clown5.png";
+    public static String clownPath="Clown/clown2.png";
 
     public static void main(String[] args) {
         launch(args);
