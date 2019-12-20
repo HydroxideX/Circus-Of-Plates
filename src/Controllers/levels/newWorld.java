@@ -198,7 +198,7 @@ public class newWorld implements World {
         }
         if (time == 0)
             shelfhandler.throwPlates();
-        if(time_2==1500){shelfhandler.makeSpecialPlates();time_2=0;}
+        if(time_2==2000){shelfhandler.makeSpecialPlates();time_2=0;}
         it = removed.iterator();
         while (it.hasNext()) {
             constantObjects.remove(it.next());
