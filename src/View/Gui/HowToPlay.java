@@ -62,7 +62,7 @@ public class HowToPlay extends Application {
         });
         clown = new ImageView(new Image("Resources/Buttons/HowToPlay.png"));
         clown.setFitWidth(150);
-        clown.setFitHeight(30);
+        clown.setFitHeight(50);
         Label label=new Label(null,clown);
         vBox.setOnKeyPressed(ke -> {
                     KeyCode kc = ke.getCode();
@@ -72,8 +72,9 @@ public class HowToPlay extends Application {
                     }
                 });
         Text text=new Text();
-        text.setText("Play");
-
+        text.setText("Play With The Clown To Collect The Falling Plates.\n A Stack is a Group Of Three Plates With The Same Color,\n If A Stick Has A Stack Of Plates The Stack Disappears And The Score Increases By One If The Score Reaches Five The player Wins If 120 Seconds Pass Before Reaching A Score Of Five The Player Loses, Now Go, Play Well And Claim Your Victory!");
+        text.setWrappingWidth(240);
+        text.setTranslateY(-20);
         vBox.getChildren().addAll(label,text,back);
         primaryStage.setScene(new Scene(vBox,300,400));
     }
