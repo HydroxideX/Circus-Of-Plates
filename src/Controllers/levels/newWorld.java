@@ -2,6 +2,7 @@ package Controllers.levels;
 
 import Controllers.Difficulty.Speed;
 import Models.BackGround.BackGroundFactory;
+import Models.Clowns.ClownFactory;
 import View.Gui.EndGame;
 import View.Gui.Gui;
 import Models.Utils.ArrayIterator;
@@ -41,10 +42,12 @@ public class newWorld implements World {
     ArrayList<Pair<Stick, Integer>> sticksArray = new ArrayList<>();
     ArrayList<Clown> clownsArray = new ArrayList<>();
     intersectPlates intersection = new intersectPlates();
+    int platesSpeed = 1;
     //static ArrayList <ArrayList <GameObject> > allData;
     Integer[] clownsX;
     ShelfHandler shelfhandler;
     long startSpecial;
+    boolean specialModeSeconds = false;
     boolean specialMode=false;
     private BackGroundFactory backGroundFactory = BackGroundFactory.getInstance();
     GameObject storeBackground;
@@ -95,12 +98,12 @@ public class newWorld implements World {
     @Override
     public boolean refresh() {
         long currentTime = System.currentTimeMillis();
-        if(score == 5){
+        if(score == 10){
             endGameWin();
             return false;
         }
         if(Gui.checkClosed())return false;
-        if((currentTime-startTime)/1000 >= 125){
+        if((currentTime-startTime)/1000 >= 120){
             endGameLose();
             return false;
         }
@@ -121,6 +124,7 @@ public class newWorld implements World {
             if (m.getY() == getHeight()) {
                 it.remove();
             }
+            int temp = score;
             int[] z = {score};
             if (intersection.intersect(m, sticksArray, z, movableObjects)) {
                 m.setState(new StackedState(m));
@@ -128,46 +132,73 @@ public class newWorld implements World {
             }
             if (m.getType().equals("SpecialPlate")&&intersection.isSpecial){
                 startSpecial=System.currentTimeMillis();
-                specialMode=true;
-                GameObject background1 = backGroundFactory.getBackGround(0,0,1200,600,"boom2.jpg");
+                GameObject background1 = backGroundFactory.getBackGround(0,0,1200,600,"boom.jpg");
                 intersection.isSpecial = false;
-                storeBackground=constantObjects.get(0);
-                constantObjects.set(0,background1);
-                storeSpeed=speed.getControlSpeed();
-                speed.setControlSpeed(storeSpeed*2);
-               /* Iterator iterator = clownsArray.iterator();
-                while(iterator.hasNext()){
-                    storeClownsArray.add((Clown) iterator.next());
-                }*/
-                /*for (int i=0; i<clownsArray.size(); i++){
+                Iterator iterator = clownsArray.iterator();
+                if(!specialMode) {
+                    storeBackground=constantObjects.get(0);
+                    constantObjects.set(0,background1);
+                    while (iterator.hasNext()) {
+                        storeClownsArray.add((Clown) iterator.next());
+                    }
+                }
+                boolean first = false;
+                for (int i=0; i<clownsArray.size(); i++){
                     Clown newOne;
                     int x=clownsArray.get(i).getX();
                     int y=clownsArray.get(i).getY();
-                   if(Facade.clownPath.contains("1")||Facade.clownPath.contains("2")) {
+                   if(Facade.clownPath.contains("1")) {
+                       first = true;
                        newOne= ClownFactory.getInstance().getclown(x,y,"Clown/goku.png",1);
-                       clownsArray.set(i,newOne);
+                   } else if(Facade.clownPath.contains("2")) {
+                        first = true;
+                        newOne= ClownFactory.getInstance().getclown(x,y,"Clown/goku2.png",1);
+                    }else if  (Facade.clownPath.contains("3")){
+                       first = false;
+                       newOne= ClownFactory.getInstance().getclown(x,y,"Clown/goku3.png",1);
+                   }else if  (Facade.clownPath.contains("4")){
+                       first = false;
+                       newOne= ClownFactory.getInstance().getclown(x,y,"Clown/goku4.png",1);
+                   }else {
+                       first = false;
+                       newOne= ClownFactory.getInstance().getclown(x,y,"Clown/goku5.png",1);
                    }
-                }*/
-                int x=clownsArray.get(0).getX();
-                int y=clownsArray.get(0).getY();
-                Clown newOne=ClownFactory.getInstance().getclown(x,y,"Clown/clown4.png",1);
-                clownsArray.set(0,newOne);
+                    newOne.stick1 = clownsArray.get(i).stick1;
+                    newOne.stick2 = clownsArray.get(i).stick2;
+                    newOne.registerObserver(newOne.stick1);
+                    newOne.registerObserver(newOne.stick2);
+                    controlableObjects.set(i,newOne);
+                    clownsArray.set(i,newOne);
+                }
+                specialModeSeconds = true;
+                specialMode=true;
             }
-            score = z[0];
+            if(specialMode){
+                score = temp + (z[0]-temp) * 2;
+            } else  {
+                score = z[0];
+            }
         }
-        /*  if ((currentTime-startSpecial)/1000>2 && (currentTime-startSpecial)/1000<15 && specialMode){
-            GameObject background1 = backGroundFactory.getBackGround(0,0,1200,600,"boom2.jpg");
+        if ((currentTime-startSpecial)/1000>2 && (currentTime-startSpecial)/1000<15 && specialModeSeconds) {
+            GameObject background1 = backGroundFactory.getBackGround(0,0,1200,600,"hi.png");
             constantObjects.set(0,background1);
-
-        }*/
-        if ((currentTime-startSpecial)/1000>15 && specialMode){
+            specialModeSeconds = false;
+        }
+        if ((currentTime-startSpecial)/1000>15 && specialMode) {
             specialMode=false;
             constantObjects.set(0,storeBackground);
-            speed.setControlSpeed(storeSpeed);
+            boolean first = false;
+            for (int i=0; i<storeClownsArray.size(); i++){
+                Clown newOne;
+                controlableObjects.set(i,storeClownsArray.get(i));
+                storeClownsArray.get(i).x = clownsArray.get(i).getX();
+                clownsArray.set(i,storeClownsArray.get(i));
+            }
+            storeClownsArray.clear();
         }
         if (time == 0)
             shelfhandler.throwPlates();
-        if(time_2==900){shelfhandler.makeSpecialPlates();time_2=0;}
+        if(time_2==100){shelfhandler.makeSpecialPlates();time_2=0;}
         it = removed.iterator();
         while (it.hasNext()) {
             constantObjects.remove(it.next());
@@ -226,7 +257,7 @@ public class newWorld implements World {
 
     @Override
     public String getStatus() {
-        return status + score + "                     Current Time: "+ ((System.currentTimeMillis() - startTime)/1000-5);
+        return status + score + "                     Current Time: "+ ((System.currentTimeMillis() - startTime)/1000);
     }
 
     @Override

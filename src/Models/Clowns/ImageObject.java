@@ -12,7 +12,7 @@ public class ImageObject implements GameObject,Cloneable {
     public BufferedImage[] spriteImages = new BufferedImage[1];
     public ArrayList observers = new ArrayList();
     Loader loader;
-    int x;
+    public int x;
     int y;
     public boolean visible = true;
     public int type;

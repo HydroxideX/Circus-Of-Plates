@@ -51,7 +51,7 @@ public class EndGame extends Application {
         label2.setFont(Font.font("Cambria", 15));
         label.setFont(Font.font("Cambria", 25));
         ImageView clown;
-        clown = new ImageView(new Image("Resources/yahia.jpg"));
+        clown = new ImageView(new Image("Resources/hi.png"));
         clown.setFitWidth(70);
         clown.setFitHeight(90);
         Button button=new Button(null,clown);

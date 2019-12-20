@@ -4,6 +4,7 @@ public class Easy extends Speed{
 
     public Easy(){
         controlspeed = 30;
+        speed = 10;
     }
     @Override
     public int getSpeed() {

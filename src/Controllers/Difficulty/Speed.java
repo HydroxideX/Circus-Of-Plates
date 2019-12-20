@@ -2,7 +2,7 @@ package Controllers.Difficulty;
 
 public class Speed {
     public int controlspeed = 0;
-
+    public int speed = 0;
     public int getSpeed() {
         return 0;
     }
