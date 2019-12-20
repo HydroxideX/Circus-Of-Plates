@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 
 public class Facade {
     private static String levelName;
-    private static String clownPath;
+    public static String clownPath;
     public Facade(String levelName, String clownPath)
     {
         Facade.levelName =levelName;
