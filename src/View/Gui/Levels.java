@@ -67,12 +67,12 @@ public class Levels extends Application {
         level1.setTranslateY(-20);
         level1.setStyle("-fx-background-color: transparent;");
         level1.setOnAction(e->{
-            Facade facade =new Facade("level1",clownPath);
-            facade.Start();
-           // playMusic();
             Gui gui=new Gui();
             gui.start(primaryStage);
-            primaryStage.toBack();
+            //primaryStage.toBack();
+            Facade facade =new Facade("level1",clownPath);
+            facade.Start();
+            // playMusic();
         });
         clown = new ImageView(new Image("Resources/Buttons/MediumB.png"));
         clown.setFitWidth(150);
@@ -98,12 +98,12 @@ public class Levels extends Application {
         level2.setTranslateY(-20);
         level2.setStyle("-fx-background-color: transparent;");
         level2.setOnAction(e->{
+            Gui gui=new Gui();
+            gui.start(primaryStage);
+            //primaryStage.toBack();
             Facade facade =new Facade("level2",clownPath);
             facade.Start();
             //playMusic();
-            Gui gui=new Gui();
-            gui.start(primaryStage);
-            primaryStage.toBack();
 
         });
         clown = new ImageView(new Image("Resources/Buttons/HardB.png"));
@@ -130,12 +130,12 @@ public class Levels extends Application {
         level3.setTranslateY(-20);
         level3.setStyle("-fx-background-color: transparent;");
         level3.setOnAction(e->{
-            Facade facade =new Facade("level3",clownPath);
-            facade.Start();
-           // playMusic();
             Gui gui=new Gui();
             gui.start(primaryStage);
-            primaryStage.toBack();
+            //primaryStage.toBack();
+            Facade facade =new Facade("level3",clownPath);
+            facade.Start();
+            // playMusic();
         });
         clown = new ImageView(new Image("Resources/Buttons/BackB.png"));
         clown.setFitWidth(150);
