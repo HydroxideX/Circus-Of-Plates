@@ -2,6 +2,7 @@ package Controllers.levels;
 
 import Models.BackGround.Background;
 import Models.Clowns.ImageObject;
+import Models.Logger.GameLogger;
 import Models.Plates.Plate;
 import Models.Shelfs.ShelfObject;
 import View.game.GameObject;
@@ -34,27 +35,23 @@ public class SnapShot {
                 return v;
             } catch (CloneNotSupportedException e) {
                 e.printStackTrace();
+                GameLogger logger = GameLogger.getInstance();
+                logger.addLog("severe", "Clown Not Created");
             }
         } else if(x.getClass().getName().toLowerCase().contains("shelf")){
-            try {
-                ShelfObject v = (ShelfObject) ((ShelfObject) x).clone();
-                return v;
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-            }
+            ShelfObject v = (ShelfObject) ((ShelfObject) x).clone();
+            return v;
         }else if(x.getClass().getName().toLowerCase().contains("background")){
-            try {
-                Background v = (Background) ((Background) x).clone();
-                return v;
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-            }
+            Background v = (Background) ((Background) x).clone();
+            return v;
         }else {
             try {
                 Plate v = (Plate) ((Plate) x).clone();
                 return v;
             } catch (CloneNotSupportedException e) {
                 e.printStackTrace();
+                GameLogger logger = GameLogger.getInstance();
+                logger.addLog("Warning", "Plate Not Created");
             }
         }
         return null;

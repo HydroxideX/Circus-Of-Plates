@@ -1,6 +1,7 @@
 package View.Gui;
 
 import Controllers.levels.ReplayWorld;
+import Models.Logger.GameLogger;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -158,6 +159,8 @@ public class Levels extends Application {
                    a.setAlertType(Alert.AlertType.ERROR);
                    a.setHeaderText(null);
                    a.setContentText("Play a game to watch the Replay!");
+                   GameLogger logger = GameLogger.getInstance();
+                   logger.addLog("Warning", "Accessing Game While No Info is Found");
                    // show the dialog
                    a.show();
                }else{
@@ -175,6 +178,8 @@ public class Levels extends Application {
                a.setAlertType(Alert.AlertType.ERROR);
                a.setHeaderText(null);
                a.setContentText("Play a game to watch the Replay!");
+               GameLogger logger = GameLogger.getInstance();
+               logger.addLog("severe", "No Replay Found");
                // show the dialog
                a.show(); }
         });

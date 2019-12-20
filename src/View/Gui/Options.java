@@ -1,5 +1,6 @@
 package View.Gui;
 
+import Models.Logger.GameLogger;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -175,6 +176,8 @@ public class Options extends Application {
             if(kc.equals(KeyCode.ESCAPE)||kc.equals(KeyCode.BACK_SPACE))
                 back.fire();
         });
+        GameLogger logger = GameLogger.getInstance();
+        logger.addLog("info", "Options Opened");
         vBox.getChildren().addAll(mute,how,chooseChar,audio,back);
         primaryStage.setScene(new Scene(vBox,300,400));
         //primaryStage.initStyle(StageStyle.UNDECORATED);

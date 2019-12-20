@@ -1,5 +1,6 @@
 package Models.Clowns;
 
+import Models.Logger.GameLogger;
 import Models.Stick.StickFactory;
 import Models.Utils.Loader;
 
@@ -13,6 +14,7 @@ public class ClownFactory {
     }
 
     public Clown getclown(int x,int y, String clownPath,int type){
+
         StickFactory stickFactory = StickFactory.getInstance();
         Clown clown= new Clown();
         clown.setX(x);
@@ -30,6 +32,8 @@ public class ClownFactory {
             clown.stick1 =  stickFactory.getstick(clown.getX()-37,clown.getY()+66,"Sticks/leftstick_2.png");
             clown.stick2 = stickFactory.getstick(clown.getX()+90,clown.getY() + 66,"Sticks/rightstick_2.png");
         }
+        GameLogger logger = GameLogger.getInstance();
+        logger.addLog("config", "Clown Created");
         return clown;
     }
 }

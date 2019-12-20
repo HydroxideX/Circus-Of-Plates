@@ -1,5 +1,6 @@
 package View.Gui;
 
+import Models.Logger.GameLogger;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -138,6 +139,8 @@ public class Music extends Application {
         vBox.getChildren().addAll(mute, hbox, back);
         primaryStage.setScene(new Scene(vBox, 300, 400));
         primaryStage.setTitle("Circus of Plates");
+        GameLogger logger = GameLogger.getInstance();
+        logger.addLog("info", "Music Created");
         //primaryStage.initStyle(StageStyle.UNDECORATED);
        // primaryStage.show();
     }

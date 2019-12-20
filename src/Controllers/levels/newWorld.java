@@ -3,6 +3,7 @@ package Controllers.levels;
 import Controllers.Difficulty.Speed;
 import Models.BackGround.BackGroundFactory;
 import Models.Clowns.ClownFactory;
+import Models.Logger.GameLogger;
 import View.Gui.EndGame;
 import View.Gui.Gui;
 import Models.Utils.ArrayIterator;
@@ -70,6 +71,8 @@ public class newWorld implements World {
             clown.registerObserver(clown.stick1);
             clown.registerObserver(clown.stick2);
         }
+        GameLogger logger = GameLogger.getInstance();
+        logger.addLog("info", "Added Starting Clowns");
     }
 
     @Override
@@ -242,6 +245,8 @@ public class newWorld implements World {
                 endGame.start(new Stage());
             });
             hagarb7aga=true;
+            GameLogger logger = GameLogger.getInstance();
+            logger.addLog("info", "Game Ended");
         }
     }
 
@@ -252,8 +257,9 @@ public class newWorld implements World {
                 endGame.start(new Stage());
             });
             hagarb7aga=true;
+            GameLogger logger = GameLogger.getInstance();
+            logger.addLog("info", "Game Ended");
         }
-
     }
 
     @Override

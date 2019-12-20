@@ -1,5 +1,6 @@
 package Models.Utils;
 
+import Models.Logger.GameLogger;
 import Models.Plates.ISpecial;
 import Models.Plates.Plate;
 import View.game.GameObject;
@@ -60,6 +61,8 @@ public class Loader {
             try {
                 image = ImageIO.read(getClass().getClassLoader().getResource(path));
             } catch (IOException e) {
+                GameLogger logger = GameLogger.getInstance();
+                logger.addLog("severe", "Image not Found");
                 e.printStackTrace();
             }
         }
@@ -101,6 +104,8 @@ public class Loader {
         }
         String[] s = new String[supportedClasses.size()];
         for (int j = 0; j < supportedClasses.size(); j++) s[j] = supportedClasses.get(j);
+        GameLogger logger = GameLogger.getInstance();
+        logger.addLog("finer ", "Supported Classes Found");
         return s;
     }
 
@@ -113,6 +118,8 @@ public class Loader {
             //  System.out.println(supportedTypes[i]);
 
         }
+        GameLogger logger = GameLogger.getInstance();
+        logger.addLog("finer", "Supported Plate Types Found");
         return supportedTypes;
     }
 

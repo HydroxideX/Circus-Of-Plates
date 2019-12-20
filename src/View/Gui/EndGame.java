@@ -1,5 +1,6 @@
 package View.Gui;
 
+import Models.Logger.GameLogger;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -70,6 +71,8 @@ public class EndGame extends Application {
         primaryStage.setScene(new Scene(vBox,300,400));
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.getIcons().add(new Image("Resources/Buttons/title.jpg"));
+        GameLogger logger = GameLogger.getInstance();
+        logger.addLog("info", "EndGame Stage Created");
         primaryStage.show();
     }
 }

@@ -5,6 +5,7 @@ import Models.BackGround.BackGroundFactory;
 import Models.Clowns.Clown;
 import Models.Clowns.ClownFactory;
 import Models.Factory.PlateFactory;
+import Models.Logger.GameLogger;
 import Models.Pool.PlatePool;
 import Models.Shelfs.ShelfObject;
 import Models.Stick.StickFactory;
@@ -42,5 +43,7 @@ public class SecondLevel extends newWorld {
             shelfhandler.addShelf(sh);
             constantObjects.add(sh);
         }
+        GameLogger logger = GameLogger.getInstance();
+        logger.addLog("fine", "World Created");
     }
 }

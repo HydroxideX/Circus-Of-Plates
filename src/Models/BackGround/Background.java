@@ -1,5 +1,6 @@
 package Models.BackGround;
 
+import Models.Logger.GameLogger;
 import View.game.GameObject;
 
 import java.awt.image.BufferedImage;
@@ -49,9 +50,14 @@ public class Background implements GameObject,Cloneable {
     }
 
 
-    public Object clone() throws
-            CloneNotSupportedException
+    public Object clone()
     {
-        return super.clone();
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            GameLogger logger = GameLogger.getInstance();
+            logger.addLog("severe", "Not Cloneable Object Created");
+        }
+        return null;
     }
 }

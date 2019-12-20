@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.Logger.GameLogger;
 import Models.Shelfs.ShelfObject;
 import Models.Shelfs.Shelf;
 import View.game.GameObject;
@@ -20,6 +21,8 @@ public class ShelfHandler {
         shelfObjects = new ArrayList<Shelf>();
         shelfs = new ArrayList<ShelfObject>();
         this.mode = mode;
+        GameLogger logger = GameLogger.getInstance();
+        logger.addLog("info", "Shelf Handler Created");
     }
 
     public void addShelf(ShelfObject sh) {

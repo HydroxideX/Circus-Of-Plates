@@ -1,5 +1,6 @@
 package View.Gui;
 
+import Models.Logger.GameLogger;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -205,6 +206,8 @@ public class Gui extends Application {
             Gui.mediaPlayer.setMute(false);
         }
         else mute.setText("M : Unmute");
+        GameLogger logger = GameLogger.getInstance();
+        logger.addLog("info", "Mute triggered");
 
     }
     private void addShadows() {
@@ -266,5 +269,7 @@ public class Gui extends Application {
             mediaPlayer=mediaPlayers.get((int) (Math.random()*(mediaPlayers.size()-1)));
             mediaPlayer.play();
         }
+        GameLogger logger = GameLogger.getInstance();
+        logger.addLog("info", "Music Added");
     }
 }

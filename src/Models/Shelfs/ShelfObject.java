@@ -1,5 +1,6 @@
 package Models.Shelfs;
 
+import Models.Logger.GameLogger;
 import Models.Utils.Loader;
 import View.game.GameObject;
 
@@ -62,8 +63,14 @@ public class ShelfObject implements GameObject, Cloneable {
         return img;
     }
 
-    public Object clone() throws
-            CloneNotSupportedException {
-        return super.clone();
+    public Object clone()  {
+
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            GameLogger logger = GameLogger.getInstance();
+            logger.addLog("severe", "No Object Created");
+        }
+        return null;
     }
 }

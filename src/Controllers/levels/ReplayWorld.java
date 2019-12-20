@@ -1,5 +1,6 @@
 package Controllers.levels;
 
+import Models.Logger.GameLogger;
 import View.game.GameObject;
 
 import java.util.ArrayList;
@@ -13,6 +14,8 @@ public class ReplayWorld extends newWorld {
     {
         this.width=width;
         this.height=height;
+        GameLogger logger = GameLogger.getInstance();
+        logger.addLog("finer", "Replay World Created");
     }
     @Override
     public List<GameObject> getConstantObjects() {

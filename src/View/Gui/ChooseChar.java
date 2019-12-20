@@ -260,6 +260,7 @@ public class ChooseChar extends Application {
         //hBox2.getChildren().addAll(clown5);
         hBox.getChildren().addAll(clown1,clown2);
         vBox.getChildren().addAll(hBox,hBox1,back);
+
         primaryStage.setScene(new Scene(vBox,300,400));
        // primaryStage.initStyle(StageStyle.UNDECORATED);
         //primaryStage.showAndWait();

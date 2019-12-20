@@ -1,5 +1,6 @@
 package Models.Factory;
 
+import Models.Logger.GameLogger;
 import Models.Plates.SpecialPlate;
 import Models.Utils.Loader;
 import Models.Plates.Plate;
@@ -54,6 +55,8 @@ public class PlateFactory implements IPlateFactory {
             plate.setColor(color);
         }
         plate.isVisible = true;
+        GameLogger logger = GameLogger.getInstance();
+        logger.addLog("info", "Plate Created");
         plate.setState(new OnShelfState(plate));
         return (GameObject) plate;
     }
@@ -64,6 +67,8 @@ public class PlateFactory implements IPlateFactory {
         plate.setSpriteImages(spriteImages);
         plate.isVisible = true;
         plate.setState(new OnShelfState(plate));
+        GameLogger logger = GameLogger.getInstance();
+        logger.addLog("config", "Special Plate Created");
         return (GameObject) plate;
     }
 }

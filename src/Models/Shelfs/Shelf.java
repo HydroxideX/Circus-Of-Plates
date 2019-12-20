@@ -2,6 +2,7 @@ package Models.Shelfs;
 
 import Models.Factory.IPlateFactory;
 import Models.Factory.PlateFactory;
+import Models.Logger.GameLogger;
 import Models.Plates.Plate;
 import Models.States.FallingState;
 import View.game.GameObject;
@@ -28,6 +29,8 @@ public class Shelf {
         this.minY = minY;
         this.diff = diff;
         this.maxX = maxX;
+        GameLogger logger = GameLogger.getInstance();
+        logger.addLog("info", "Shelf Created");
     }
 
     public void makePlate(int mode) {
@@ -43,6 +46,8 @@ public class Shelf {
         p.setY(minY-p.getYError());
         movableObjects.add(p);
         platesOnShelf.add(p);
+        GameLogger logger = GameLogger.getInstance();
+        logger.addLog("info", "Plate Created");
     }
 
     public void makeSpecialPlate() {
@@ -59,6 +64,8 @@ public class Shelf {
         p.setY(minY);
         movableObjects.add(p);
         platesOnShelf.add(p);
+        GameLogger logger = GameLogger.getInstance();
+        logger.addLog("info", "Special Plate Created");
     }
 
     public synchronized void  update() {

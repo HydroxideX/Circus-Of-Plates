@@ -1,5 +1,6 @@
 package View.Gui;
 
+import Models.Logger.GameLogger;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -80,6 +81,8 @@ public class HowToPlay extends Application {
         text.setTranslateX(+5);
         text.setFont(Font.font(text.getFont().getSize()+2));
         vBox.getChildren().addAll(label,text,back);
+        GameLogger logger = GameLogger.getInstance();
+        logger.addLog("info", "How To Play Added");
         primaryStage.setScene(new Scene(vBox,300,400));
     }
 }

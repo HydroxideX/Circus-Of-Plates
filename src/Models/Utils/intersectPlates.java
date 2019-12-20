@@ -1,5 +1,6 @@
 package Models.Utils;
 
+import Models.Logger.GameLogger;
 import Models.Stick.Stick;
 import Models.Plates.Plate;
 import View.game.GameObject;
@@ -20,6 +21,8 @@ public class intersectPlates {
             int intersectionHeight = current.getValue();
             Stick stick = current.getKey();
             if(m.getY()+m.getHeight() == intersectionHeight && center-30 < stick.getX()+ stick.getWidth() && center+30 > stick.getX()) {
+                GameLogger logger = GameLogger.getInstance();
+                logger.addLog("info", "Plate intersected with The Stick");
                 if (m.getType().equals("SpecialPlate")) {
                     // constantObjects.remove(m);
                     isSpecial=true;
