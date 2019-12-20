@@ -19,24 +19,24 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class Loader {
-    private static Loader img = null;
+    private static Loader loader = null;
     private Reflections ref = new Reflections();
     private ClassLoader classLoader;
-    private HashMap<String, BufferedImage> imgs;
+    private HashMap<String, BufferedImage> loaders;
 
     private Loader() {
-        imgs = new HashMap<String, BufferedImage>();
+        loaders = new HashMap<String, BufferedImage>();
         loadAllImages();
     }
 
     public static synchronized Loader getInstance() {
-        if (img == null) {
-            img = new Loader();
+        if (loader == null) {
+            loader = new Loader();
         }
-        return img;
+        return loader;
     }
 
-    public void loadAllImages() {
+    private void loadAllImages() {
       File dir2 = new File("Resources/Plates");
         File[] f = dir2.listFiles();
         for (File child : f) {
@@ -45,7 +45,7 @@ public class Loader {
             //System.out.println(child.getName() + " " + s);
             String s="Plates/"+child.getName();
             //System.out.println(s);
-            imgs.put(s, getImage(s));
+            loaders.put(s, getImage(s));
         }
     }
 
@@ -54,9 +54,9 @@ public class Loader {
         //System.out.println(path);
         //path = path.toLowerCase();
         //System.out.println(path);
-        if (imgs.containsKey(path)) {
+        if (loaders.containsKey(path)) {
              //System.out.println(path);
-            return imgs.get(path);
+            return loaders.get(path);
         } else {
             try {
                 image = ImageIO.read(getClass().getClassLoader().getResource(path));
