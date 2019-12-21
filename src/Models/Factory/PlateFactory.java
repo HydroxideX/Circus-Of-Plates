@@ -21,13 +21,14 @@ public class PlateFactory implements IPlateFactory {
     private String dest = "Plates/", fileType = ".png";
     private String[] Types ;
     private String []classesNames ;
-
+    GameLogger logger ;
     private PlateFactory() {
         platePool = PlatePool.getInstance();
         loader = Loader.getInstance();
         rand = new Random();
         classesNames = loader.getSupportedClasses(Plate.class);
         Types = loader.getSupportedPlateTypes(classesNames);
+        logger= GameLogger.getInstance();
     }
 
     public static synchronized IPlateFactory getInstance() {
@@ -46,6 +47,7 @@ public class PlateFactory implements IPlateFactory {
         String plateClassName = classesNames[randNum];
         Plate plate ;
         if (platePool.exists(color + plateType)) {
+            logger.addLog("info", color + plateType.toLowerCase()+" Found in Pool");
             plate = platePool.get(color + plateType);
         }
         else {
@@ -55,8 +57,7 @@ public class PlateFactory implements IPlateFactory {
             plate.setColor(color);
         }
         plate.isVisible = true;
-        GameLogger logger = GameLogger.getInstance();
-        logger.addLog("info", "Plate Created");
+        logger.addLog("config", color + plateType.toLowerCase()+" Created");
         plate.setState(new OnShelfState(plate));
         return (GameObject) plate;
     }

@@ -14,15 +14,15 @@ public class ShelfHandler {
     private List<Shelf> shelfObjects;
     private List<ShelfObject> shelfs;
     private int minX = 0, maxX = 1200, minY, direction = 1, mode;
-
+    GameLogger logger ;
     public ShelfHandler( List<GameObject> movingObjects,List<GameObject> constatntObjects, int mode) {
         this.constatntObjects = constatntObjects;
         this.movingObjects = movingObjects;
         shelfObjects = new ArrayList<Shelf>();
         shelfs = new ArrayList<ShelfObject>();
         this.mode = mode;
-        GameLogger logger = GameLogger.getInstance();
-        logger.addLog("info", "Shelf Handler Created");
+        logger= GameLogger.getInstance();
+        logger.addLog("config", "Shelf Handler Created");
     }
 
     public void addShelf(ShelfObject sh) {
@@ -32,14 +32,18 @@ public class ShelfHandler {
         minX = (minX == 1200) ? 0 : 1200;
         maxX = (minX == 1200) ? 0 : 1200;
         direction = -direction;
-    }
+    logger.addLog("fine","A new Shelf was added to the screen");
+        }
 
     public void throwPlates() {
         for (int i = 0; i < shelfObjects.size(); i++) shelfObjects.get(i).throwPlate(mode);
+        logger.addLog("finest","plates were thrown Successfully from all Shelfs");
+
     }
 
     public void makePlates() {
         for (int i = 0; i < shelfObjects.size(); i++) shelfObjects.get(i).makePlate(mode);
+        logger.addLog("finest","New plates were added Successfully to all Shelfs");
     }
 
     public void makeSpecialPlates(){

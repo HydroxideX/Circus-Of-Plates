@@ -23,9 +23,11 @@ public class Loader {
     private Reflections ref = new Reflections();
     private ClassLoader classLoader;
     private HashMap<String, BufferedImage> loaders;
+    GameLogger logger ;
 
     private Loader() {
         loaders = new HashMap<String, BufferedImage>();
+        logger = GameLogger.getInstance();
         loadAllImages();
     }
 
@@ -40,22 +42,15 @@ public class Loader {
       File dir2 = new File("Resources/Plates");
         File[] f = dir2.listFiles();
         for (File child : f) {
-            //System.out.println(child.getAbsolutePath());
-            //String s = child.getAbsolutePath().split("\\w+\\\\?Resources\\\\")[1];
-            //System.out.println(child.getName() + " " + s);
             String s="Plates/"+child.getName();
-            //System.out.println(s);
             loaders.put(s, getImage(s));
         }
+        logger.addLog("fine","All images has been loaded Successfully");
     }
 
     public BufferedImage getImage(String path) {
         BufferedImage image = null;
-        //System.out.println(path);
-        //path = path.toLowerCase();
-        //System.out.println(path);
         if (loaders.containsKey(path)) {
-             //System.out.println(path);
             return loaders.get(path);
         } else {
             try {
@@ -66,12 +61,11 @@ public class Loader {
                 e.printStackTrace();
             }
         }
+        logger.addLog("fine","image located at "+path+"has loaded Successfully");
         return image;
     }
 
     public BufferedImage getImage(String path, double scale) {
-        /*classLoader = Thread.currentThread().getContextClassLoader();
-        InputStream input = classLoader.getResourceAsStream(path.toLowerCase());*/
         BufferedImage bufferedImage;
         bufferedImage = getImage(path);
         int width = (int) (bufferedImage.getWidth() * scale), height = (int) (bufferedImage.getHeight() * scale);
@@ -98,14 +92,13 @@ public class Loader {
             Class<?> classTemp = it.next();
             if (classToFind.isAssignableFrom(classTemp) && !classToFind.equals(classTemp) && !ISpecial.class.isAssignableFrom(classTemp)) {
                 supportedClasses.add(classTemp.getName());
-                //System.out.println(supportedClasses.get(i));
                 i++;
             }
         }
         String[] s = new String[supportedClasses.size()];
         for (int j = 0; j < supportedClasses.size(); j++) s[j] = supportedClasses.get(j);
         GameLogger logger = GameLogger.getInstance();
-        logger.addLog("finer ", "Supported Classes Found");
+        logger.addLog("finer","Classes related to "+classToFind.getName()+" has loaded Successfully");
         return s;
     }
 
@@ -115,7 +108,6 @@ public class Loader {
         for (int i = 0; i < sz; i++) {
             Plate g = (Plate) this.getNewInstance(classNames[i]);
             if (g != null) supportedTypes[i] = g.getType();
-            //  System.out.println(supportedTypes[i]);
 
         }
         GameLogger logger = GameLogger.getInstance();
@@ -125,6 +117,7 @@ public class Loader {
 
     public GameObject getNewInstance(String s) {
         try {
+            logger.addLog("finer","Class "+s+" has been found");
             return (GameObject) Class.forName(s).newInstance();
         } catch (InstantiationException e) {
             e.printStackTrace();
@@ -133,6 +126,7 @@ public class Loader {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+        logger.addLog("warning","Class "+s+" wasn't found");
         return null;
     }
 }

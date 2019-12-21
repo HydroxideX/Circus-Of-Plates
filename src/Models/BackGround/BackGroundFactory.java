@@ -25,7 +25,7 @@ public class BackGroundFactory {
         Loader loader = Loader.getInstance();
         background.spriteImages[0] = loader.getImageWithLengthAndWidth(path, height, width);
         GameLogger logger = GameLogger.getInstance();
-        logger.addLog("info", "BackGround Created");
+        logger.addLog("config", "BackGround Created");
         return background;
     }
 }

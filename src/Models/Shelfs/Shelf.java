@@ -18,7 +18,7 @@ public class Shelf {
     private List<GameObject> movableObjects, constantObjects;
     private List<GameObject> platesOnShelf;
     int minX, minY ,maxX, diff;
-
+    GameLogger logger ;
     public Shelf(List<GameObject> movableObjects, List<GameObject> constantObjects,int minX ,int maxX, int minY , int diff) {
         randNum = new Random();
         pf = PlateFactory.getInstance();
@@ -29,8 +29,9 @@ public class Shelf {
         this.minY = minY;
         this.diff = diff;
         this.maxX = maxX;
-        GameLogger logger = GameLogger.getInstance();
-        logger.addLog("info", "Shelf Created");
+        logger = GameLogger.getInstance();
+        logger.addLog("info", "New Shelf Created");
+
     }
 
     public void makePlate(int mode) {
@@ -46,8 +47,7 @@ public class Shelf {
         p.setY(minY-p.getYError());
         movableObjects.add(p);
         platesOnShelf.add(p);
-        GameLogger logger = GameLogger.getInstance();
-        logger.addLog("info", "Plate Created");
+        logger.addLog("fine", "Plate was added to Shelf");
     }
 
     public void makeSpecialPlate() {
@@ -64,8 +64,7 @@ public class Shelf {
         p.setY(minY);
         movableObjects.add(p);
         platesOnShelf.add(p);
-        GameLogger logger = GameLogger.getInstance();
-        logger.addLog("info", "Special Plate Created");
+        logger.addLog("fine", "Special Plate was added to Shelf");
     }
 
     public synchronized void  update() {
@@ -95,6 +94,7 @@ public class Shelf {
         p.setState(new FallingState(p));
         constantObjects.add(p);
         this.makePlate(mode);
+        logger.addLog("finest", "Plate was thrown from a Shelf");
     }
 
 }
